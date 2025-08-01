@@ -1,0 +1,41 @@
+set_global_assignment -entity "ocm" -library "ocm" -name IP_TOOL_NAME "QsysPrimePro"
+set_global_assignment -entity "ocm" -library "ocm" -name IP_TOOL_VERSION "23.4"
+set_global_assignment -entity "ocm" -library "ocm" -name IP_TOOL_ENV "QsysPrimePro"
+set_global_assignment -entity "ocm" -library "ocm" -name IP_TOOL_VENDOR_NAME "Intel Corporation"
+set_global_assignment -entity "ocm" -library "ocm" -name IP_TOP_LEVEL_COMPONENT_NAME "intel_onchip_memory"
+set_global_assignment -library "ocm" -name SOPCINFO_FILE [file join $::quartus(qip_path) "ocm.sopcinfo"]
+set_global_assignment -entity "ocm" -library "ocm" -name SLD_INFO "QSYS_NAME ocm HAS_SOPCINFO 1 GENERATION_ID 0"
+set_global_assignment -library "ocm" -name MISC_FILE [file join $::quartus(qip_path) "ocm.cmp"]
+set_global_assignment -entity "ocm" -library "ocm" -name IP_TARGETED_DEVICE_FAMILY "Agilex 5"
+set_global_assignment -entity "ocm" -library "ocm" -name IP_GENERATED_DEVICE_FAMILY "{Agilex 5}"
+set_global_assignment -entity "ocm" -library "ocm" -name IP_QSYS_MODE "STANDALONE"
+set_global_assignment -name SYNTHESIS_ONLY_QIP ON
+set_global_assignment -library "ocm" -name MISC_FILE [file join $::quartus(qip_path) "../ocm.ip"]
+
+set_global_assignment -entity "ocm_intel_onchip_memory_147_44dmuoa" -library "intel_onchip_memory_147" -name IP_COMPONENT_NAME "b2NtX2ludGVsX29uY2hpcF9tZW1vcnlfMTQ3XzQ0ZG11b2E="
+set_global_assignment -entity "ocm_intel_onchip_memory_147_44dmuoa" -library "intel_onchip_memory_147" -name IP_COMPONENT_DISPLAY_NAME "T24tQ2hpcCBNZW1vcnkgSUkgKFJBTSBvciBST00pIEludGVsIEZQR0EgSVA="
+set_global_assignment -entity "ocm_intel_onchip_memory_147_44dmuoa" -library "intel_onchip_memory_147" -name IP_COMPONENT_REPORT_HIERARCHY "Off"
+set_global_assignment -entity "ocm_intel_onchip_memory_147_44dmuoa" -library "intel_onchip_memory_147" -name IP_COMPONENT_INTERNAL "Off"
+set_global_assignment -entity "ocm_intel_onchip_memory_147_44dmuoa" -library "intel_onchip_memory_147" -name IP_COMPONENT_AUTHOR "SW50ZWwgQ29ycG9yYXRpb24="
+set_global_assignment -entity "ocm_intel_onchip_memory_147_44dmuoa" -library "intel_onchip_memory_147" -name IP_COMPONENT_VERSION "MS40Ljc="
+set_global_assignment -entity "ocm_intel_onchip_memory_147_44dmuoa" -library "intel_onchip_memory_147" -name IP_COMPONENT_GROUP "QmFzaWMgRnVuY3Rpb25zL09uIENoaXAgTWVtb3J5"
+set_global_assignment -entity "ocm_intel_onchip_memory_147_44dmuoa" -library "intel_onchip_memory_147" -name IP_COMPONENT_DOCUMENTATION_LINK "aHR0cHM6Ly93d3cuaW50ZWwuY29tL2NvbnRlbnQvd3d3L3VzL2VuL2RvY3MvcHJvZ3JhbW1hYmxlLzY4MzEzMC8="
+set_global_assignment -entity "ocm_intel_onchip_memory_147_44dmuoa" -library "intel_onchip_memory_147" -name IP_COMPONENT_DOCUMENTATION_LINK "aHR0cHM6Ly93d3cuaW50ZWwuY29tL2NvbnRlbnQvd3d3L3VzL2VuL3Byb2dyYW1tYWJsZS9kb2N1bWVudGF0aW9uL2xybzE0NjU0MDc0NzQ4MzMuaHRtbCNoYnIxNTk5NzUxMDc0Mzgy"
+set_global_assignment -entity "ocm" -library "ocm" -name IP_COMPONENT_NAME "b2Nt"
+set_global_assignment -entity "ocm" -library "ocm" -name IP_COMPONENT_DISPLAY_NAME "c3lzdGVt"
+set_global_assignment -entity "ocm" -library "ocm" -name IP_COMPONENT_REPORT_HIERARCHY "On"
+set_global_assignment -entity "ocm" -library "ocm" -name IP_COMPONENT_INTERNAL "Off"
+set_global_assignment -entity "ocm" -library "ocm" -name IP_COMPONENT_AUTHOR "SW50ZWwgQ29ycG9yYXRpb24="
+set_global_assignment -entity "ocm" -library "ocm" -name IP_COMPONENT_VERSION "MS4w"
+
+
+set_global_assignment -library "intel_onchip_memory_147" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_onchip_memory_147/synth/ocm_intel_onchip_memory_147_44dmuoa.sv"]
+set_global_assignment -library "intel_onchip_memory_147" -name SOURCE_FILE [file join $::quartus(qip_path) "intel_onchip_memory_147/synth/ocm_intel_onchip_memory_inst.hex"]
+set_global_assignment -library "intel_onchip_memory_147" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_onchip_memory_147/synth/ocm_intel_onchip_memory_147_44dmuoa_axi_bursting_adapter.sv"]
+set_global_assignment -library "ocm" -name VERILOG_FILE [file join $::quartus(qip_path) "synth/ocm.v"]
+
+
+set_global_assignment -entity "ocm_intel_onchip_memory_147_44dmuoa" -library "intel_onchip_memory_147" -name IP_TOOL_NAME "intel_onchip_memory"
+set_global_assignment -entity "ocm_intel_onchip_memory_147_44dmuoa" -library "intel_onchip_memory_147" -name IP_TOOL_VERSION "1.4.7"
+set_global_assignment -entity "ocm_intel_onchip_memory_147_44dmuoa" -library "intel_onchip_memory_147" -name IP_TOOL_ENV "QsysPrimePro"
+

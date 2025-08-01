@@ -1,0 +1,69 @@
+    SUB_FPGA_RGMII_EN :
+        - 0: disable [default]
+        - 1: enable
+    BOARD_TYPE:
+        - DK-A5E065BB32AES1: Agilex5 Premium Devkit [default]
+        - cvr: mUDV Coville Ridge
+        - lbm: mUCV Little Battle Mountain
+    DEVICE:
+        - A5ED065BB32AE5SR0: FPGA OPN# [default]
+    INITIALIZATION_FIRST:
+        - hps: HPS initialization first [default]
+        - fpga: FPGA fabric initialization first
+    HPS_JTAG_MODE:
+        - combined: combined mode [default]
+    SUB_HPS_EN:
+        - 0: disable
+        - 1: enable [default]
+    DAUGHTER_CARD:
+        - devkit_dc_oobe: Out-of-Box Experience HPS Daughter Card [default]
+        - devkit_dc_nand: HPS Daugther Card with NAND
+        - devkit_dc_emmc: HPS Daughter Card with eMMC
+        - debug2: HPS Daughter Card with debug2
+        - tsn_aic0 : HPS Daughter Card with TSN Config 1
+    HPS_EMIF_EN :
+        - 0: disable
+        - 1: enable [default]
+    HPS_EMIF_WIDTH:
+        - 0: 1x16           (Not supported)
+        - 1: 1x32 [default] (Supported)
+        - 2: 2x16 bit - single IO96B (Not supported)
+        - 3: 2x16 bit - dual IO96B (Not supported)
+        - 4: 2x32 bit (Not supported)
+        - 5: 4x16 bit (Not supported)
+    HPS_EMIF_MEM_CLK_FREQ_MHZ:
+        - 800: 800Mhz
+        - 933: 933Mhz [default]
+        - 1066: 1066Mhz
+        - 1200: 1200Mhz
+    HPS_EMIF_REF_CLK_FREQ_MHZ:
+        - 100: 100Mhz
+        - 116.625: 116.625Mhz [default]
+    HPS_EMIF_ECC_EN :
+        - 0: disable [default]
+        - 1: enable
+    HPS_CLK_SOURCE:
+        - 0: HPS External Oscillator [default]
+        - 1: FPGA Free Clock
+    RESET_WATCHDOG_EN:
+        - 0: disable [default]
+        - 1: enable
+    RESET_HPS_WARM_EN :
+        - 0: disable [default]
+        - 1: enable
+    RESET_H2F_COLD_EN :
+        - 0: disable [default]
+        - 1: enable
+    RESET_SDM_WATCHDOG_CFG :
+        - 0: HPS Cold Reset [default]
+        - 1: HPS Warm Reset
+        - 2: Trigger Remote Update
+    SUB_DEBUG_EN :
+        - 0: disable
+        - 1: enable [default]
+    SUB_PERI_EN :
+        - 0: disable
+        - 1: enable [default]
+    DFL_ROM_EN :
+        - 0: disable [default]
+        - 1: enable

@@ -1,0 +1,25 @@
+22 serialization::archive 19 0 0 25 0 0 0 19 agilex_hps.sopcinfo 0 0 10 text_model 0 0 0 1 1 
+ 22 alt_sld_fab_0.sopcinfo 10 text_model 0 1 1 
+ 19 button_pio.sopcinfo 10 text_model 0 1 1 
+ 16 clk_100.sopcinfo 10 text_model 0 1 1 
+ 18 dipsw_pio.sopcinfo 10 text_model 0 1 1 
+ 17 emif_hps.sopcinfo 10 text_model 0 1 1 
+ 25 ext_hps_m_master.sopcinfo 10 text_model 0 1 1 
+ 15 fpga_m.sopcinfo 10 text_model 0 1 1 
+ 17 gts_inst.sopcinfo 10 text_model 0 1 1 
+ 14 hps_m.sopcinfo 10 text_model 0 1 1 
+ 19 hps_subsys.sopcinfo 10 text_model 0 1 1 
+ 17 jtag_clk.sopcinfo 10 text_model 0 1 1 
+ 20 jtag_rst_in.sopcinfo 10 text_model 0 1 1 
+ 20 jtag_subsys.sopcinfo 10 text_model 0 1 1 
+ 16 led_pio.sopcinfo 10 text_model 0 1 1 
+ 12 ocm.sopcinfo 10 text_model 0 1 1 
+ 17 pb_cpu_0.sopcinfo 10 text_model 0 1 1 
+ 19 periph_clk.sopcinfo 10 text_model 0 1 1 
+ 22 periph_rst_in.sopcinfo 10 text_model 0 1 1 
+ 26 peripheral_subsys.sopcinfo 10 text_model 0 1 1 
+ 17 qsys_top.sopcinfo 10 text_model 0 1 1 
+ 15 rst_in.sopcinfo 10 text_model 0 1 1 
+ 17 ssgdma_0.sopcinfo 10 text_model 0 1 1 
+ 14 sysid.sopcinfo 10 text_model 0 1 1 
+ 27 user_rst_clkgate_0.sopcinfo 10 text_model 0 1 1 

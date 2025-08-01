@@ -1,0 +1,1613 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deploy
+ date="2023.12.22.16:30:24"
+ outputDirectory="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/">
+ <perimeter>
+  <parameter
+     name="AUTO_GENERATION_ID"
+     type="Integer"
+     defaultValue="0"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_UNIQUE_ID"
+     type="String"
+     defaultValue=""
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_DEVICE_FAMILY"
+     type="String"
+     defaultValue="Agilex 5"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_DEVICE"
+     type="String"
+     defaultValue="A5ED065BB32AE5SR0"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_DEVICE_SPEEDGRADE"
+     type="String"
+     defaultValue="5"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_BOARD"
+     type="String"
+     defaultValue="default"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_AXI_LITE_CLK_CLOCK_RATE"
+     type="Long"
+     defaultValue="-1"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_AXI_LITE_CLK_CLOCK_DOMAIN"
+     type="Integer"
+     defaultValue="-1"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_AXI_LITE_CLK_RESET_DOMAIN"
+     type="Integer"
+     defaultValue="-1"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_HOST_CLK_CLOCK_RATE"
+     type="Long"
+     defaultValue="-1"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_HOST_CLK_CLOCK_DOMAIN"
+     type="Integer"
+     defaultValue="-1"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_HOST_CLK_RESET_DOMAIN"
+     type="Integer"
+     defaultValue="-1"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_HOST_ADDRESS_MAP"
+     type="AddressMap"
+     defaultValue=""
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_HOST_ADDRESS_WIDTH"
+     type="AddressWidthType"
+     defaultValue="-1"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_H2D0_MM_CLK_CLOCK_RATE"
+     type="Long"
+     defaultValue="-1"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_H2D0_MM_CLK_CLOCK_DOMAIN"
+     type="Integer"
+     defaultValue="-1"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_H2D0_MM_CLK_RESET_DOMAIN"
+     type="Integer"
+     defaultValue="-1"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_H2D0_ADDRESS_MAP"
+     type="AddressMap"
+     defaultValue=""
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_H2D0_ADDRESS_WIDTH"
+     type="AddressWidthType"
+     defaultValue="-1"
+     onHdl="0"
+     affectsHdl="1" />
+  <interface name="axi_lite_clk" kind="clock" start="0">
+   <property name="clockRate" value="0" />
+   <property name="externallyDriven" value="false" />
+   <property name="ptfSchematicName" value="" />
+   <port name="axi_lite_clk" direction="input" role="clk" width="1" />
+  </interface>
+  <interface name="axi_lite_areset_n" kind="reset" start="0">
+   <property name="associatedClock" value="axi_lite_clk" />
+   <property name="synchronousEdges" value="DEASSERT" />
+   <port name="axi_lite_areset_n" direction="input" role="reset_n" width="1" />
+  </interface>
+  <interface name="host_clk" kind="clock" start="0">
+   <property name="clockRate" value="0" />
+   <property name="externallyDriven" value="false" />
+   <property name="ptfSchematicName" value="" />
+   <port name="host_clk" direction="input" role="clk" width="1" />
+  </interface>
+  <interface name="host_aresetn" kind="reset" start="0">
+   <property name="associatedClock" value="host_clk" />
+   <property name="synchronousEdges" value="DEASSERT" />
+   <port name="host_aresetn" direction="input" role="reset_n" width="1" />
+  </interface>
+  <interface name="app_reset_status_n" kind="reset" start="1">
+   <property name="associatedClock" value="" />
+   <property name="associatedDirectReset" value="" />
+   <property name="associatedResetSinks" value="host_aresetn" />
+   <property name="synchronousEdges" value="NONE" />
+   <port name="app_reset_status_n" direction="output" role="reset_n" width="1" />
+  </interface>
+  <interface name="host" kind="axi4" start="1">
+   <property name="associatedClock" value="host_clk" />
+   <property name="associatedReset" value="host_aresetn" />
+   <property name="trustzoneAware" value="true" />
+   <property name="wakeupSignals" value="false" />
+   <property name="uniqueIdSupport" value="false" />
+   <property name="poison" value="false" />
+   <property name="traceSignals" value="false" />
+   <property name="maximumOutstandingReads" value="1" />
+   <property name="maximumOutstandingWrites" value="1" />
+   <property name="maximumOutstandingTransactions" value="1" />
+   <property name="readIssuingCapability" value="16" />
+   <property name="writeIssuingCapability" value="16" />
+   <property name="combinedIssuingCapability" value="16" />
+   <property name="issuesINCRBursts" value="true" />
+   <property name="issuesWRAPBursts" value="false" />
+   <property name="issuesFIXEDBursts" value="false" />
+   <port name="host_awready" direction="input" role="awready" width="1" />
+   <port name="host_awvalid" direction="output" role="awvalid" width="1" />
+   <port name="host_awaddr" direction="output" role="awaddr" width="64" />
+   <port name="host_awlen" direction="output" role="awlen" width="8" />
+   <port name="host_awburst" direction="output" role="awburst" width="2" />
+   <port name="host_awsize" direction="output" role="awsize" width="3" />
+   <port name="host_awprot" direction="output" role="awprot" width="3" />
+   <port name="host_awid" direction="output" role="awid" width="5" />
+   <port name="host_awcache" direction="output" role="awcache" width="4" />
+   <port name="host_wready" direction="input" role="wready" width="1" />
+   <port name="host_wvalid" direction="output" role="wvalid" width="1" />
+   <port name="host_wdata" direction="output" role="wdata" width="256" />
+   <port name="host_wstrb" direction="output" role="wstrb" width="32" />
+   <port name="host_wlast" direction="output" role="wlast" width="1" />
+   <port name="host_bready" direction="output" role="bready" width="1" />
+   <port name="host_bvalid" direction="input" role="bvalid" width="1" />
+   <port name="host_bresp" direction="input" role="bresp" width="2" />
+   <port name="host_bid" direction="input" role="bid" width="5" />
+   <port name="host_arready" direction="input" role="arready" width="1" />
+   <port name="host_arvalid" direction="output" role="arvalid" width="1" />
+   <port name="host_araddr" direction="output" role="araddr" width="64" />
+   <port name="host_arlen" direction="output" role="arlen" width="8" />
+   <port name="host_arburst" direction="output" role="arburst" width="2" />
+   <port name="host_arsize" direction="output" role="arsize" width="3" />
+   <port name="host_arprot" direction="output" role="arprot" width="3" />
+   <port name="host_arid" direction="output" role="arid" width="5" />
+   <port name="host_arcache" direction="output" role="arcache" width="4" />
+   <port name="host_rready" direction="output" role="rready" width="1" />
+   <port name="host_rvalid" direction="input" role="rvalid" width="1" />
+   <port name="host_rdata" direction="input" role="rdata" width="256" />
+   <port name="host_rlast" direction="input" role="rlast" width="1" />
+   <port name="host_rresp" direction="input" role="rresp" width="2" />
+   <port name="host_rid" direction="input" role="rid" width="5" />
+  </interface>
+  <interface name="host_csr" kind="axi4lite" start="0">
+   <property name="associatedClock" value="axi_lite_clk" />
+   <property name="associatedReset" value="axi_lite_areset_n" />
+   <property name="trustzoneAware" value="true" />
+   <property name="wakeupSignals" value="false" />
+   <property name="uniqueIdSupport" value="false" />
+   <property name="poison" value="false" />
+   <property name="traceSignals" value="false" />
+   <property name="maximumOutstandingReads" value="1" />
+   <property name="maximumOutstandingWrites" value="1" />
+   <property name="maximumOutstandingTransactions" value="1" />
+   <property name="readAcceptanceCapability" value="1" />
+   <property name="writeAcceptanceCapability" value="1" />
+   <property name="combinedAcceptanceCapability" value="1" />
+   <property name="readDataReorderingDepth" value="1" />
+   <property name="bridgesToMaster" value="" />
+   <property name="dfhFeatureGuid" value="4675698966374561600093053922688391274" />
+   <property name="dfhGroupId" value="0" />
+   <property name="dfhParameterId" value="" />
+   <property name="dfhParameterName" value="" />
+   <property name="dfhParameterVersion" value="" />
+   <property name="dfhParameterData" value="" />
+   <property name="dfhParameterDataLength" value="" />
+   <property name="dfhFeatureMajorVersion" value="1" />
+   <property name="dfhFeatureMinorVersion" value="0" />
+   <property name="dfhFeatureId" value="37" />
+   <port
+       name="host_lite_csr_awready"
+       direction="output"
+       role="awready"
+       width="1" />
+   <port
+       name="host_lite_csr_awvalid"
+       direction="input"
+       role="awvalid"
+       width="1" />
+   <port
+       name="host_lite_csr_awaddr"
+       direction="input"
+       role="awaddr"
+       width="22" />
+   <port name="host_lite_csr_awprot" direction="input" role="awprot" width="3" />
+   <port
+       name="host_lite_csr_wready"
+       direction="output"
+       role="wready"
+       width="1" />
+   <port name="host_lite_csr_wvalid" direction="input" role="wvalid" width="1" />
+   <port name="host_lite_csr_wdata" direction="input" role="wdata" width="32" />
+   <port name="host_lite_csr_wstrb" direction="input" role="wstrb" width="4" />
+   <port name="host_lite_csr_bready" direction="input" role="bready" width="1" />
+   <port
+       name="host_lite_csr_bvalid"
+       direction="output"
+       role="bvalid"
+       width="1" />
+   <port name="host_lite_csr_bresp" direction="output" role="bresp" width="2" />
+   <port
+       name="host_lite_csr_arready"
+       direction="output"
+       role="arready"
+       width="1" />
+   <port
+       name="host_lite_csr_arvalid"
+       direction="input"
+       role="arvalid"
+       width="1" />
+   <port
+       name="host_lite_csr_araddr"
+       direction="input"
+       role="araddr"
+       width="22" />
+   <port name="host_lite_csr_arprot" direction="input" role="arprot" width="3" />
+   <port name="host_lite_csr_rready" direction="input" role="rready" width="1" />
+   <port
+       name="host_lite_csr_rvalid"
+       direction="output"
+       role="rvalid"
+       width="1" />
+   <port name="host_lite_csr_rdata" direction="output" role="rdata" width="32" />
+   <port name="host_lite_csr_rresp" direction="output" role="rresp" width="2" />
+  </interface>
+  <interface name="interrupt" kind="interrupt" start="0">
+   <property name="associatedAddressablePoint" value="ssgdma_0.host_csr" />
+   <property name="associatedClock" value="axi_lite_clk" />
+   <property name="associatedReset" value="axi_lite_areset_n" />
+   <property name="bridgedReceiverOffset" value="0" />
+   <property name="bridgesToReceiver" value="" />
+   <property name="irqScheme" value="NONE" />
+   <port name="irq" direction="output" role="irq" width="1" />
+  </interface>
+  <interface name="h2d0_mm_clk" kind="clock" start="0">
+   <property name="clockRate" value="0" />
+   <property name="externallyDriven" value="false" />
+   <property name="ptfSchematicName" value="" />
+   <port name="h2d0_mm_clk" direction="input" role="clk" width="1" />
+  </interface>
+  <interface name="h2d0_mm_resetn" kind="reset" start="0">
+   <property name="associatedClock" value="h2d0_mm_clk" />
+   <property name="synchronousEdges" value="DEASSERT" />
+   <port name="h2d0_mm_resetn" direction="input" role="reset_n" width="1" />
+  </interface>
+  <interface name="h2d0" kind="axi4" start="1">
+   <property name="associatedClock" value="h2d0_mm_clk" />
+   <property name="associatedReset" value="h2d0_mm_resetn" />
+   <property name="trustzoneAware" value="true" />
+   <property name="wakeupSignals" value="false" />
+   <property name="uniqueIdSupport" value="false" />
+   <property name="poison" value="false" />
+   <property name="traceSignals" value="false" />
+   <property name="maximumOutstandingReads" value="1" />
+   <property name="maximumOutstandingWrites" value="1" />
+   <property name="maximumOutstandingTransactions" value="1" />
+   <property name="readIssuingCapability" value="16" />
+   <property name="writeIssuingCapability" value="16" />
+   <property name="combinedIssuingCapability" value="16" />
+   <property name="issuesINCRBursts" value="true" />
+   <property name="issuesWRAPBursts" value="false" />
+   <property name="issuesFIXEDBursts" value="false" />
+   <port name="h2d0_awvalid" direction="output" role="awvalid" width="1" />
+   <port name="h2d0_awready" direction="input" role="awready" width="1" />
+   <port name="h2d0_awaddr" direction="output" role="awaddr" width="64" />
+   <port name="h2d0_awlen" direction="output" role="awlen" width="8" />
+   <port name="h2d0_awburst" direction="output" role="awburst" width="2" />
+   <port name="h2d0_awsize" direction="output" role="awsize" width="3" />
+   <port name="h2d0_awprot" direction="output" role="awprot" width="3" />
+   <port name="h2d0_awid" direction="output" role="awid" width="8" />
+   <port name="h2d0_awcache" direction="output" role="awcache" width="4" />
+   <port name="h2d0_wvalid" direction="output" role="wvalid" width="1" />
+   <port name="h2d0_wlast" direction="output" role="wlast" width="1" />
+   <port name="h2d0_wready" direction="input" role="wready" width="1" />
+   <port name="h2d0_wdata" direction="output" role="wdata" width="64" />
+   <port name="h2d0_wstrb" direction="output" role="wstrb" width="8" />
+   <port name="h2d0_bvalid" direction="input" role="bvalid" width="1" />
+   <port name="h2d0_bready" direction="output" role="bready" width="1" />
+   <port name="h2d0_bresp" direction="input" role="bresp" width="2" />
+   <port name="h2d0_bid" direction="input" role="bid" width="8" />
+   <port name="h2d0_arvalid" direction="output" role="arvalid" width="1" />
+   <port name="h2d0_arready" direction="input" role="arready" width="1" />
+   <port name="h2d0_araddr" direction="output" role="araddr" width="64" />
+   <port name="h2d0_arlen" direction="output" role="arlen" width="8" />
+   <port name="h2d0_arburst" direction="output" role="arburst" width="2" />
+   <port name="h2d0_arsize" direction="output" role="arsize" width="3" />
+   <port name="h2d0_arprot" direction="output" role="arprot" width="3" />
+   <port name="h2d0_arid" direction="output" role="arid" width="8" />
+   <port name="h2d0_arcache" direction="output" role="arcache" width="4" />
+   <port name="h2d0_rvalid" direction="input" role="rvalid" width="1" />
+   <port name="h2d0_rlast" direction="input" role="rlast" width="1" />
+   <port name="h2d0_rready" direction="output" role="rready" width="1" />
+   <port name="h2d0_rdata" direction="input" role="rdata" width="64" />
+   <port name="h2d0_rresp" direction="input" role="rresp" width="2" />
+   <port name="h2d0_rid" direction="input" role="rid" width="8" />
+  </interface>
+ </perimeter>
+ <entity kind="ssgdma_0" version="1.0" name="ssgdma_0">
+  <parameter name="AUTO_GENERATION_ID" value="0" />
+  <parameter name="AUTO_DEVICE_FAMILY" value="Agilex 5" />
+  <parameter name="AUTO_BOARD" value="default" />
+  <parameter name="AUTO_HOST_CLK_CLOCK_DOMAIN" value="-1" />
+  <parameter name="AUTO_UNIQUE_ID" value="" />
+  <parameter name="AUTO_HOST_CLK_RESET_DOMAIN" value="-1" />
+  <parameter name="AUTO_HOST_ADDRESS_MAP" value="" />
+  <parameter name="AUTO_DEVICE_SPEEDGRADE" value="5" />
+  <parameter name="AUTO_AXI_LITE_CLK_CLOCK_RATE" value="-1" />
+  <parameter name="AUTO_AXI_LITE_CLK_CLOCK_DOMAIN" value="-1" />
+  <parameter name="AUTO_H2D0_MM_CLK_RESET_DOMAIN" value="-1" />
+  <parameter name="AUTO_DEVICE" value="A5ED065BB32AE5SR0" />
+  <parameter name="AUTO_HOST_ADDRESS_WIDTH" value="-1" />
+  <parameter name="AUTO_AXI_LITE_CLK_RESET_DOMAIN" value="-1" />
+  <parameter name="AUTO_HOST_CLK_CLOCK_RATE" value="-1" />
+  <parameter name="AUTO_H2D0_MM_CLK_CLOCK_RATE" value="-1" />
+  <parameter name="AUTO_H2D0_ADDRESS_MAP" value="" />
+  <parameter name="AUTO_H2D0_MM_CLK_CLOCK_DOMAIN" value="-1" />
+  <parameter name="AUTO_H2D0_ADDRESS_WIDTH" value="-1" />
+  <generatedFiles>
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/synth/ssgdma_0.v"
+       attributes="CONTAINS_INLINE_CONFIGURATION" />
+  </generatedFiles>
+  <childGeneratedFiles>
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/synth/ssgdma_0.v"
+       attributes="CONTAINS_INLINE_CONFIGURATION" />
+  </childGeneratedFiles>
+  <sourceFiles>
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0.ip" />
+  </sourceFiles>
+  <childSourceFiles>
+   <file
+       path="/nfs/site/disks/swbld_archive_4/acds/23.4/79/linux64/ip/altera/intel_ssgdma/intel_ssgdma_hw_tcl/intel_ssgdma_hw.tcl" />
+  </childSourceFiles>
+  <messages>
+   <message level="Info" culprit="ssgdma_0">"Generating: ssgdma_0"</message>
+   <message level="Info" culprit="ssgdma_0">"Generating: intel_ssgdma_top"</message>
+  </messages>
+ </entity>
+ <entity kind="intel_ssgdma" version="1.1.0" name="intel_ssgdma_top">
+  <parameter name="H2D_ST_PORT5_DATA_TYPE" value="Video" />
+  <parameter name="H2D_ST_PORT6_INT_TYPE" value="AXI-ST" />
+  <parameter name="HOST_INT_TYPE" value="AXI4" />
+  <parameter name="D2H_AXI_ST_PORT0_TUSER_TO_SOP_MAP_EN" value="1" />
+  <parameter name="H2D_MM2_AWD" value="64" />
+  <parameter name="D2H_ST_PTP_PORT4_EN" value="0" />
+  <parameter name="H2D_ST5_UWD" value="1" />
+  <parameter name="D2H_ST4_EWD" value="1" />
+  <parameter name="DESCR_D2H_ST4_AWD" value="16" />
+  <parameter name="H2D_ST_PTP_PORT7_EN" value="0" />
+  <parameter name="NUM_VF_PER_PF0" value="0" />
+  <parameter name="NUM_VF_PER_PF1" value="0" />
+  <parameter name="H2D_ST5_EWD" value="1" />
+  <parameter name="D2H_ST5_CWD" value="1" />
+  <parameter name="H2D_MM0_FIFO_DEPTH" value="6144" />
+  <parameter name="D2H_ST4_UWD" value="1" />
+  <parameter name="BAS_PORT_EN" value="0" />
+  <parameter name="DESCR_D2H_ST3_DWD" value="32" />
+  <parameter name="H2D_ST3_IDWD" value="1" />
+  <parameter name="SS_INITATR_DWD" value="32" />
+  <parameter name="DESCR_H2D_ST4_DWD" value="32" />
+  <parameter name="D2H_ST_PORT1_INIT_FLUSH_EN" value="1" />
+  <parameter name="H2D_ST1_FIFO_DEPTH" value="6144" />
+  <parameter name="BAS_DWD" value="256" />
+  <parameter name="HOST_IDWD" value="5" />
+  <parameter name="H2D_ST_TUSER_PORT6_EN" value="1" />
+  <parameter name="H2D_ST_PORT3_DATA_TYPE" value="Video" />
+  <parameter name="DESCR_H2D_MM6_DWD" value="32" />
+  <parameter name="BAM_AWD" value="64" />
+  <parameter name="H2D_MM1_DWD" value="64" />
+  <parameter name="H2D_AXI_ST_PORT4_TUSER_TO_SOP_MAP_EN" value="1" />
+  <parameter name="D2H_ST5_DWD" value="64" />
+  <parameter name="H2D_MM4_LWD" value="8" />
+  <parameter name="D2H_ST_PORT4_RUNTIME_FLUSH_EN" value="0" />
+  <parameter name="D2H_ST_PORT0_INIT_FLUSH_EN" value="1" />
+  <parameter name="H2D_MM4_IDWD" value="8" />
+  <parameter name="D2H_ST_TUSER_PORT5_EN" value="1" />
+  <parameter name="H2D_MM1_IDWD" value="8" />
+  <parameter name="DESCRWR_D2H_ST1_INT_TYPE" value="AXI-ST" />
+  <parameter name="DESCR_H2D_MM1_AWD" value="16" />
+  <parameter name="BAM_BAR1_AWD" value="32" />
+  <parameter name="D2H_ST7_IDWD" value="1" />
+  <parameter name="DESCR_D2H_ST5_AWD" value="16" />
+  <parameter name="DESCRWR_H2D_ST4_INT_TYPE" value="AXI-ST" />
+  <parameter name="DESCRWR_D2H_ST6_INT_TYPE" value="AXI-ST" />
+  <parameter name="NUM_PF" value="1" />
+  <parameter name="D2H_ST_TUSER_PORT6_EN" value="1" />
+  <parameter name="D2H_ST_PORT2_INIT_FLUSH_EN" value="1" />
+  <parameter name="D2H_ST5_UWD" value="1" />
+  <parameter name="NUM_H2D_ST_PORTS" value="0" />
+  <parameter name="H2D_ST4_EWD" value="1" />
+  <parameter name="DESCR_D2H_ST2_DWD" value="32" />
+  <parameter name="DESCRWR_D2H_ST7_INT_TYPE" value="AXI-ST" />
+  <parameter name="H2D_ST3_FIFO_DEPTH" value="6144" />
+  <parameter name="H2D_ST5_CWD" value="1" />
+  <parameter name="D2H_ST5_EWD" value="1" />
+  <parameter name="H2D_ST4_UWD" value="1" />
+  <parameter name="DESCR_D2H_ST3_AWD" value="16" />
+  <parameter name="CTRL_SHW_PORT_EN" value="1" />
+  <parameter name="DESCR_H2D_MM7_DWD" value="32" />
+  <parameter name="D2H_ST_PTP_PORT5_EN" value="0" />
+  <parameter name="DESCRWR_H2D_MM7_INT_TYPE" value="AXI-ST" />
+  <parameter name="H2D_ST6_DWD" value="64" />
+  <parameter name="H2D_ST_TUSER_PORT5_EN" value="1" />
+  <parameter name="H2D_ST_PORT1_DATA_TYPE" value="Video" />
+  <parameter name="HOST_AXI_PROT_PRIV_ACC" value="0" />
+  <parameter name="BAS_INT_TYPE" value="AXI4" />
+  <parameter name="DESCR_H2D_ST5_DWD" value="32" />
+  <parameter name="MSIX_EN" value="1" />
+  <parameter name="D2H_ST_PORT0_INT_TYPE" value="AXI-ST" />
+  <parameter name="DISABLE_SSGDMA_IP_SDC" value="true" />
+  <parameter name="H2D_MM2_DWD" value="64" />
+  <parameter name="D2H_ST0_IDWD" value="1" />
+  <parameter name="DEVICE_FAMILY" value="Agilex 5" />
+  <parameter name="HOST_AXI_AWSNOOP" value="0" />
+  <parameter name="H2D_MM5_FIFO_DEPTH" value="6144" />
+  <parameter name="D2H_ST2_FIFO_DEPTH" value="6144" />
+  <parameter name="HOST_AXI_ARDOMAIN" value="0" />
+  <parameter name="D2H_ST_PORT2_PKT_MODE" value="0" />
+  <parameter name="AXI_ST_PORT_FREQ" value="100" />
+  <parameter name="EXT_10BITS_TAG_REQ_EN" value="0" />
+  <parameter name="H2D_MM3_LWD" value="8" />
+  <parameter name="DESCRWR_H2D_MM3_INT_TYPE" value="AXI-ST" />
+  <parameter name="H2D_ST_PORT7_DATA_TYPE" value="Video" />
+  <parameter name="H2D_ST5_DWD" value="64" />
+  <parameter name="D2H_AXI_ST_PORT4_TUSER_TO_SOP_MAP_EN" value="1" />
+  <parameter name="DEBUG_PORT_EN" value="0" />
+  <parameter name="H2D_MM7_FIFO_DEPTH" value="6144" />
+  <parameter name="H2D_ST_PORT1_INT_TYPE" value="AXI-ST" />
+  <parameter name="D2H_ST_PORT6_DATA_TYPE" value="Video" />
+  <parameter name="DESCRWR_H2D_ST3_INT_TYPE" value="AXI-ST" />
+  <parameter name="H2D_ST6_CWD" value="1" />
+  <parameter name="D2H_ST_PORT3_INIT_FLUSH_EN" value="1" />
+  <parameter name="D2H_ST4_FIFO_DEPTH" value="6144" />
+  <parameter name="UNALIGNED_ACCESS_EN" value="0" />
+  <parameter name="BAM_DWD" value="128" />
+  <parameter name="D2H_ST6_FIFO_DEPTH" value="6144" />
+  <parameter name="H2D_ST_PORT3_PKT_MODE" value="0" />
+  <parameter name="D2H_AXI_ST_PORT5_TUSER_TO_SOP_MAP_EN" value="1" />
+  <parameter name="D2H_ST_PTP_PORT6_EN" value="0" />
+  <parameter name="H2D_MM7_DWD" value="64" />
+  <parameter name="DESCR_H2D_MM0_AWD" value="16" />
+  <parameter name="ED_SOC_MODE_NIOSV_EN" value="1" />
+  <parameter name="H2D_ST_PORT2_PKT_MODE" value="0" />
+  <parameter name="DESCR_D2H_ST6_AWD" value="16" />
+  <parameter name="H2D_ST_PTP_PORT4_EN" value="0" />
+  <parameter name="HOST_AXI_AWDOMAIN" value="0" />
+  <parameter name="D2H_ST_TUSER_PORT2_EN" value="1" />
+  <parameter name="DESCR_H2D_MM6_AWD" value="16" />
+  <parameter name="H2D_AXI_ST_PORT7_TUSER_TO_SOP_MAP_EN" value="1" />
+  <parameter name="D2H_ST_PTP_PORT1_EN" value="0" />
+  <parameter name="H2D_MM0_AWD" value="64" />
+  <parameter name="H2D_ST3_UWD" value="1" />
+  <parameter name="H2D_ST_PORT5_INT_TYPE" value="AXI-ST" />
+  <parameter name="SS_CSR_AWD" value="20" />
+  <parameter name="H2D_ST4_CWD" value="1" />
+  <parameter name="DESCRWR_D2H_ST3_INT_TYPE" value="AXI-ST" />
+  <parameter name="D2H_ST1_FIFO_DEPTH" value="6144" />
+  <parameter name="H2D_ST3_EWD" value="1" />
+  <parameter name="DESCR_D2H_ST5_DWD" value="32" />
+  <parameter name="H2D_AXI_ST_PORT3_TUSER_TO_SOP_MAP_EN" value="1" />
+  <parameter name="D2H_ST_PORT6_INT_TYPE" value="AXI-ST" />
+  <parameter name="D2H_ST_PTP_PORT2_EN" value="0" />
+  <parameter name="DESCRWR_H2D_ST7_INT_TYPE" value="AXI-ST" />
+  <parameter name="H2D_ST4_DWD" value="64" />
+  <parameter name="CEB_PORT_EN" value="0" />
+  <parameter name="H2D_ST_PORT0_DATA_TYPE" value="Video" />
+  <parameter name="DESCRWR_H2D_MM6_INT_TYPE" value="AXI-ST" />
+  <parameter name="DESCRWR_H2D_MM1_INT_TYPE" value="AXI-ST" />
+  <parameter name="MULTI_FUNCTIONS_EN" value="0" />
+  <parameter name="HOST_AXI_AWBAR" value="0" />
+  <parameter name="D2H_ST_PORT1_PKT_MODE" value="0" />
+  <parameter name="D2H_ST_PORT1_RUNTIME_FLUSH_EN" value="0" />
+  <parameter name="DESCRWR_H2D_MM4_INT_TYPE" value="AXI-ST" />
+  <parameter name="NUM_D2H_ST_PORTS" value="0" />
+  <parameter name="CS_AWD" value="1" />
+  <parameter name="H2D_MM7_IDWD" value="8" />
+  <parameter name="MAX_PAYLOAD_SIZE" value="512" />
+  <parameter name="H2D_AXI_ST_PORT5_TUSER_TO_SOP_MAP_EN" value="1" />
+  <parameter name="D2H_ST_PORT4_INT_TYPE" value="AXI-ST" />
+  <parameter name="D2H_ST4_IDWD" value="1" />
+  <parameter name="H2D_ST_PORT2_INT_TYPE" value="AXI-ST" />
+  <parameter name="H2D_MM3_AWD" value="64" />
+  <parameter name="H2D_MM6_LWD" value="8" />
+  <parameter name="DESCR_H2D_MM4_DWD" value="32" />
+  <parameter name="H2D_ST_PORT7_INT_TYPE" value="AXI-ST" />
+  <parameter name="HOST_AXI_PROT_DATA_ACC" value="0" />
+  <parameter name="H2D_ST3_CWD" value="1" />
+  <parameter name="NUM_CHAN_PER_H2D_ST_PORT4" value="1" />
+  <parameter name="NUM_CHAN_PER_H2D_ST_PORT5" value="1" />
+  <parameter name="NUM_CHAN_PER_H2D_ST_PORT6" value="1" />
+  <parameter name="NUM_CHAN_PER_H2D_ST_PORT7" value="1" />
+  <parameter name="H2D_ST2_EWD" value="1" />
+  <parameter name="H2D_MM1_AWD" value="64" />
+  <parameter name="H2D_AXI_ST_PORT1_TUSER_TO_SOP_MAP_EN" value="1" />
+  <parameter name="D2H_ST_PORT1_INT_TYPE" value="AXI-ST" />
+  <parameter name="ED_DMA_IP_ONLY_SIM_DEBUG_EN" value="0" />
+  <parameter name="NUM_CHAN_PER_H2D_ST_PORT0" value="1" />
+  <parameter name="NUM_CHAN_PER_H2D_ST_PORT1" value="1" />
+  <parameter name="NUM_CHAN_PER_H2D_ST_PORT2" value="1" />
+  <parameter name="HOST_PORT_FREQ" value="100" />
+  <parameter name="NUM_CHAN_PER_H2D_ST_PORT3" value="1" />
+  <parameter name="DESCR_D2H_ST7_AWD" value="16" />
+  <parameter name="BAM_IDWD" value="8" />
+  <parameter name="D2H_ST2_IDWD" value="1" />
+  <parameter name="H2D_ST_PORT5_PKT_MODE" value="0" />
+  <parameter name="D2H_ST_PORT4_PKT_MODE" value="0" />
+  <parameter name="H2D_ST0_FIFO_DEPTH" value="6144" />
+  <parameter name="ED_TYPE" value="synthesis" />
+  <parameter name="D2H_ST_TUSER_PORT3_EN" value="1" />
+  <parameter name="DEVICE" value="A5ED065BB32AE5SR0" />
+  <parameter name="H2D_ST_PTP_PORT5_EN" value="0" />
+  <parameter name="DESCR_D2H_ST4_DWD" value="32" />
+  <parameter name="D2H_ST_PORT7_RUNTIME_FLUSH_EN" value="0" />
+  <parameter name="D2H_ST0_DWD" value="64" />
+  <parameter name="H2D_ST6_IDWD" value="1" />
+  <parameter name="BAM_INT_TYPE" value="AXI4" />
+  <parameter name="H2D_MM0_IDWD" value="8" />
+  <parameter name="BAM_PROT_PRIV_ACC" value="0" />
+  <parameter name="H2D_ST2_UWD" value="1" />
+  <parameter name="H2D_ST3_DWD" value="64" />
+  <parameter name="DESCR_H2D_MM5_DWD" value="32" />
+  <parameter name="H2D_MM5_IDWD" value="8" />
+  <parameter name="D2H_ST_TUSER_PORT4_EN" value="1" />
+  <parameter name="DESCR_H2D_ST0_AWD" value="16" />
+  <parameter name="HOST_LWD" value="8" />
+  <parameter name="IP_INTERNAL_TEST_EN" value="0" />
+  <parameter name="HOST_DESCR_LWD" value="8" />
+  <parameter name="H2D_MM0_DWD" value="64" />
+  <parameter name="D2H_ST_PORT7_PKT_MODE" value="0" />
+  <parameter name="DESCR_H2D_MM7_AWD" value="16" />
+  <parameter name="D2H_ST_PTP_PORT3_EN" value="0" />
+  <parameter name="H2D_MM4_FIFO_DEPTH" value="6144" />
+  <parameter name="D2H_ST0_CWD" value="1" />
+  <parameter name="H2D_ST_TUSER_PORT7_EN" value="1" />
+  <parameter name="H2D_MM5_LWD" value="8" />
+  <parameter name="H2D_ST4_FIFO_DEPTH" value="6144" />
+  <parameter name="DMA_MODE" value="DMA SoC mode" />
+  <parameter name="H2D_ST_PTP_PORT6_EN" value="0" />
+  <parameter name="DBG_CSR_AWD" value="22" />
+  <parameter name="SS_ST_DWD" value="128" />
+  <parameter name="D2H_ST5_FIFO_DEPTH" value="6144" />
+  <parameter name="DESCRWR_H2D_MM5_INT_TYPE" value="AXI-ST" />
+  <parameter name="H2D_AXI_ST_PORT6_TUSER_TO_SOP_MAP_EN" value="1" />
+  <parameter name="DESCR_H2D_ST0_DWD" value="32" />
+  <parameter name="H2D_ST1_IDWD" value="1" />
+  <parameter name="H2D_ST2_CWD" value="1" />
+  <parameter name="DESCRWR_D2H_ST4_INT_TYPE" value="AXI-ST" />
+  <parameter name="D2H_ST_PORT0_PKT_MODE" value="0" />
+  <parameter name="H2D_ST1_EWD" value="1" />
+  <parameter name="H2D_ST7_FIFO_DEPTH" value="6144" />
+  <parameter name="NUM_H2D_MM_PORTS" value="1" />
+  <parameter name="D2H_ST1_CWD" value="1" />
+  <parameter name="H2D_ST_PORT4_DATA_TYPE" value="Video" />
+  <parameter name="NUM_CHAN_PER_D2H_ST_PORT7" value="1" />
+  <parameter name="NUM_CHAN_PER_D2H_ST_PORT6" value="1" />
+  <parameter name="NUM_CHAN_PER_D2H_ST_PORT5" value="1" />
+  <parameter name="NUM_CHAN_PER_D2H_ST_PORT4" value="1" />
+  <parameter name="HOST_AXI_AWCACHE" value="0" />
+  <parameter name="D2H_ST_PORT6_INIT_FLUSH_EN" value="1" />
+  <parameter name="H2D_ST_PTP_PORT1_EN" value="0" />
+  <parameter name="H2D_ST1_UWD" value="1" />
+  <parameter name="H2D_MM1_LWD" value="8" />
+  <parameter name="D2H_AXI_ST_PORT2_TUSER_TO_SOP_MAP_EN" value="1" />
+  <parameter name="DESCRWR_H2D_ST6_INT_TYPE" value="AXI-ST" />
+  <parameter name="H2D_ST_TUSER_PORT1_EN" value="1" />
+  <parameter name="H2D_MM6_AWD" value="64" />
+  <parameter name="H2D_MM6_IDWD" value="8" />
+  <parameter name="PCIE_FUNC_MODE" value="0" />
+  <parameter name="AXI_ST_PORT_FREQ_SOC_MODE_AGILEX5" value="100" />
+  <parameter name="HOST_DWD" value="256" />
+  <parameter name="ED_MODE" value="H2D ST to D2H ST Single Port Loopback Design" />
+  <parameter name="DESCR_H2D_MM4_AWD" value="16" />
+  <parameter name="DESCR_H2D_ST1_AWD" value="16" />
+  <parameter name="NUM_CHAN_PER_D2H_ST_PORT3" value="1" />
+  <parameter name="EXT_TAG_EN" value="1" />
+  <parameter name="H2D_ST_PORT1_PKT_MODE" value="0" />
+  <parameter name="NUM_CHAN_PER_D2H_ST_PORT2" value="1" />
+  <parameter name="NUM_CHAN_PER_D2H_ST_PORT1" value="1" />
+  <parameter name="NUM_CHAN_PER_D2H_ST_PORT0" value="1" />
+  <parameter name="AXI_ST_PORT_FREQ_AGILEX5" value="300" />
+  <parameter name="D2H_ST_PORT7_DATA_TYPE" value="Video" />
+  <parameter name="HOST_DESCR_INT_TYPE" value="AXI4" />
+  <parameter name="DESCRWR_H2D_ST1_INT_TYPE" value="AXI-ST" />
+  <parameter name="BAS_LWD" value="8" />
+  <parameter name="H2D_ST_PTP_PORT2_EN" value="0" />
+  <parameter name="ECC_EN" value="0" />
+  <parameter name="DESCR_D2H_ST0_AWD" value="16" />
+  <parameter name="H2D_ST2_DWD" value="64" />
+  <parameter name="DESCR_D2H_ST6_DWD" value="32" />
+  <parameter name="H2D_MM4_DWD" value="64" />
+  <parameter name="D2H_ST_TUSER_PORT0_EN" value="1" />
+  <parameter name="D2H_ST1_DWD" value="64" />
+  <parameter name="H2D_MM5_AWD" value="64" />
+  <parameter name="D2H_ST0_UWD" value="1" />
+  <parameter name="DESCR_H2D_ST7_DWD" value="32" />
+  <parameter name="D2H_ST7_UWD" value="1" />
+  <parameter name="PCIE_GEN" value="G4x8" />
+  <parameter name="D2H_ST0_EWD" value="1" />
+  <parameter name="D2H_ST7_EWD" value="1" />
+  <parameter name="HOST_DESCR_PORT_EN" value="0" />
+  <parameter name="BAM_PROT_SEC_ACC" value="0" />
+  <parameter name="SS_CSR_DWD" value="32" />
+  <parameter name="H2D_ST_PORT6_DATA_TYPE" value="Video" />
+  <parameter name="H2D_ST5_IDWD" value="1" />
+  <parameter name="HOST_AXI_PROT_SEC_ACC" value="0" />
+  <parameter name="D2H_ST_PTP_PORT0_EN" value="0" />
+  <parameter name="D2H_ST_PORT7_INIT_FLUSH_EN" value="1" />
+  <parameter name="DESCR_H2D_MM5_AWD" value="16" />
+  <parameter name="H2D_MM2_IDWD" value="8" />
+  <parameter name="TILE" value="P-tile" />
+  <parameter name="D2H_AXI_ST_PORT6_TUSER_TO_SOP_MAP_EN" value="1" />
+  <parameter name="H2D_ST_TUSER_PORT0_EN" value="1" />
+  <parameter name="D2H_ST_PORT0_RUNTIME_FLUSH_EN" value="0" />
+  <parameter name="D2H_ST2_CWD" value="1" />
+  <parameter name="OFS_DEV_FEATURE_EN" value="0" />
+  <parameter name="DESCR_H2D_MM2_DWD" value="32" />
+  <parameter name="H2D_ST1_CWD" value="1" />
+  <parameter name="D2H_ST1_EWD" value="1" />
+  <parameter name="SRIOV_EN" value="0" />
+  <parameter name="D2H_ST0_FIFO_DEPTH" value="6144" />
+  <parameter name="HOST_DESCR_AWD" value="64" />
+  <parameter name="DESCR_H2D_ST2_AWD" value="16" />
+  <parameter name="HOST_CSR_AWD" value="22" />
+  <parameter name="D2H_AXI_ST_PORT7_TUSER_TO_SOP_MAP_EN" value="1" />
+  <parameter name="D2H_ST1_UWD" value="1" />
+  <parameter name="H2D_ST_PORT6_PKT_MODE" value="0" />
+  <parameter name="H2D_MM1_FIFO_DEPTH" value="6144" />
+  <parameter name="FLR_EN" value="0" />
+  <parameter name="D2H_ST_PORT5_DATA_TYPE" value="Video" />
+  <parameter name="D2H_ST7_DWD" value="64" />
+  <parameter name="D2H_ST_PORT7_INT_TYPE" value="AXI-ST" />
+  <parameter name="H2D_ST_PORT4_INT_TYPE" value="AXI-ST" />
+  <parameter name="AXI_ST_PORT_FREQ_AGILEX7" value="350" />
+  <parameter name="H2D_MM2_LWD" value="8" />
+  <parameter name="H2D_MM3_IDWD" value="8" />
+  <parameter name="D2H_ST6_IDWD" value="1" />
+  <parameter name="D2H_ST_PORT3_INT_TYPE" value="AXI-ST" />
+  <parameter name="D2H_AXI_ST_PORT3_TUSER_TO_SOP_MAP_EN" value="1" />
+  <parameter name="H2D_MM3_DWD" value="64" />
+  <parameter name="DESCRWR_D2H_ST0_INT_TYPE" value="AXI-ST" />
+  <parameter name="DESCR_H2D_ST6_DWD" value="32" />
+  <parameter name="D2H_ST_PORT3_RUNTIME_FLUSH_EN" value="0" />
+  <parameter name="D2H_ST_PORT4_INIT_FLUSH_EN" value="1" />
+  <parameter name="D2H_ST_PORT0_DATA_TYPE" value="Video" />
+  <parameter name="ED_PATTERN_GEN_CHK_EN" value="0" />
+  <parameter name="H2D_ST_PORT0_PKT_MODE" value="0" />
+  <parameter name="D2H_ST2_DWD" value="64" />
+  <parameter name="D2H_ST_PORT5_INIT_FLUSH_EN" value="1" />
+  <parameter name="D2H_ST_PORT5_PKT_MODE" value="0" />
+  <parameter name="H2D_ST4_IDWD" value="1" />
+  <parameter name="VIRTIO_PORT_EN" value="0" />
+  <parameter name="H2D_ST0_UWD" value="1" />
+  <parameter name="D2H_ST5_IDWD" value="1" />
+  <parameter name="DESCR_D2H_ST7_DWD" value="32" />
+  <parameter name="H2D_ST1_DWD" value="64" />
+  <parameter name="D2H_ST6_EWD" value="1" />
+  <parameter name="BAM_LWD" value="8" />
+  <parameter name="DESCR_H2D_MM3_DWD" value="32" />
+  <parameter name="H2D_ST0_EWD" value="1" />
+  <parameter name="H2D_ST_PORT2_DATA_TYPE" value="Video" />
+  <parameter name="H2D_ST_PTP_PORT3_EN" value="0" />
+  <parameter name="H2D_MM4_AWD" value="64" />
+  <parameter name="DESCRWR_H2D_MM0_INT_TYPE" value="AXI-ST" />
+  <parameter name="ED_SIM_LANGUAGE" value="Verilog" />
+  <parameter name="H2D_MM7_LWD" value="8" />
+  <parameter name="D2H_ST_TUSER_PORT1_EN" value="1" />
+  <parameter name="D2H_ST7_CWD" value="1" />
+  <parameter name="SS_ST_DWD_AGILEX5" value="128" />
+  <parameter name="SS_ST_DWD_AGILEX7" value="512" />
+  <parameter name="DESCR_H2D_ST1_DWD" value="32" />
+  <parameter name="BAM_PROT_DATA_ACC" value="0" />
+  <parameter name="D2H_ST6_UWD" value="1" />
+  <parameter name="H2D_ST5_FIFO_DEPTH" value="6144" />
+  <parameter name="D2H_ST_PORT6_RUNTIME_FLUSH_EN" value="0" />
+  <parameter name="H2D_ST_PORT0_INT_TYPE" value="AXI-ST" />
+  <parameter name="D2H_ST3_CWD" value="1" />
+  <parameter name="BAS_AWD" value="64" />
+  <parameter name="NUM_CHAN_PER_H2D_MM_PORT0" value="1" />
+  <parameter name="NUM_CHAN_PER_H2D_MM_PORT2" value="1" />
+  <parameter name="H2D_ST_TUSER_PORT4_EN" value="1" />
+  <parameter name="NUM_CHAN_PER_H2D_MM_PORT1" value="1" />
+  <parameter name="D2H_ST_PORT6_PKT_MODE" value="0" />
+  <parameter name="ED_TARGET_DEVKIT" value="1" />
+  <parameter name="NUM_CHAN_PER_H2D_MM_PORT4" value="1" />
+  <parameter name="DESCR_H2D_MM1_DWD" value="32" />
+  <parameter name="NUM_CHAN_PER_H2D_MM_PORT3" value="1" />
+  <parameter name="D2H_ST2_EWD" value="1" />
+  <parameter name="NUM_CHAN_PER_H2D_MM_PORT6" value="1" />
+  <parameter name="NUM_CHAN_PER_H2D_MM_PORT5" value="1" />
+  <parameter name="H2D_MM3_FIFO_DEPTH" value="6144" />
+  <parameter name="H2D_D2H_PORT_FREQ" value="300" />
+  <parameter name="D2H_AXI_ST_PORT1_TUSER_TO_SOP_MAP_EN" value="1" />
+  <parameter name="NUM_CHAN_PER_H2D_MM_PORT7" value="1" />
+  <parameter name="DESCR_H2D_ST2_DWD" value="32" />
+  <parameter name="DESCRWR_H2D_ST5_INT_TYPE" value="AXI-ST" />
+  <parameter name="D2H_ST_PTP_PORT7_EN" value="0" />
+  <parameter name="DESCRWR_H2D_ST0_INT_TYPE" value="AXI-ST" />
+  <parameter name="DESCR_H2D_ST7_AWD" value="16" />
+  <parameter name="D2H_ST_PORT2_DATA_TYPE" value="Video" />
+  <parameter name="MSI_EN" value="0" />
+  <parameter name="DESCR_H2D_ST3_AWD" value="16" />
+  <parameter name="SS_CSR_PROT_DATA_ACC" value="0" />
+  <parameter name="RC_CS_EN" value="0" />
+  <parameter name="D2H_ST7_FIFO_DEPTH" value="6144" />
+  <parameter name="D2H_ST2_UWD" value="1" />
+  <parameter name="D2H_ST_TUSER_PORT7_EN" value="1" />
+  <parameter name="D2H_ST6_DWD" value="64" />
+  <parameter name="NUM_BAR_PORTS" value="0" />
+  <parameter name="H2D_ST0_IDWD" value="1" />
+  <parameter name="H2D_ST0_DWD" value="64" />
+  <parameter name="D2H_ST_PORT1_DATA_TYPE" value="Video" />
+  <parameter name="H2D_ST_PORT7_PKT_MODE" value="0" />
+  <parameter name="DESCR_D2H_ST2_AWD" value="16" />
+  <parameter name="H2D_ST7_DWD" value="64" />
+  <parameter name="D2H_ST3_DWD" value="64" />
+  <parameter name="HOST_AXI_ARBAR" value="0" />
+  <parameter name="LEGACY_INTERRUPT_EN" value="0" />
+  <parameter name="HOST_AXI_ARSNOOP" value="0" />
+  <parameter name="HOST_AXI_ARCACHE" value="0" />
+  <parameter name="D2H_ST_PORT4_DATA_TYPE" value="Video" />
+  <parameter name="SS_INITATR_AWD" value="32" />
+  <parameter name="SS_CSR_PROT_PRIV_ACC" value="0" />
+  <parameter name="D2H_ST6_CWD" value="1" />
+  <parameter name="H2D_ST_PORT4_PKT_MODE" value="0" />
+  <parameter name="H2D_ST6_EWD" value="1" />
+  <parameter name="H2D_ST_TUSER_PORT3_EN" value="1" />
+  <parameter name="H2D_ST0_CWD" value="1" />
+  <parameter name="NUM_EXT_VECTORS" value="1" />
+  <parameter name="H2D_MM6_DWD" value="64" />
+  <parameter name="D2H_ST1_IDWD" value="1" />
+  <parameter name="H2D_ST7_CWD" value="1" />
+  <parameter name="HOST_AWD" value="64" />
+  <parameter name="H2D_ST6_UWD" value="1" />
+  <parameter name="DESCR_D2H_ST1_DWD" value="32" />
+  <parameter name="H2D_ST2_IDWD" value="1" />
+  <parameter name="D2H_ST3_IDWD" value="1" />
+  <parameter name="ADDR_64BITS_EN" value="0" />
+  <parameter name="H2D_AXI_ST_PORT0_TUSER_TO_SOP_MAP_EN" value="1" />
+  <parameter name="DESCR_D2H_ST0_DWD" value="32" />
+  <parameter name="D2H_ST_PORT3_PKT_MODE" value="0" />
+  <parameter name="H2D_ST_PTP_PORT0_EN" value="0" />
+  <parameter name="DESCR_H2D_ST6_AWD" value="16" />
+  <parameter name="DESCR_H2D_ST4_AWD" value="16" />
+  <parameter name="DESCR_H2D_MM3_AWD" value="16" />
+  <parameter name="H2D_MM0_LWD" value="8" />
+  <parameter name="D2H_ST3_FIFO_DEPTH" value="6144" />
+  <parameter name="H2D_ST7_IDWD" value="1" />
+  <parameter name="H2D_ST_PORT3_INT_TYPE" value="AXI-ST" />
+  <parameter name="DESCRWR_D2H_ST2_INT_TYPE" value="AXI-ST" />
+  <parameter name="DESCR_H2D_ST3_DWD" value="32" />
+  <parameter name="H2D_AXI_ST_PORT2_TUSER_TO_SOP_MAP_EN" value="1" />
+  <parameter name="D2H_ST3_UWD" value="1" />
+  <parameter name="DESCRWR_H2D_ST2_INT_TYPE" value="AXI-ST" />
+  <parameter name="D2H_ST_PORT5_RUNTIME_FLUSH_EN" value="0" />
+  <parameter name="D2H_ST4_CWD" value="1" />
+  <parameter name="D2H_ST_PORT2_INT_TYPE" value="AXI-ST" />
+  <parameter name="DESCR_D2H_ST1_AWD" value="16" />
+  <parameter name="D2H_ST_PORT2_RUNTIME_FLUSH_EN" value="0" />
+  <parameter name="D2H_ST3_EWD" value="1" />
+  <parameter name="DESCRWR_H2D_MM2_INT_TYPE" value="AXI-ST" />
+  <parameter name="H2D_MM7_AWD" value="64" />
+  <parameter name="DESCR_H2D_MM0_DWD" value="32" />
+  <parameter name="CPL_TIMEOUT_PORT_EN" value="1" />
+  <parameter name="H2D_MM2_FIFO_DEPTH" value="6144" />
+  <parameter name="H2D_ST2_FIFO_DEPTH" value="6144" />
+  <parameter name="ED_INTERNAL_TEST_EN" value="0" />
+  <parameter name="D2H_ST4_DWD" value="64" />
+  <parameter name="H2D_ST_TUSER_PORT2_EN" value="1" />
+  <parameter name="TX_ARB_MODE" value="Round Robin" />
+  <parameter name="EXT_INTERRUPT_EN" value="0" />
+  <parameter name="HOST_DESCR_DWD" value="512" />
+  <parameter name="H2D_MM5_DWD" value="64" />
+  <parameter name="DESCR_H2D_MM2_AWD" value="16" />
+  <parameter name="H2D_ST7_UWD" value="1" />
+  <parameter name="DESCRWR_D2H_ST5_INT_TYPE" value="AXI-ST" />
+  <parameter name="D2H_ST_PORT5_INT_TYPE" value="AXI-ST" />
+  <parameter name="H2D_ST6_FIFO_DEPTH" value="6144" />
+  <parameter name="HOST_DESCR_IDWD" value="5" />
+  <parameter name="H2D_ST7_EWD" value="1" />
+  <parameter name="H2D_MM6_FIFO_DEPTH" value="6144" />
+  <parameter name="SS_CSR_PROT_SEC_ACC" value="0" />
+  <parameter name="BAM_PORT_EN" value="0" />
+  <parameter name="DESCR_H2D_ST5_AWD" value="16" />
+  <parameter name="D2H_ST_PORT3_DATA_TYPE" value="Video" />
+  <generatedFiles>
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/common/ssgdma_csr_reg_pkg.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/common/ssgdma_descriptors_pkg.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/common/ssgdma_pkg.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/common/altera_std_synchronizer_nocut.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/common/intel_ssgdma_axi_st_fifo.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/common/intel_ssgdma_axi_st_regs.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/common/intel_ssgdma_clkcrosser.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/common/intel_ssgdma_fifo.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/common/intel_ssgdma_hyperflex_reset_controller.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/common/intel_ssgdma_hyperflex_reset_controller_simple.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/common/intel_ssgdma_pl_delay.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/common/intel_ssgdma_data_fifo.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/common/intel_ssgdma_hyperflex_pipeline.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/common/intel_ssgdma_native_fifo.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/common/intel_ssgdma_native_ram.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/common/intel_ssgdma_packet_fifo.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/common/intel_ssgdma_pulse_stretch_sync.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/common/intel_ssgdma_request_arbiter_multito1.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/common/intel_ssgdma_std_synchronizer_nocut.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/common/mux_4to1_pipelined.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/common/pipe_and.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/common/pipe_equal.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/common/priority_mux_core.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/common/priority_mux.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/csr/csrunit.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/csr/intel_ssgdma_axi_lite_to_mm_adapter.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/csr/intel_ssgdma_resp_table_mem.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/csr/ssgdma_control_unit_arbiter.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/csr/ssgdma_control_unit.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/csr/ssgdma_csr_mem.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/csr/ssgdma_csr_router.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/csr/ssgdma_gcsr.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/csr/ssgdma_qcsr.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/csr/ssgdma_qcsr_resp_mem_router.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/csr/ssgdma_qcsr_router.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/dma_arbiter_router/intel_ssgdma_dma_arbiter_credit.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/dma_arbiter_router/intel_ssgdma_queue_fifo.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/dma_arbiter_router/intel_ssgdma_router_top.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/dma_arbiter_router/intel_ssgdma_router_tvalid_tready_generate.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/dma_arbiter_router/ssgdma_agent_arbiter.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/dma_arbiter_router/ssgdma_arbiter_fifo_top.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/dma_arbiter_router/ssgdma_arbiter_top.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/host_agent/intel_ssgdma_agent_pkg.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/host_agent/intel_ssgdma_host_agent_constructor.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/host_agent/intel_ssgdma_host_agent_controller.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/host_agent/intel_ssgdma_host_agent_csr.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/host_agent/intel_ssgdma_host_agent_csr_fsm.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/host_agent/intel_ssgdma_host_agent_d2h.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/host_agent/intel_ssgdma_host_agent_descriptors.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/host_agent/intel_ssgdma_host_agent_dre.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/host_agent/intel_ssgdma_host_agent_mm.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/host_agent/intel_ssgdma_host_agent_responder.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/host_agent/intel_ssgdma_host_agent_top.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/host_agent/intel_ssgdma_host_agent_waf.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/host_agent/intel_ssgdma_host_agent_h2d.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/host_agent/intel_ssgdma_host_agent_response_fifos.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/host_agent/intel_ssgdma_host_agent_keep_align.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/host_agent/intel_ssgdma_pre_processor.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/top/common_region_wrapper.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/top/device_agent_wrapper.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/top/intel_ssgdma_top.sv"
+       attributes="TOP_LEVEL_FILE" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/top/intel_ssgdma_soc_and_dma_only_mode_wrapper.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/soc_and_dma_only/axi_soc_host_agent/intel_ssgdma_soc_host_device.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/soc_and_dma_only/axi_soc_host_agent/intel_ssgdma_soc_host_mm_fifos.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/soc_and_dma_only/axi_soc_host_agent/intel_ssgdma_soc_mode_axi_host_top.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/soc_and_dma_only/intel_ssgdma_interrupt_controller.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/descriptor_router_to_agent_tdata_handler/intel_ssgdma_prefetcher_descriptor_1024_to_256_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/descriptor_router_to_agent_tdata_handler/intel_ssgdma_prefetcher_descriptor_1024_to_32_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/descriptor_router_to_agent_tdata_handler/intel_ssgdma_prefetcher_descriptor_128_to_256_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/descriptor_router_to_agent_tdata_handler/intel_ssgdma_prefetcher_descriptor_128_to_32_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/descriptor_router_to_agent_tdata_handler/intel_ssgdma_prefetcher_descriptor_16_to_256_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/descriptor_router_to_agent_tdata_handler/intel_ssgdma_prefetcher_descriptor_16_to_32_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/descriptor_router_to_agent_tdata_handler/intel_ssgdma_prefetcher_descriptor_256_to_256_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/descriptor_router_to_agent_tdata_handler/intel_ssgdma_prefetcher_descriptor_256_to_32_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/descriptor_router_to_agent_tdata_handler/intel_ssgdma_prefetcher_descriptor_32_to_256_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/descriptor_router_to_agent_tdata_handler/intel_ssgdma_prefetcher_descriptor_32_to_32_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/descriptor_router_to_agent_tdata_handler/intel_ssgdma_prefetcher_descriptor_512_to_256_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/descriptor_router_to_agent_tdata_handler/intel_ssgdma_prefetcher_descriptor_512_to_32_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/descriptor_router_to_agent_tdata_handler/intel_ssgdma_prefetcher_descriptor_64_to_256_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/descriptor_router_to_agent_tdata_handler/intel_ssgdma_prefetcher_descriptor_64_to_32_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/descriptor_router_to_agent_tdata_handler/intel_ssgdma_prefetcher_descriptor_8_to_256_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/descriptor_router_to_agent_tdata_handler/intel_ssgdma_prefetcher_descriptor_8_to_32_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/responder_agent_to_arbiter_tdata_handler/intel_ssgdma_prefetcher_responder_32_to_8_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/responder_agent_to_arbiter_tdata_handler/intel_ssgdma_prefetcher_responder_32_to_16_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/responder_agent_to_arbiter_tdata_handler/intel_ssgdma_prefetcher_responder_32_to_32_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/responder_agent_to_arbiter_tdata_handler/intel_ssgdma_prefetcher_responder_32_to_64_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/responder_agent_to_arbiter_tdata_handler/intel_ssgdma_prefetcher_responder_32_to_128_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/responder_agent_to_arbiter_tdata_handler/intel_ssgdma_prefetcher_responder_32_to_256_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/responder_agent_to_arbiter_tdata_handler/intel_ssgdma_prefetcher_responder_32_to_512_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/responder_agent_to_arbiter_tdata_handler/intel_ssgdma_prefetcher_responder_32_to_1024_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/responder_agent_to_arbiter_tdata_handler/intel_ssgdma_prefetcher_responder_256_to_8_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/responder_agent_to_arbiter_tdata_handler/intel_ssgdma_prefetcher_responder_256_to_16_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/responder_agent_to_arbiter_tdata_handler/intel_ssgdma_prefetcher_responder_256_to_32_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/responder_agent_to_arbiter_tdata_handler/intel_ssgdma_prefetcher_responder_256_to_64_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/responder_agent_to_arbiter_tdata_handler/intel_ssgdma_prefetcher_responder_256_to_128_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/responder_agent_to_arbiter_tdata_handler/intel_ssgdma_prefetcher_responder_256_to_256_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/responder_agent_to_arbiter_tdata_handler/intel_ssgdma_prefetcher_responder_256_to_512_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/responder_agent_to_arbiter_tdata_handler/intel_ssgdma_prefetcher_responder_256_to_1024_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_responder_non_writeback_tdata_decoder.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_credit_manager.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_csr_manager.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_descriptor_address_offset_manager.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_descriptor_block_counter.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_descriptor_credit_counter.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_descriptor_engine.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_descriptor_fetch_manager.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_descriptor_linked_address_ready_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_descriptor_prefetch_pointer_counter.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_descriptor_send_manager.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_device_port_csr_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_device_port_csr_interrupt.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_device_port_csr_interrupt_control.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_device_port_soft_pause_reset_active_detector.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_device_port_soft_pause_reset_manager.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_msix_interrupt_controller.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_responder_agent_bus_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_responder_agent_fill_timer.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_responder_credit_counter.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_responder_descriptor_address_offset_manager.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_responder_writeback_manager.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_responder_writeback_response_completion_manager.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_responder_engine.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_after_reset_deassertion_control.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_paused_control.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_top.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/top/ssgdma.sdc"
+       attributes="NO_AUTO_INSTANCE_DISCOVERY NO_SDC_PROMOTION" />
+  </generatedFiles>
+  <childGeneratedFiles>
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/common/ssgdma_csr_reg_pkg.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/common/ssgdma_descriptors_pkg.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/common/ssgdma_pkg.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/common/altera_std_synchronizer_nocut.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/common/intel_ssgdma_axi_st_fifo.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/common/intel_ssgdma_axi_st_regs.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/common/intel_ssgdma_clkcrosser.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/common/intel_ssgdma_fifo.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/common/intel_ssgdma_hyperflex_reset_controller.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/common/intel_ssgdma_hyperflex_reset_controller_simple.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/common/intel_ssgdma_pl_delay.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/common/intel_ssgdma_data_fifo.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/common/intel_ssgdma_hyperflex_pipeline.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/common/intel_ssgdma_native_fifo.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/common/intel_ssgdma_native_ram.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/common/intel_ssgdma_packet_fifo.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/common/intel_ssgdma_pulse_stretch_sync.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/common/intel_ssgdma_request_arbiter_multito1.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/common/intel_ssgdma_std_synchronizer_nocut.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/common/mux_4to1_pipelined.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/common/pipe_and.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/common/pipe_equal.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/common/priority_mux_core.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/common/priority_mux.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/csr/csrunit.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/csr/intel_ssgdma_axi_lite_to_mm_adapter.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/csr/intel_ssgdma_resp_table_mem.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/csr/ssgdma_control_unit_arbiter.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/csr/ssgdma_control_unit.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/csr/ssgdma_csr_mem.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/csr/ssgdma_csr_router.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/csr/ssgdma_gcsr.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/csr/ssgdma_qcsr.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/csr/ssgdma_qcsr_resp_mem_router.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/csr/ssgdma_qcsr_router.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/dma_arbiter_router/intel_ssgdma_dma_arbiter_credit.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/dma_arbiter_router/intel_ssgdma_queue_fifo.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/dma_arbiter_router/intel_ssgdma_router_top.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/dma_arbiter_router/intel_ssgdma_router_tvalid_tready_generate.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/dma_arbiter_router/ssgdma_agent_arbiter.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/dma_arbiter_router/ssgdma_arbiter_fifo_top.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/dma_arbiter_router/ssgdma_arbiter_top.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/host_agent/intel_ssgdma_agent_pkg.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/host_agent/intel_ssgdma_host_agent_constructor.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/host_agent/intel_ssgdma_host_agent_controller.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/host_agent/intel_ssgdma_host_agent_csr.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/host_agent/intel_ssgdma_host_agent_csr_fsm.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/host_agent/intel_ssgdma_host_agent_d2h.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/host_agent/intel_ssgdma_host_agent_descriptors.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/host_agent/intel_ssgdma_host_agent_dre.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/host_agent/intel_ssgdma_host_agent_mm.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/host_agent/intel_ssgdma_host_agent_responder.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/host_agent/intel_ssgdma_host_agent_top.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/host_agent/intel_ssgdma_host_agent_waf.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/host_agent/intel_ssgdma_host_agent_h2d.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/host_agent/intel_ssgdma_host_agent_response_fifos.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/host_agent/intel_ssgdma_host_agent_keep_align.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/host_agent/intel_ssgdma_pre_processor.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/top/common_region_wrapper.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/top/device_agent_wrapper.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/top/intel_ssgdma_top.sv"
+       attributes="TOP_LEVEL_FILE" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/top/intel_ssgdma_soc_and_dma_only_mode_wrapper.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/soc_and_dma_only/axi_soc_host_agent/intel_ssgdma_soc_host_device.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/soc_and_dma_only/axi_soc_host_agent/intel_ssgdma_soc_host_mm_fifos.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/soc_and_dma_only/axi_soc_host_agent/intel_ssgdma_soc_mode_axi_host_top.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/soc_and_dma_only/intel_ssgdma_interrupt_controller.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/descriptor_router_to_agent_tdata_handler/intel_ssgdma_prefetcher_descriptor_1024_to_256_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/descriptor_router_to_agent_tdata_handler/intel_ssgdma_prefetcher_descriptor_1024_to_32_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/descriptor_router_to_agent_tdata_handler/intel_ssgdma_prefetcher_descriptor_128_to_256_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/descriptor_router_to_agent_tdata_handler/intel_ssgdma_prefetcher_descriptor_128_to_32_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/descriptor_router_to_agent_tdata_handler/intel_ssgdma_prefetcher_descriptor_16_to_256_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/descriptor_router_to_agent_tdata_handler/intel_ssgdma_prefetcher_descriptor_16_to_32_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/descriptor_router_to_agent_tdata_handler/intel_ssgdma_prefetcher_descriptor_256_to_256_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/descriptor_router_to_agent_tdata_handler/intel_ssgdma_prefetcher_descriptor_256_to_32_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/descriptor_router_to_agent_tdata_handler/intel_ssgdma_prefetcher_descriptor_32_to_256_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/descriptor_router_to_agent_tdata_handler/intel_ssgdma_prefetcher_descriptor_32_to_32_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/descriptor_router_to_agent_tdata_handler/intel_ssgdma_prefetcher_descriptor_512_to_256_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/descriptor_router_to_agent_tdata_handler/intel_ssgdma_prefetcher_descriptor_512_to_32_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/descriptor_router_to_agent_tdata_handler/intel_ssgdma_prefetcher_descriptor_64_to_256_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/descriptor_router_to_agent_tdata_handler/intel_ssgdma_prefetcher_descriptor_64_to_32_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/descriptor_router_to_agent_tdata_handler/intel_ssgdma_prefetcher_descriptor_8_to_256_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/descriptor_router_to_agent_tdata_handler/intel_ssgdma_prefetcher_descriptor_8_to_32_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/responder_agent_to_arbiter_tdata_handler/intel_ssgdma_prefetcher_responder_32_to_8_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/responder_agent_to_arbiter_tdata_handler/intel_ssgdma_prefetcher_responder_32_to_16_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/responder_agent_to_arbiter_tdata_handler/intel_ssgdma_prefetcher_responder_32_to_32_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/responder_agent_to_arbiter_tdata_handler/intel_ssgdma_prefetcher_responder_32_to_64_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/responder_agent_to_arbiter_tdata_handler/intel_ssgdma_prefetcher_responder_32_to_128_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/responder_agent_to_arbiter_tdata_handler/intel_ssgdma_prefetcher_responder_32_to_256_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/responder_agent_to_arbiter_tdata_handler/intel_ssgdma_prefetcher_responder_32_to_512_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/responder_agent_to_arbiter_tdata_handler/intel_ssgdma_prefetcher_responder_32_to_1024_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/responder_agent_to_arbiter_tdata_handler/intel_ssgdma_prefetcher_responder_256_to_8_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/responder_agent_to_arbiter_tdata_handler/intel_ssgdma_prefetcher_responder_256_to_16_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/responder_agent_to_arbiter_tdata_handler/intel_ssgdma_prefetcher_responder_256_to_32_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/responder_agent_to_arbiter_tdata_handler/intel_ssgdma_prefetcher_responder_256_to_64_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/responder_agent_to_arbiter_tdata_handler/intel_ssgdma_prefetcher_responder_256_to_128_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/responder_agent_to_arbiter_tdata_handler/intel_ssgdma_prefetcher_responder_256_to_256_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/responder_agent_to_arbiter_tdata_handler/intel_ssgdma_prefetcher_responder_256_to_512_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/responder_agent_to_arbiter_tdata_handler/intel_ssgdma_prefetcher_responder_256_to_1024_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_responder_non_writeback_tdata_decoder.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_credit_manager.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_csr_manager.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_descriptor_address_offset_manager.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_descriptor_block_counter.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_descriptor_credit_counter.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_descriptor_engine.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_descriptor_fetch_manager.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_descriptor_linked_address_ready_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_descriptor_prefetch_pointer_counter.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_descriptor_send_manager.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_device_port_csr_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_device_port_csr_interrupt.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_device_port_csr_interrupt_control.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_device_port_soft_pause_reset_active_detector.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_device_port_soft_pause_reset_manager.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_msix_interrupt_controller.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_responder_agent_bus_handler.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_responder_agent_fill_timer.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_responder_credit_counter.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_responder_descriptor_address_offset_manager.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_responder_writeback_manager.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_responder_writeback_response_completion_manager.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_responder_engine.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_after_reset_deassertion_control.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_paused_control.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_top.sv"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/peripheral_subsys/ip/peripheral_subsys/ssgdma_0/intel_ssgdma_110/synth/top/ssgdma.sdc"
+       attributes="NO_AUTO_INSTANCE_DISCOVERY NO_SDC_PROMOTION" />
+  </childGeneratedFiles>
+  <sourceFiles>
+   <file
+       path="/nfs/site/disks/swbld_archive_4/acds/23.4/79/linux64/ip/altera/intel_ssgdma/intel_ssgdma_hw_tcl/intel_ssgdma_hw.tcl" />
+  </sourceFiles>
+  <childSourceFiles/>
+  <instantiator instantiator="ssgdma_0" as="intel_ssgdma_inst" />
+  <messages>
+   <message level="Info" culprit="ssgdma_0">"Generating: intel_ssgdma_top"</message>
+  </messages>
+ </entity>
+</deploy>

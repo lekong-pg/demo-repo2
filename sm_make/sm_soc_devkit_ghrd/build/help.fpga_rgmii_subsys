@@ -1,0 +1,4 @@
+    SUB_FPGA_RGMII_EN :
+        - 0: disable [default]
+        - 1: enable
+

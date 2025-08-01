@@ -1,0 +1,4 @@
+    SUB_DEBUG_EN :
+        - 0: disable
+        - 1: enable [default]
+

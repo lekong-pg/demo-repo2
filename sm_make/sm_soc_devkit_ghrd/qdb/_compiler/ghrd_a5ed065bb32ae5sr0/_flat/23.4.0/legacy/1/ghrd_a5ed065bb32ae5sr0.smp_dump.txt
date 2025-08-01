@@ -1,0 +1,236 @@
+
+State Machine - Summary
+
+State Machine - soc_inst|subsys_periph|ssgdma_0|intel_ssgdma_inst|common_dma_wrapper_inst|PREFETCHER_INST_GEN.prefetcher_inst|prefetcher_msix_interrupt_controller_inst|msix_irq_gen_current_state
+Name msix_irq_gen_current_state.D2H_ST_RESP_WRITEBACK_COMPLETION msix_irq_gen_current_state.H2D_ST_RESP_WRITEBACK_COMPLETION msix_irq_gen_current_state.H2D_MM_RESP_WRITEBACK_COMPLETION msix_irq_gen_current_state.D2H_ST_FETCH_DESC_PREFETCH_ERROR msix_irq_gen_current_state.H2D_ST_FETCH_DESC_PREFETCH_ERROR msix_irq_gen_current_state.H2D_MM_FETCH_DESC_PREFETCH_ERROR msix_irq_gen_current_state.D2H_ST_AGENT_FLUSH msix_irq_gen_current_state.MSIX_IRQ_GEN_IDLE 
+msix_irq_gen_current_state.MSIX_IRQ_GEN_IDLE 0 0 0 0 0 0 0 0 
+msix_irq_gen_current_state.D2H_ST_AGENT_FLUSH 0 0 0 0 0 0 1 1 
+msix_irq_gen_current_state.H2D_MM_FETCH_DESC_PREFETCH_ERROR 0 0 0 0 0 1 0 1 
+msix_irq_gen_current_state.H2D_ST_FETCH_DESC_PREFETCH_ERROR 0 0 0 0 1 0 0 1 
+msix_irq_gen_current_state.D2H_ST_FETCH_DESC_PREFETCH_ERROR 0 0 0 1 0 0 0 1 
+msix_irq_gen_current_state.H2D_MM_RESP_WRITEBACK_COMPLETION 0 0 1 0 0 0 0 1 
+msix_irq_gen_current_state.H2D_ST_RESP_WRITEBACK_COMPLETION 0 1 0 0 0 0 0 1 
+msix_irq_gen_current_state.D2H_ST_RESP_WRITEBACK_COMPLETION 1 0 0 0 0 0 0 1 
+
+State Machine - soc_inst|subsys_periph|ssgdma_0|intel_ssgdma_inst|common_dma_wrapper_inst|PREFETCHER_INST_GEN.prefetcher_inst|prefetcher_descriptor_engine_inst|prefetcher_descriptor_fetch_manager_inst|desc_fetch_state
+Name desc_fetch_state.ST_DESC_FETCH_PAUSED desc_fetch_state.ST_DESC_FETCH_CONSTRUCT_D2H_ST_AXI_PACKET desc_fetch_state.ST_DESC_FETCH_CONSTRUCT_H2D_ST_AXI_PACKET desc_fetch_state.ST_DESC_FETCH_CALCULATE_ADDRESS_OFFSET desc_fetch_state.ST_DESC_FETCH_GET_FIRST_AXI_PACKET_CSR desc_fetch_state.ST_DESC_FETCH_CONSTRUCT_H2D_MM_AXI_PACKET desc_fetch_state.ST_DESC_FETCH_ARBITRATE desc_fetch_state.ST_DESC_FETCH_IDLE 
+desc_fetch_state.ST_DESC_FETCH_IDLE 0 0 0 0 0 0 0 0 
+desc_fetch_state.ST_DESC_FETCH_ARBITRATE 0 0 0 0 0 0 1 1 
+desc_fetch_state.ST_DESC_FETCH_CONSTRUCT_H2D_MM_AXI_PACKET 0 0 0 0 0 1 0 1 
+desc_fetch_state.ST_DESC_FETCH_GET_FIRST_AXI_PACKET_CSR 0 0 0 0 1 0 0 1 
+desc_fetch_state.ST_DESC_FETCH_CALCULATE_ADDRESS_OFFSET 0 0 0 1 0 0 0 1 
+desc_fetch_state.ST_DESC_FETCH_CONSTRUCT_H2D_ST_AXI_PACKET 0 0 1 0 0 0 0 1 
+desc_fetch_state.ST_DESC_FETCH_CONSTRUCT_D2H_ST_AXI_PACKET 0 1 0 0 0 0 0 1 
+desc_fetch_state.ST_DESC_FETCH_PAUSED 1 0 0 0 0 0 0 1 
+
+State Machine - soc_inst|subsys_periph|ssgdma_0|intel_ssgdma_inst|common_dma_wrapper_inst|PREFETCHER_INST_GEN.prefetcher_inst|prefetcher_descriptor_engine_inst|prefetcher_descriptor_fetch_manager_inst|desc_fetch_csr_state
+Name desc_fetch_csr_state.ST_DESC_FETCH_CSR_UNUSED_1 desc_fetch_csr_state.ST_DESC_FETCH_CSR_READ_Q_START_ADDR_H desc_fetch_csr_state.ST_DESC_FETCH_CSR_READDATA_Q_START_ADDR_L desc_fetch_csr_state.ST_DESC_FETCH_CSR_READ_Q_START_ADDR_L desc_fetch_csr_state.ST_DESC_FETCH_CSR_READDATA_Q_SIZE desc_fetch_csr_state.ST_DESC_FETCH_CSR_READ_Q_SIZE desc_fetch_csr_state.ST_DESC_FETCH_CSR_READDATA_Q_START_ADDR_H desc_fetch_csr_state.ST_DESC_FETCH_CSR_IDLE 
+desc_fetch_csr_state.ST_DESC_FETCH_CSR_IDLE 0 0 0 0 0 0 0 0 
+desc_fetch_csr_state.ST_DESC_FETCH_CSR_READDATA_Q_START_ADDR_H 0 0 0 0 0 0 1 1 
+desc_fetch_csr_state.ST_DESC_FETCH_CSR_READ_Q_SIZE 0 0 0 0 0 1 0 1 
+desc_fetch_csr_state.ST_DESC_FETCH_CSR_READDATA_Q_SIZE 0 0 0 0 1 0 0 1 
+desc_fetch_csr_state.ST_DESC_FETCH_CSR_READ_Q_START_ADDR_L 0 0 0 1 0 0 0 1 
+desc_fetch_csr_state.ST_DESC_FETCH_CSR_READDATA_Q_START_ADDR_L 0 0 1 0 0 0 0 1 
+desc_fetch_csr_state.ST_DESC_FETCH_CSR_READ_Q_START_ADDR_H 0 1 0 0 0 0 0 1 
+desc_fetch_csr_state.ST_DESC_FETCH_CSR_UNUSED_1 1 0 0 0 0 0 0 1 
+
+State Machine - soc_inst|subsys_periph|ssgdma_0|intel_ssgdma_inst|common_dma_wrapper_inst|PREFETCHER_INST_GEN.prefetcher_inst|prefetcher_descriptor_engine_inst|prefetcher_descriptor_send_manager_inst|desc_send_state
+Name desc_send_state.ST_DESC_SEND_GEN_INT desc_send_state.ST_DESC_UPDATE_CSR_PREFETCH_PTR desc_send_state.ST_DESC_SEND_CONSTRUCT_WAIT_AGENT_TDATA_DONE desc_send_state.ST_DESC_SEND_CONSTRUCT_AGENT_TDATA desc_send_state.ST_DESC_SEND_UPDATE_CSR_MEM_READ_ERROR desc_send_state.ST_DESC_SEND_ROUTE_MEM_READ_TO_AGENT desc_send_state.ST_DESC_SEND_WAIT_MEM_READ_VALID desc_send_state.ST_DESC_SEND_IDLE desc_send_state.ST_DESC_SEND_MEM_READ_ERROR_FLUSH 
+desc_send_state.ST_DESC_SEND_IDLE 0 0 0 0 0 0 0 0 0 
+desc_send_state.ST_DESC_SEND_WAIT_MEM_READ_VALID 0 0 0 0 0 0 1 1 0 
+desc_send_state.ST_DESC_SEND_ROUTE_MEM_READ_TO_AGENT 0 0 0 0 0 1 0 1 0 
+desc_send_state.ST_DESC_SEND_UPDATE_CSR_MEM_READ_ERROR 0 0 0 0 1 0 0 1 0 
+desc_send_state.ST_DESC_SEND_CONSTRUCT_AGENT_TDATA 0 0 0 1 0 0 0 1 0 
+desc_send_state.ST_DESC_SEND_MEM_READ_ERROR_FLUSH 0 0 0 0 0 0 0 1 1 
+desc_send_state.ST_DESC_SEND_CONSTRUCT_WAIT_AGENT_TDATA_DONE 0 0 1 0 0 0 0 1 0 
+desc_send_state.ST_DESC_UPDATE_CSR_PREFETCH_PTR 0 1 0 0 0 0 0 1 0 
+desc_send_state.ST_DESC_SEND_GEN_INT 1 0 0 0 0 0 0 1 0 
+
+State Machine - soc_inst|subsys_periph|ssgdma_0|intel_ssgdma_inst|common_dma_wrapper_inst|PREFETCHER_INST_GEN.prefetcher_inst|prefetcher_descriptor_engine_inst|prefetcher_descriptor_send_manager_inst|desc_send_csr_state
+Name desc_send_csr_state.ST_DESC_SEND_CSR_READDATA_Q_STATUS_PREFETCH_ERROR desc_send_csr_state.ST_DESC_SEND_CSR_READ_Q_STATUS_PREFETCH_ERROR desc_send_csr_state.ST_DESC_SEND_CSR_WRITE_Q_PREFETCH_POINTER desc_send_csr_state.ST_DESC_SEND_CSR_IDLE desc_send_csr_state.ST_DESC_SEND_CSR_WRITE_Q_STATUS_PREFETCH_ERROR 
+desc_send_csr_state.ST_DESC_SEND_CSR_IDLE 0 0 0 0 0 
+desc_send_csr_state.ST_DESC_SEND_CSR_WRITE_Q_PREFETCH_POINTER 0 0 1 1 0 
+desc_send_csr_state.ST_DESC_SEND_CSR_WRITE_Q_STATUS_PREFETCH_ERROR 0 0 0 1 1 
+desc_send_csr_state.ST_DESC_SEND_CSR_READ_Q_STATUS_PREFETCH_ERROR 0 1 0 1 0 
+desc_send_csr_state.ST_DESC_SEND_CSR_READDATA_Q_STATUS_PREFETCH_ERROR 1 0 0 1 0 
+
+State Machine - soc_inst|subsys_periph|ssgdma_0|intel_ssgdma_inst|common_dma_wrapper_inst|PREFETCHER_INST_GEN.prefetcher_inst|prefetcher_responder_engine_inst|prefetcher_responder_writeback_manager_inst|resp_writeback_state
+Name resp_writeback_state.ST_RESP_WRITEBACK_CONSTRUCT_D2H_ST_AXI_MEM_WRITE resp_writeback_state.ST_RESP_WRITEBACK_CONSTRUCT_H2D_ST_AXI_MEM_WRITE resp_writeback_state.ST_RESP_WRITEBACK_CALCULATE_ADDRESS_OFFSET resp_writeback_state.ST_RESP_WRITEBACK_GET_CONTINUE_AXI_PACKET_CSR resp_writeback_state.ST_RESP_WRITEBACK_GET_FIRST_AXI_PACKET_CSR resp_writeback_state.ST_RESP_WRITEBACK_CONSTRUCT_H2D_MM_AXI_MEM_WRITE resp_writeback_state.ST_RESP_WRITEBACK_ARBITRATE resp_writeback_state.ST_RESP_WRITEBACK_IDLE resp_writeback_state.ST_RESP_WRITEBACK_PAUSE 
+resp_writeback_state.ST_RESP_WRITEBACK_IDLE 0 0 0 0 0 0 0 0 0 
+resp_writeback_state.ST_RESP_WRITEBACK_ARBITRATE 0 0 0 0 0 0 1 1 0 
+resp_writeback_state.ST_RESP_WRITEBACK_CONSTRUCT_H2D_MM_AXI_MEM_WRITE 0 0 0 0 0 1 0 1 0 
+resp_writeback_state.ST_RESP_WRITEBACK_GET_FIRST_AXI_PACKET_CSR 0 0 0 0 1 0 0 1 0 
+resp_writeback_state.ST_RESP_WRITEBACK_GET_CONTINUE_AXI_PACKET_CSR 0 0 0 1 0 0 0 1 0 
+resp_writeback_state.ST_RESP_WRITEBACK_CALCULATE_ADDRESS_OFFSET 0 0 1 0 0 0 0 1 0 
+resp_writeback_state.ST_RESP_WRITEBACK_CONSTRUCT_H2D_ST_AXI_MEM_WRITE 0 1 0 0 0 0 0 1 0 
+resp_writeback_state.ST_RESP_WRITEBACK_CONSTRUCT_D2H_ST_AXI_MEM_WRITE 1 0 0 0 0 0 0 1 0 
+resp_writeback_state.ST_RESP_WRITEBACK_PAUSE 0 0 0 0 0 0 0 1 1 
+
+State Machine - soc_inst|subsys_periph|ssgdma_0|intel_ssgdma_inst|common_dma_wrapper_inst|PREFETCHER_INST_GEN.prefetcher_inst|prefetcher_responder_engine_inst|prefetcher_responder_writeback_manager_inst|resp_writeback_csr_state
+Name resp_writeback_csr_state.ST_RESP_WRITEBACK_CSR_UNUSED_1 resp_writeback_csr_state.ST_RESP_WRITEBACK_CSR_READ_Q_RESPONDER_ADDR_H resp_writeback_csr_state.ST_RESP_WRITEBACK_CSR_READDATA_Q_RESPONDER_ADDR_L resp_writeback_csr_state.ST_RESP_WRITEBACK_CSR_READDATA_Q_RESP_SIZE resp_writeback_csr_state.ST_RESP_WRITEBACK_CSR_READ_Q_RESPONDER_ADDR_L resp_writeback_csr_state.ST_RESP_WRITEBACK_CSR_READ_Q_RESP_SIZE resp_writeback_csr_state.ST_RESP_WRITEBACK_CSR_READDATA_Q_RESPONDER_ADDR_H resp_writeback_csr_state.ST_RESP_WRITEBACK_CSR_IDLE 
+resp_writeback_csr_state.ST_RESP_WRITEBACK_CSR_IDLE 0 0 0 0 0 0 0 0 
+resp_writeback_csr_state.ST_RESP_WRITEBACK_CSR_READDATA_Q_RESPONDER_ADDR_H 0 0 0 0 0 0 1 1 
+resp_writeback_csr_state.ST_RESP_WRITEBACK_CSR_READ_Q_RESP_SIZE 0 0 0 0 0 1 0 1 
+resp_writeback_csr_state.ST_RESP_WRITEBACK_CSR_READ_Q_RESPONDER_ADDR_L 0 0 0 0 1 0 0 1 
+resp_writeback_csr_state.ST_RESP_WRITEBACK_CSR_READDATA_Q_RESP_SIZE 0 0 0 1 0 0 0 1 
+resp_writeback_csr_state.ST_RESP_WRITEBACK_CSR_READDATA_Q_RESPONDER_ADDR_L 0 0 1 0 0 0 0 1 
+resp_writeback_csr_state.ST_RESP_WRITEBACK_CSR_READ_Q_RESPONDER_ADDR_H 0 1 0 0 0 0 0 1 
+resp_writeback_csr_state.ST_RESP_WRITEBACK_CSR_UNUSED_1 1 0 0 0 0 0 0 1 
+
+State Machine - soc_inst|subsys_periph|ssgdma_0|intel_ssgdma_inst|common_dma_wrapper_inst|PREFETCHER_INST_GEN.prefetcher_inst|prefetcher_responder_engine_inst|prefetcher_responder_writeback_manager_inst|resp_non_writeback_state
+Name resp_non_writeback_state.ST_RESP_NON_WRITEBACK_H2D_ST_RESPONDER_TDATA_SHIFT resp_non_writeback_state.ST_RESP_NON_WRITEBACK_H2D_MM_RESPONDER_TDATA_SHIFT resp_non_writeback_state.ST_RESP_NON_WRITEBACK_ARBITRATE resp_non_writeback_state.ST_RESP_NON_WRITEBACK_IDLE resp_non_writeback_state.ST_RESP_NON_WRITEBACK_D2H_ST_RESPONDER_TDATA_SHIFT 
+resp_non_writeback_state.ST_RESP_NON_WRITEBACK_IDLE 0 0 0 0 0 
+resp_non_writeback_state.ST_RESP_NON_WRITEBACK_ARBITRATE 0 0 1 1 0 
+resp_non_writeback_state.ST_RESP_NON_WRITEBACK_H2D_MM_RESPONDER_TDATA_SHIFT 0 1 0 1 0 
+resp_non_writeback_state.ST_RESP_NON_WRITEBACK_H2D_ST_RESPONDER_TDATA_SHIFT 1 0 0 1 0 
+resp_non_writeback_state.ST_RESP_NON_WRITEBACK_D2H_ST_RESPONDER_TDATA_SHIFT 0 0 0 1 1 
+
+State Machine - soc_inst|subsys_periph|ssgdma_0|intel_ssgdma_inst|common_dma_wrapper_inst|PREFETCHER_INST_GEN.prefetcher_inst|prefetcher_responder_engine_inst|prefetcher_responder_writeback_response_completion_manager_inst|resp_wbc_current_state
+Name resp_wbc_current_state.RESP_WB_COMPLETE_GEN_INT resp_wbc_current_state.RESP_WB_COMPLETE_UPDATE_CSR_TAIL_PTR resp_wbc_current_state.RESP_WB_COMPLETE_POP_TRACKER_FIFO resp_wbc_current_state.RESP_WB_COMPLETE_POP_NON_WRITEBACK_TRACKER_FIFO resp_wbc_current_state.RESP_WB_COMPLETE_WAIT_MEMWR_VALID resp_wbc_current_state.RESP_WB_COMPLETE_IDLE 
+resp_wbc_current_state.RESP_WB_COMPLETE_IDLE 0 0 0 0 0 0 
+resp_wbc_current_state.RESP_WB_COMPLETE_WAIT_MEMWR_VALID 0 0 0 0 1 1 
+resp_wbc_current_state.RESP_WB_COMPLETE_POP_NON_WRITEBACK_TRACKER_FIFO 0 0 0 1 0 1 
+resp_wbc_current_state.RESP_WB_COMPLETE_POP_TRACKER_FIFO 0 0 1 0 0 1 
+resp_wbc_current_state.RESP_WB_COMPLETE_UPDATE_CSR_TAIL_PTR 0 1 0 0 0 1 
+resp_wbc_current_state.RESP_WB_COMPLETE_GEN_INT 1 0 0 0 0 1 
+
+State Machine - soc_inst|subsys_periph|ssgdma_0|intel_ssgdma_inst|common_dma_wrapper_inst|PREFETCHER_INST_GEN.prefetcher_inst|prefetcher_csr_manager_inst|prefetcher_device_port_csr_handler_inst|device_port_csr_state
+Name device_port_csr_state.ST_DEVICE_PORT_CSR_RECEIVED_RESP_COMPLETION_FSM_WRITE device_port_csr_state.ST_DEVICE_PORT_CSR_SEND_RESP_WRITEBACK_FSM_READ device_port_csr_state.ST_DEVICE_PORT_CSR_SEND_DESC_COMPLETION_FSM_WRITE device_port_csr_state.ST_DEVICE_PORT_CSR_SEND_DESC_COMPLETION_FSM_READ device_port_csr_state.ST_DEVICE_PORT_CSR_FETCH_DESC_FSM_READ device_port_csr_state.ST_DEVICE_PORT_CSR_IDLE 
+device_port_csr_state.ST_DEVICE_PORT_CSR_IDLE 0 0 0 0 0 0 
+device_port_csr_state.ST_DEVICE_PORT_CSR_FETCH_DESC_FSM_READ 0 0 0 0 1 1 
+device_port_csr_state.ST_DEVICE_PORT_CSR_SEND_DESC_COMPLETION_FSM_READ 0 0 0 1 0 1 
+device_port_csr_state.ST_DEVICE_PORT_CSR_SEND_DESC_COMPLETION_FSM_WRITE 0 0 1 0 0 1 
+device_port_csr_state.ST_DEVICE_PORT_CSR_SEND_RESP_WRITEBACK_FSM_READ 0 1 0 0 0 1 
+device_port_csr_state.ST_DEVICE_PORT_CSR_RECEIVED_RESP_COMPLETION_FSM_WRITE 1 0 0 0 0 1 
+
+State Machine - soc_inst|subsys_periph|ssgdma_0|intel_ssgdma_inst|device_agent_inst|h2d_mm_agent0_inst|i_agent_csr_interface|i_csr_fsm|access_state
+Name access_state.S_RMW_WRITE access_state.S_RMW_READ_DATA access_state.S_GET_READ_DATA access_state.S_RMW_START_READ access_state.S_START_READ access_state.S_START_WRITE access_state.S_IDLE 
+access_state.S_IDLE 0 0 0 0 0 0 0 
+access_state.S_START_WRITE 0 0 0 0 0 1 1 
+access_state.S_START_READ 0 0 0 0 1 0 1 
+access_state.S_RMW_START_READ 0 0 0 1 0 0 1 
+access_state.S_GET_READ_DATA 0 0 1 0 0 0 1 
+access_state.S_RMW_READ_DATA 0 1 0 0 0 0 1 
+access_state.S_RMW_WRITE 1 0 0 0 0 0 1 
+
+State Machine - soc_inst|subsys_periph|ssgdma_0|intel_ssgdma_inst|common_dma_wrapper_inst|PREFETCHER_INST_GEN.prefetcher_inst|prefetcher_descriptor_engine_inst|prefetcher_descriptor_send_manager_inst|H2D_MM_ROUTER_TO_AGENT_TDATA_HANDLER_GEN.H2D_MM_ROUTER_TO_AGENT_TDATA_HANDLER_A32_GEN.H2D_MM_ROUTER_TO_AGENT_TDATA_HANDLER_R256_A32_GEN.H2D_MM_ROUTER_TO_AGENT_TDATA_HANDLER_R256_A32_GEN_LOOP[0].h2d_mm_prefetcher_descriptor_256_to_32_handler_inst|agent_trans_counter
+Name agent_trans_counter.0111 agent_trans_counter.0110 agent_trans_counter.0101 agent_trans_counter.0100 agent_trans_counter.0011 agent_trans_counter.0010 agent_trans_counter.0001 agent_trans_counter.0000 agent_trans_counter.1000 
+agent_trans_counter.0000 0 0 0 0 0 0 0 0 0 
+agent_trans_counter.0001 0 0 0 0 0 0 1 1 0 
+agent_trans_counter.0010 0 0 0 0 0 1 0 1 0 
+agent_trans_counter.0011 0 0 0 0 1 0 0 1 0 
+agent_trans_counter.0100 0 0 0 1 0 0 0 1 0 
+agent_trans_counter.0101 0 0 1 0 0 0 0 1 0 
+agent_trans_counter.0110 0 1 0 0 0 0 0 1 0 
+agent_trans_counter.0111 1 0 0 0 0 0 0 1 0 
+agent_trans_counter.1000 0 0 0 0 0 0 0 1 1 
+
+State Machine - soc_inst|mm_interconnect_1|subsys_hps_usb31_phy_reconfig_slave_burst_adapter|altera_merlin_burst_adapter_new.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 
+state.ST_COMP_TRANS 1 0 1 
+state.ST_UNCOMP_TRANS 1 1 0 
+
+State Machine - soc_inst|subsys_periph|ssgdma_0|intel_ssgdma_inst|common_dma_wrapper_inst|dma_router_inst|dma_soc_mode.prefetcher_mem_read_tvalid_tready_generate_inst|current_state
+Name current_state.S1 
+current_state.S0 0 
+current_state.S1 1 
+
+State Machine - soc_inst|subsys_periph|ssgdma_0|intel_ssgdma_inst|common_dma_wrapper_inst|dma_router_inst|dma_soc_mode.prefetcher_mem_write_tvalid_tready_generate_inst|current_state
+Name current_state.S1 
+current_state.S0 0 
+current_state.S1 1 
+
+State Machine - soc_inst|subsys_periph|ssgdma_0|intel_ssgdma_inst|common_dma_wrapper_inst|dma_router_inst|h2d_mm_fifo_instances[0].h2d_mm_tvalid_tready_generate_inst|current_state
+Name current_state.S1 
+current_state.S0 0 
+current_state.S1 1 
+
+State Machine - soc_inst|subsys_debug|fpga_m|altera_jtag_avalon_master_inst|jtag_phy_embedded_in_jtag_master|normal.jtag_dc_streaming|jtag_streaming|write_state
+Name write_state.ST_WRITE_DATA write_state.ST_HEADER_2 write_state.ST_HEADER_1 write_state.ST_BYPASS 
+write_state.ST_BYPASS 0 0 0 0 
+write_state.ST_HEADER_1 0 0 1 1 
+write_state.ST_HEADER_2 0 1 0 1 
+write_state.ST_WRITE_DATA 1 0 0 1 
+
+State Machine - soc_inst|subsys_debug|fpga_m|altera_jtag_avalon_master_inst|jtag_phy_embedded_in_jtag_master|normal.jtag_dc_streaming|jtag_streaming|read_state
+Name read_state.ST_HEADER read_state.ST_READ_DATA read_state.ST_PADDED 
+read_state.ST_HEADER 0 0 0 
+read_state.ST_READ_DATA 1 1 0 
+read_state.ST_PADDED 1 0 1 
+
+State Machine - soc_inst|subsys_debug|hps_m|altera_jtag_avalon_master_inst|jtag_phy_embedded_in_jtag_master|normal.jtag_dc_streaming|jtag_streaming|write_state
+Name write_state.ST_WRITE_DATA write_state.ST_HEADER_2 write_state.ST_HEADER_1 write_state.ST_BYPASS 
+write_state.ST_BYPASS 0 0 0 0 
+write_state.ST_HEADER_1 0 0 1 1 
+write_state.ST_HEADER_2 0 1 0 1 
+write_state.ST_WRITE_DATA 1 0 0 1 
+
+State Machine - soc_inst|subsys_debug|hps_m|altera_jtag_avalon_master_inst|jtag_phy_embedded_in_jtag_master|normal.jtag_dc_streaming|jtag_streaming|read_state
+Name read_state.ST_HEADER read_state.ST_READ_DATA read_state.ST_PADDED 
+read_state.ST_HEADER 0 0 0 
+read_state.ST_READ_DATA 1 1 0 
+read_state.ST_PADDED 1 0 1 
+
+State Machine - soc_inst|subsys_debug|fpga_m|altera_jtag_avalon_master_inst|transacto|p2m|state
+Name state.READ_SEND_WAIT state.READ_DATA_WAIT state.READ_SEND_ISSUE state.READ_CMD_WAIT state.WRITE_WAIT state.RETURN_PACKET state.READ_ASSERT state.GET_WRITE_DATA state.GET_ADDR4 state.GET_ADDR3 state.GET_ADDR2 state.GET_ADDR1 state.GET_SIZE2 state.GET_SIZE1 state.GET_EXTRA state.READY 
+state.READY 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+state.GET_EXTRA 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+state.GET_SIZE1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+state.GET_SIZE2 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+state.GET_ADDR1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+state.GET_ADDR2 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+state.GET_ADDR3 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+state.GET_ADDR4 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+state.GET_WRITE_DATA 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+state.READ_ASSERT 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+state.RETURN_PACKET 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+state.WRITE_WAIT 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+state.READ_CMD_WAIT 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+state.READ_SEND_ISSUE 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.READ_DATA_WAIT 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.READ_SEND_WAIT 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - soc_inst|mm_interconnect_1|subsys_periph_pb_cpu_0_s0_burst_adapter|altera_merlin_burst_adapter_new.burst_adapter|state
+Name state.ST_IDLE state.ST_UNCOMP_TRANS state.ST_COMP_TRANS 
+state.ST_IDLE 0 0 0 
+state.ST_COMP_TRANS 1 0 1 
+state.ST_UNCOMP_TRANS 1 1 0 
+
+State Machine - soc_inst|subsys_debug|hps_m|altera_jtag_avalon_master_inst|transacto|p2m|state
+Name state.READ_SEND_WAIT state.READ_DATA_WAIT state.READ_SEND_ISSUE state.READ_CMD_WAIT state.WRITE_WAIT state.RETURN_PACKET state.READ_ASSERT state.GET_WRITE_DATA state.GET_ADDR4 state.GET_ADDR3 state.GET_ADDR2 state.GET_ADDR1 state.GET_SIZE2 state.GET_SIZE1 state.GET_EXTRA state.READY 
+state.READY 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+state.GET_EXTRA 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+state.GET_SIZE1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+state.GET_SIZE2 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+state.GET_ADDR1 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+state.GET_ADDR2 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+state.GET_ADDR3 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+state.GET_ADDR4 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+state.GET_WRITE_DATA 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+state.READ_ASSERT 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+state.RETURN_PACKET 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+state.WRITE_WAIT 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+state.READ_CMD_WAIT 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+state.READ_SEND_ISSUE 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.READ_DATA_WAIT 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+state.READ_SEND_WAIT 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - soc_inst|subsys_periph|ssgdma_0|intel_ssgdma_inst|device_agent_inst|h2d_mm_agent0_inst|i_agent_csr_interface|csr_state
+Name csr_state.S_DEBUG_READ2 csr_state.S_DEBUG_READ1 csr_state.S_DEBUG_WRITE2 csr_state.S_DEBUG_WRITE1 csr_state.S_DEBUG_RMW csr_state.S_IS_RESET csr_state.S_SET_RESTTING csr_state.S_START_RESET csr_state.S_IS_PAUSED csr_state.S_CLEAR_PAUSE csr_state.S_START_PAUSE csr_state.S_IDLE csr_state.S_WAIT_RESET csr_state.S_WAIT_PAUSED csr_state.S_UPDATE_FLUSH_BYTES csr_state.S_RESET 
+csr_state.S_RESET 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+csr_state.S_UPDATE_FLUSH_BYTES 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+csr_state.S_WAIT_PAUSED 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+csr_state.S_WAIT_RESET 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+csr_state.S_IDLE 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+csr_state.S_START_PAUSE 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+csr_state.S_CLEAR_PAUSE 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+csr_state.S_IS_PAUSED 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+csr_state.S_START_RESET 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+csr_state.S_SET_RESTTING 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+csr_state.S_IS_RESET 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+csr_state.S_DEBUG_RMW 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+csr_state.S_DEBUG_WRITE1 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+csr_state.S_DEBUG_WRITE2 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+csr_state.S_DEBUG_READ1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+csr_state.S_DEBUG_READ2 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 

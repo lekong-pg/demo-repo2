@@ -1,0 +1,561 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deploy
+ date="2023.12.22.16:33:25"
+ outputDirectory="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/sandboxes/20206_0/sld/ipgen/alt_sld_fab_0/">
+ <perimeter>
+  <parameter
+     name="AUTO_GENERATION_ID"
+     type="Integer"
+     defaultValue="0"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_UNIQUE_ID"
+     type="String"
+     defaultValue=""
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_DEVICE_FAMILY"
+     type="String"
+     defaultValue="Agilex 5"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_DEVICE"
+     type="String"
+     defaultValue="A5ED065BB32AE5SR0"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_DEVICE_SPEEDGRADE"
+     type="String"
+     defaultValue="5"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_BOARD"
+     type="String"
+     defaultValue="default"
+     onHdl="0"
+     affectsHdl="1" />
+ </perimeter>
+ <entity kind="alt_sld_fab_0" version="1.0" name="alt_sld_fab_0">
+  <parameter name="AUTO_GENERATION_ID" value="0" />
+  <parameter name="AUTO_DEVICE" value="A5ED065BB32AE5SR0" />
+  <parameter name="AUTO_DEVICE_FAMILY" value="Agilex 5" />
+  <parameter name="AUTO_BOARD" value="default" />
+  <parameter name="AUTO_UNIQUE_ID" value="" />
+  <parameter name="AUTO_DEVICE_SPEEDGRADE" value="5" />
+  <generatedFiles>
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/sandboxes/20206_0/sld/ipgen/alt_sld_fab_0/synth/alt_sld_fab_0.v"
+       attributes="CONTAINS_INLINE_CONFIGURATION" />
+  </generatedFiles>
+  <childGeneratedFiles>
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/sandboxes/20206_0/sld/ipgen/alt_sld_fab_0/synth/alt_sld_fab_0.v"
+       attributes="CONTAINS_INLINE_CONFIGURATION" />
+  </childGeneratedFiles>
+  <sourceFiles>
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/sandboxes/20206_0/sld/ipgen/alt_sld_fab_0.ip" />
+  </sourceFiles>
+  <childSourceFiles>
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/sandboxes/20206_0/sld/ipgen/alt_sld_fab_wrapper_hw.tcl" />
+   <file
+       path="/nfs/site/disks/swbld_archive_4/acds/23.4/79/linux64/ip/altera/sld/core/altera_instrumentation_fabric/alt_sld_fab_hw.tcl" />
+   <file
+       path="/nfs/site/disks/swbld_archive_4/acds/23.4/79/linux64/ip/altera/sld/core/altera_instrumentation_fabric/com.altera.superfabric.jar" />
+   <file
+       path="/nfs/site/disks/swbld_archive_4/acds/23.4/79/linux64/quartus/sopc_builder/model/lib/com.altera.utilities.jar" />
+   <file
+       path="/nfs/site/disks/swbld_archive_4/acds/23.4/79/linux64/quartus/sopc_builder/model/lib/commons-lang3-3.9.jar" />
+   <file
+       path="/nfs/site/disks/swbld_archive_4/acds/23.4/79/linux64/ip/altera/sld/core/altera_super_splitter/altera_sld_splitter_hw.tcl" />
+   <file
+       path="/nfs/site/disks/swbld_archive_4/acds/23.4/79/linux64/ip/altera/sld/jtag/altera_jtag_wys_atom/altera_jtag_wys_atom_hw.tcl" />
+   <file
+       path="/nfs/site/disks/swbld_archive_4/acds/23.4/79/linux64/ip/altera/sld/jtag/altera_sld_jtag_hub/altera_sld_jtag_hub_hw.tcl" />
+   <file
+       path="/nfs/site/disks/swbld_archive_4/acds/23.4/79/linux64/ip/altera/sld/core/altera_connection_identification_hub/altera_connection_identification_hub_hw.tcl" />
+   <file
+       path="/nfs/site/disks/swbld_archive_4/acds/23.4/79/linux64/ip/altera/sld/conf_reset/conf_reset_hub/intel_configuration_debug_reset_release_hub_hw.tcl" />
+   <file
+       path="/nfs/site/disks/swbld_archive_4/acds/23.4/79/linux64/ip/altera/sld/conf_reset/dbg_conf_reset/intel_configuration_reset_release_for_debug_hw.tcl" />
+   <file
+       path="/nfs/site/disks/swbld_archive_4/acds/23.4/79/linux64/ip/altera/sld/conf_reset/user_input/intel_configuration_reset_release_to_debug_logic_hw.tcl" />
+   <file
+       path="/nfs/site/disks/swbld_archive_4/acds/23.4/79/linux64/ip/altera/sld/conf_reset/agilex/intel_agilex_reset_release_from_sdm_hw.tcl" />
+  </childSourceFiles>
+  <messages>
+   <message level="Info" culprit="alt_sld_fab_0">"Generating: alt_sld_fab_0"</message>
+   <message level="Info" culprit="alt_sld_fab_0">"Generating: alt_sld_fab_0_alt_sld_fab_0_10_mgvf7lq"</message>
+   <message level="Info" culprit="alt_sld_fab_0">"Generating: alt_sld_fab_0_alt_sld_fab_1920_m6x5pza"</message>
+   <message level="Info" culprit="alt_sld_fab_0">"Generating: alt_sld_fab_0_altera_sld_splitter_1920_knhmvay"</message>
+   <message level="Info" culprit="alt_sld_fab_0">"Generating: altera_jtag_wys_atom"</message>
+   <message level="Info" culprit="alt_sld_fab_0">"Generating: alt_sld_fab_0_altera_sld_jtag_hub_1920_7zqpjfi"</message>
+   <message level="Info" culprit="alt_sld_fab_0">"Generating: alt_sld_fab_0_altera_connection_identification_hub_1920_5jpsi2y"</message>
+   <message level="Info" culprit="alt_sld_fab_0">"Generating: alt_sld_fab_0_intel_configuration_debug_reset_release_hub_203_ozhi34q"</message>
+   <message level="Info" culprit="conf_reset_src">"Generating: conf_reset_src"</message>
+   <message level="Info" culprit="grounded_conf_reset_src">"Generating: grounded_conf_reset_src"</message>
+   <message level="Info" culprit="alt_sld_fab_0">"Generating: conf_reset_src"</message>
+   <message level="Info" culprit="alt_sld_fab_0">"Generating: intel_configuration_reset_release_for_debug"</message>
+   <message level="Info" culprit="alt_sld_fab_0">"Generating: grounded_conf_reset_src"</message>
+   <message level="Info" culprit="alt_sld_fab_0">"Generating: intel_configuration_reset_release_to_debug_logic"</message>
+   <message level="Info" culprit="alt_sld_fab_0">"Generating: alt_sld_fab_0_intel_agilex_reset_release_from_sdm_203_bv4oeci"</message>
+  </messages>
+ </entity>
+ <entity
+   kind="alt_sld_fab_0"
+   version="1.0"
+   name="alt_sld_fab_0_alt_sld_fab_0_10_mgvf7lq">
+  <parameter name="AUTO_DEVICE" value="A5ED065BB32AE5SR0" />
+  <parameter name="AUTO_DEVICE_FAMILY" value="Agilex 5" />
+  <parameter name="AUTO_BOARD" value="default" />
+  <parameter name="AUTO_DEVICE_SPEEDGRADE" value="5" />
+  <generatedFiles>
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/sandboxes/20206_0/sld/ipgen/alt_sld_fab_0/alt_sld_fab_0_10/synth/alt_sld_fab_0_alt_sld_fab_0_10_mgvf7lq.v"
+       attributes="CONTAINS_INLINE_CONFIGURATION" />
+  </generatedFiles>
+  <childGeneratedFiles>
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/sandboxes/20206_0/sld/ipgen/alt_sld_fab_0/alt_sld_fab_0_10/synth/alt_sld_fab_0_alt_sld_fab_0_10_mgvf7lq.v"
+       attributes="CONTAINS_INLINE_CONFIGURATION" />
+  </childGeneratedFiles>
+  <sourceFiles>
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/sandboxes/20206_0/sld/ipgen/alt_sld_fab_wrapper_hw.tcl" />
+  </sourceFiles>
+  <childSourceFiles>
+   <file
+       path="/nfs/site/disks/swbld_archive_4/acds/23.4/79/linux64/ip/altera/sld/core/altera_instrumentation_fabric/alt_sld_fab_hw.tcl" />
+   <file
+       path="/nfs/site/disks/swbld_archive_4/acds/23.4/79/linux64/ip/altera/sld/core/altera_instrumentation_fabric/com.altera.superfabric.jar" />
+   <file
+       path="/nfs/site/disks/swbld_archive_4/acds/23.4/79/linux64/quartus/sopc_builder/model/lib/com.altera.utilities.jar" />
+   <file
+       path="/nfs/site/disks/swbld_archive_4/acds/23.4/79/linux64/quartus/sopc_builder/model/lib/commons-lang3-3.9.jar" />
+   <file
+       path="/nfs/site/disks/swbld_archive_4/acds/23.4/79/linux64/ip/altera/sld/core/altera_super_splitter/altera_sld_splitter_hw.tcl" />
+   <file
+       path="/nfs/site/disks/swbld_archive_4/acds/23.4/79/linux64/ip/altera/sld/jtag/altera_jtag_wys_atom/altera_jtag_wys_atom_hw.tcl" />
+   <file
+       path="/nfs/site/disks/swbld_archive_4/acds/23.4/79/linux64/ip/altera/sld/jtag/altera_sld_jtag_hub/altera_sld_jtag_hub_hw.tcl" />
+   <file
+       path="/nfs/site/disks/swbld_archive_4/acds/23.4/79/linux64/ip/altera/sld/core/altera_connection_identification_hub/altera_connection_identification_hub_hw.tcl" />
+   <file
+       path="/nfs/site/disks/swbld_archive_4/acds/23.4/79/linux64/ip/altera/sld/conf_reset/conf_reset_hub/intel_configuration_debug_reset_release_hub_hw.tcl" />
+   <file
+       path="/nfs/site/disks/swbld_archive_4/acds/23.4/79/linux64/ip/altera/sld/conf_reset/dbg_conf_reset/intel_configuration_reset_release_for_debug_hw.tcl" />
+   <file
+       path="/nfs/site/disks/swbld_archive_4/acds/23.4/79/linux64/ip/altera/sld/conf_reset/user_input/intel_configuration_reset_release_to_debug_logic_hw.tcl" />
+   <file
+       path="/nfs/site/disks/swbld_archive_4/acds/23.4/79/linux64/ip/altera/sld/conf_reset/agilex/intel_agilex_reset_release_from_sdm_hw.tcl" />
+  </childSourceFiles>
+  <instantiator instantiator="alt_sld_fab_0" as="alt_sld_fab_0" />
+  <messages>
+   <message level="Info" culprit="alt_sld_fab_0">"Generating: alt_sld_fab_0_alt_sld_fab_0_10_mgvf7lq"</message>
+   <message level="Info" culprit="alt_sld_fab_0">"Generating: alt_sld_fab_0_alt_sld_fab_1920_m6x5pza"</message>
+   <message level="Info" culprit="alt_sld_fab_0">"Generating: alt_sld_fab_0_altera_sld_splitter_1920_knhmvay"</message>
+   <message level="Info" culprit="alt_sld_fab_0">"Generating: altera_jtag_wys_atom"</message>
+   <message level="Info" culprit="alt_sld_fab_0">"Generating: alt_sld_fab_0_altera_sld_jtag_hub_1920_7zqpjfi"</message>
+   <message level="Info" culprit="alt_sld_fab_0">"Generating: alt_sld_fab_0_altera_connection_identification_hub_1920_5jpsi2y"</message>
+   <message level="Info" culprit="alt_sld_fab_0">"Generating: alt_sld_fab_0_intel_configuration_debug_reset_release_hub_203_ozhi34q"</message>
+   <message level="Info" culprit="conf_reset_src">"Generating: conf_reset_src"</message>
+   <message level="Info" culprit="grounded_conf_reset_src">"Generating: grounded_conf_reset_src"</message>
+   <message level="Info" culprit="alt_sld_fab_0">"Generating: conf_reset_src"</message>
+   <message level="Info" culprit="alt_sld_fab_0">"Generating: intel_configuration_reset_release_for_debug"</message>
+   <message level="Info" culprit="alt_sld_fab_0">"Generating: grounded_conf_reset_src"</message>
+   <message level="Info" culprit="alt_sld_fab_0">"Generating: intel_configuration_reset_release_to_debug_logic"</message>
+   <message level="Info" culprit="alt_sld_fab_0">"Generating: alt_sld_fab_0_intel_agilex_reset_release_from_sdm_203_bv4oeci"</message>
+  </messages>
+ </entity>
+ <entity
+   kind="alt_sld_fab"
+   version="19.2.0"
+   name="alt_sld_fab_0_alt_sld_fab_1920_m6x5pza">
+  <parameter name="MAX_WIDTH" value="0" />
+  <parameter name="TOP_HUB" value="1" />
+  <parameter name="AUTO_BOARD" value="default" />
+  <parameter name="DEVICE_FAMILY" value="Agilex 5" />
+  <parameter
+     name="SETTINGS"
+     value="{fabric agilex_config_reset_release dir agent psig 142e1a3c} {fabric sld dir agent mfr_code 110 type_code 132 version 1 instance -1 ir_width 3 bridge_agent 0 prefer_host { } psig 9b67919e} {fabric sld dir agent mfr_code 110 type_code 132 version 1 instance -1 ir_width 3 bridge_agent 0 prefer_host { } psig 9b67919e} " />
+  <parameter name="CLOCKS" value="{id {} } {id {} } {id {} } " />
+  <parameter name="DESIGN_HASH" value="31d9153d30a6b8d4af43" />
+  <parameter name="AUTO_DEVICE_SPEEDGRADE" value="5" />
+  <parameter name="MIRROR" value="0" />
+  <parameter
+     name="COMPOSED_SETTINGS"
+     value="{fabric agilex_config_reset_release dir agent} {fabric sld dir agent mfr_code 110 type_code 132 version 1 instance 0 ir_width 3 bridge_agent 0 prefer_host {} } {fabric sld dir agent mfr_code 110 type_code 132 version 1 instance 1 ir_width 3 bridge_agent 0 prefer_host {} } " />
+  <parameter name="AUTO_DEVICE" value="A5ED065BB32AE5SR0" />
+  <parameter
+     name="EP_INFOS"
+     value="{hpath {soc_inst|user_rst_clkgate_0|intel_user_rst_clkgate_inst|config_reset_release_endpoint|ep} } {hpath {soc_inst|subsys_debug|fpga_m|altera_jtag_avalon_master_inst|jtag_phy_embedded_in_jtag_master|node|sld_virtual_jtag_component|sld_virtual_jtag_impl_inst|jtag_signal_adapter|sld_jtag_endpoint_adapter_impl_inst|sld_agent_ep_inst|ep} } {hpath {soc_inst|subsys_debug|hps_m|altera_jtag_avalon_master_inst|jtag_phy_embedded_in_jtag_master|node|sld_virtual_jtag_component|sld_virtual_jtag_impl_inst|jtag_signal_adapter|sld_jtag_endpoint_adapter_impl_inst|sld_agent_ep_inst|ep} } " />
+  <parameter name="AGENTS" value="" />
+  <parameter name="NODE_COUNT" value="3" />
+  <generatedFiles>
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/sandboxes/20206_0/sld/ipgen/alt_sld_fab_0/alt_sld_fab_1920/synth/alt_sld_fab_0_alt_sld_fab_1920_m6x5pza.v"
+       attributes="CONTAINS_INLINE_CONFIGURATION" />
+  </generatedFiles>
+  <childGeneratedFiles>
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/sandboxes/20206_0/sld/ipgen/alt_sld_fab_0/alt_sld_fab_1920/synth/alt_sld_fab_0_alt_sld_fab_1920_m6x5pza.v"
+       attributes="CONTAINS_INLINE_CONFIGURATION" />
+  </childGeneratedFiles>
+  <sourceFiles>
+   <file
+       path="/nfs/site/disks/swbld_archive_4/acds/23.4/79/linux64/ip/altera/sld/core/altera_instrumentation_fabric/alt_sld_fab_hw.tcl" />
+   <file
+       path="/nfs/site/disks/swbld_archive_4/acds/23.4/79/linux64/ip/altera/sld/core/altera_instrumentation_fabric/com.altera.superfabric.jar" />
+   <file
+       path="/nfs/site/disks/swbld_archive_4/acds/23.4/79/linux64/quartus/sopc_builder/model/lib/com.altera.utilities.jar" />
+   <file
+       path="/nfs/site/disks/swbld_archive_4/acds/23.4/79/linux64/quartus/sopc_builder/model/lib/commons-lang3-3.9.jar" />
+  </sourceFiles>
+  <childSourceFiles>
+   <file
+       path="/nfs/site/disks/swbld_archive_4/acds/23.4/79/linux64/ip/altera/sld/core/altera_super_splitter/altera_sld_splitter_hw.tcl" />
+   <file
+       path="/nfs/site/disks/swbld_archive_4/acds/23.4/79/linux64/ip/altera/sld/jtag/altera_jtag_wys_atom/altera_jtag_wys_atom_hw.tcl" />
+   <file
+       path="/nfs/site/disks/swbld_archive_4/acds/23.4/79/linux64/ip/altera/sld/jtag/altera_sld_jtag_hub/altera_sld_jtag_hub_hw.tcl" />
+   <file
+       path="/nfs/site/disks/swbld_archive_4/acds/23.4/79/linux64/ip/altera/sld/core/altera_connection_identification_hub/altera_connection_identification_hub_hw.tcl" />
+   <file
+       path="/nfs/site/disks/swbld_archive_4/acds/23.4/79/linux64/ip/altera/sld/conf_reset/conf_reset_hub/intel_configuration_debug_reset_release_hub_hw.tcl" />
+   <file
+       path="/nfs/site/disks/swbld_archive_4/acds/23.4/79/linux64/ip/altera/sld/conf_reset/dbg_conf_reset/intel_configuration_reset_release_for_debug_hw.tcl" />
+   <file
+       path="/nfs/site/disks/swbld_archive_4/acds/23.4/79/linux64/ip/altera/sld/conf_reset/user_input/intel_configuration_reset_release_to_debug_logic_hw.tcl" />
+   <file
+       path="/nfs/site/disks/swbld_archive_4/acds/23.4/79/linux64/ip/altera/sld/conf_reset/agilex/intel_agilex_reset_release_from_sdm_hw.tcl" />
+  </childSourceFiles>
+  <instantiator
+     instantiator="alt_sld_fab_0_alt_sld_fab_0_10_mgvf7lq"
+     as="alt_sld_fab_0" />
+  <messages>
+   <message level="Info" culprit="alt_sld_fab_0">"Generating: alt_sld_fab_0_alt_sld_fab_1920_m6x5pza"</message>
+   <message level="Info" culprit="alt_sld_fab_0">"Generating: alt_sld_fab_0_altera_sld_splitter_1920_knhmvay"</message>
+   <message level="Info" culprit="alt_sld_fab_0">"Generating: altera_jtag_wys_atom"</message>
+   <message level="Info" culprit="alt_sld_fab_0">"Generating: alt_sld_fab_0_altera_sld_jtag_hub_1920_7zqpjfi"</message>
+   <message level="Info" culprit="alt_sld_fab_0">"Generating: alt_sld_fab_0_altera_connection_identification_hub_1920_5jpsi2y"</message>
+   <message level="Info" culprit="alt_sld_fab_0">"Generating: alt_sld_fab_0_intel_configuration_debug_reset_release_hub_203_ozhi34q"</message>
+   <message level="Info" culprit="conf_reset_src">"Generating: conf_reset_src"</message>
+   <message level="Info" culprit="grounded_conf_reset_src">"Generating: grounded_conf_reset_src"</message>
+   <message level="Info" culprit="alt_sld_fab_0">"Generating: conf_reset_src"</message>
+   <message level="Info" culprit="alt_sld_fab_0">"Generating: intel_configuration_reset_release_for_debug"</message>
+   <message level="Info" culprit="alt_sld_fab_0">"Generating: grounded_conf_reset_src"</message>
+   <message level="Info" culprit="alt_sld_fab_0">"Generating: intel_configuration_reset_release_to_debug_logic"</message>
+   <message level="Info" culprit="alt_sld_fab_0">"Generating: alt_sld_fab_0_intel_agilex_reset_release_from_sdm_203_bv4oeci"</message>
+  </messages>
+ </entity>
+ <entity
+   kind="altera_sld_splitter"
+   version="19.2.0"
+   name="alt_sld_fab_0_altera_sld_splitter_1920_knhmvay">
+  <parameter
+     name="FRAGMENTS"
+     value="{{name conf_reset type reset dir end ports { {conf_reset reset in 1 0} } properties { {synchronousEdges {None} } } } } {{name clock type clock dir end ports { {tck clk in 1 0} } } {name node type conduit dir end ports { {tms tms in 1 1} {tdi tdi in 1 2} {tdo tdo out 1 0} {ena ena in 1 3} {usr1 usr1 in 1 4} {clr clr in 1 5} {clrn clrn in 1 6} {jtag_state_tlr jtag_state_tlr in 1 7} {jtag_state_rti jtag_state_rti in 1 8} {jtag_state_sdrs jtag_state_sdrs in 1 9} {jtag_state_cdr jtag_state_cdr in 1 10} {jtag_state_sdr jtag_state_sdr in 1 11} {jtag_state_e1dr jtag_state_e1dr in 1 12} {jtag_state_pdr jtag_state_pdr in 1 13} {jtag_state_e2dr jtag_state_e2dr in 1 14} {jtag_state_udr jtag_state_udr in 1 15} {jtag_state_sirs jtag_state_sirs in 1 16} {jtag_state_cir jtag_state_cir in 1 17} {jtag_state_sir jtag_state_sir in 1 18} {jtag_state_e1ir jtag_state_e1ir in 1 19} {jtag_state_pir jtag_state_pir in 1 20} {jtag_state_e2ir jtag_state_e2ir in 1 21} {jtag_state_uir jtag_state_uir in 1 22} {ir_in ir_in in 3 23} {irq irq out 1 1} {ir_out ir_out out 3 2} } clock clock assign {debug.controlledBy {link_1} } moduleassign {debug.virtualInterface.link_1 {debug.endpointLink {fabric sld index 1} } } } } {{name clock type clock dir end ports { {tck clk in 1 0} } } {name node type conduit dir end ports { {tms tms in 1 1} {tdi tdi in 1 2} {tdo tdo out 1 0} {ena ena in 1 3} {usr1 usr1 in 1 4} {clr clr in 1 5} {clrn clrn in 1 6} {jtag_state_tlr jtag_state_tlr in 1 7} {jtag_state_rti jtag_state_rti in 1 8} {jtag_state_sdrs jtag_state_sdrs in 1 9} {jtag_state_cdr jtag_state_cdr in 1 10} {jtag_state_sdr jtag_state_sdr in 1 11} {jtag_state_e1dr jtag_state_e1dr in 1 12} {jtag_state_pdr jtag_state_pdr in 1 13} {jtag_state_e2dr jtag_state_e2dr in 1 14} {jtag_state_udr jtag_state_udr in 1 15} {jtag_state_sirs jtag_state_sirs in 1 16} {jtag_state_cir jtag_state_cir in 1 17} {jtag_state_sir jtag_state_sir in 1 18} {jtag_state_e1ir jtag_state_e1ir in 1 19} {jtag_state_pir jtag_state_pir in 1 20} {jtag_state_e2ir jtag_state_e2ir in 1 21} {jtag_state_uir jtag_state_uir in 1 22} {ir_in ir_in in 3 23} {irq irq out 1 1} {ir_out ir_out out 3 2} } clock clock assign {debug.controlledBy {link_2} } moduleassign {debug.virtualInterface.link_2 {debug.endpointLink {fabric sld index 2} } } } } " />
+  <parameter name="EXAMPLE" value="" />
+  <parameter name="ADD_INTERFACE_ASGN" value="1" />
+  <generatedFiles>
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/sandboxes/20206_0/sld/ipgen/alt_sld_fab_0/altera_sld_splitter_1920/synth/alt_sld_fab_0_altera_sld_splitter_1920_knhmvay.sv"
+       attributes="TOP_LEVEL_FILE" />
+  </generatedFiles>
+  <childGeneratedFiles>
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/sandboxes/20206_0/sld/ipgen/alt_sld_fab_0/altera_sld_splitter_1920/synth/alt_sld_fab_0_altera_sld_splitter_1920_knhmvay.sv"
+       attributes="TOP_LEVEL_FILE" />
+  </childGeneratedFiles>
+  <sourceFiles>
+   <file
+       path="/nfs/site/disks/swbld_archive_4/acds/23.4/79/linux64/ip/altera/sld/core/altera_super_splitter/altera_sld_splitter_hw.tcl" />
+  </sourceFiles>
+  <childSourceFiles/>
+  <instantiator instantiator="alt_sld_fab_0_alt_sld_fab_1920_m6x5pza" as="splitter" />
+  <messages>
+   <message level="Info" culprit="alt_sld_fab_0">"Generating: alt_sld_fab_0_altera_sld_splitter_1920_knhmvay"</message>
+  </messages>
+ </entity>
+ <entity
+   kind="altera_jtag_wys_atom"
+   version="19.2.0"
+   name="altera_jtag_wys_atom">
+  <parameter name="device_family" value="Agilex 5" />
+  <parameter name="DEVICE_FAMILY_ID" value="15" />
+  <generatedFiles>
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/sandboxes/20206_0/sld/ipgen/alt_sld_fab_0/altera_jtag_wys_atom_1920/synth/altera_jtag_wys_atom.sv"
+       attributes="TOP_LEVEL_FILE" />
+  </generatedFiles>
+  <childGeneratedFiles>
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/sandboxes/20206_0/sld/ipgen/alt_sld_fab_0/altera_jtag_wys_atom_1920/synth/altera_jtag_wys_atom.sv"
+       attributes="TOP_LEVEL_FILE" />
+  </childGeneratedFiles>
+  <sourceFiles>
+   <file
+       path="/nfs/site/disks/swbld_archive_4/acds/23.4/79/linux64/ip/altera/sld/jtag/altera_jtag_wys_atom/altera_jtag_wys_atom_hw.tcl" />
+  </sourceFiles>
+  <childSourceFiles/>
+  <instantiator instantiator="alt_sld_fab_0_alt_sld_fab_1920_m6x5pza" as="jtagpins" />
+  <messages>
+   <message level="Info" culprit="alt_sld_fab_0">"Generating: altera_jtag_wys_atom"</message>
+  </messages>
+ </entity>
+ <entity
+   kind="altera_sld_jtag_hub"
+   version="19.2.0"
+   name="alt_sld_fab_0_altera_sld_jtag_hub_1920_7zqpjfi">
+  <parameter name="CONN_INDEX" value="0" />
+  <parameter name="N_SEL_BITS" value="2" />
+  <parameter name="DEVICE_FAMILY" value="Agilex 5" />
+  <parameter name="N_NODE_IR_BITS" value="5" />
+  <parameter name="BRIDGE_START_INDEX" value="3" />
+  <parameter
+     name="SETTINGS"
+     value="{mfr_code 110 type_code 132 version 1 instance 0 ir_width 3 bridge_agent 0 prefer_host {} } {mfr_code 110 type_code 132 version 1 instance 1 ir_width 3 bridge_agent 0 prefer_host {} } " />
+  <parameter name="FORCE_IR_CAPTURE_FEATURE" value="1" />
+  <parameter name="USE_TCK_ENA" value="0" />
+  <parameter name="BROADCAST_FEATURE" value="1" />
+  <parameter
+     name="NODE_INFO"
+     value="0000110000100000011011100000000100001100001000000110111000000000" />
+  <parameter name="COMPILATION_MODE" value="0" />
+  <parameter name="ENABLE_SOFT_CORE_CONTROLLER" value="0" />
+  <parameter name="NEGEDGE_TDO_LATCH" value="0" />
+  <parameter name="FORCE_PRE_1_4_FEATURE" value="0" />
+  <parameter name="COUNT" value="2" />
+  <parameter name="BRIDGE_HOST" value="0" />
+  <generatedFiles>
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/sandboxes/20206_0/sld/ipgen/alt_sld_fab_0/altera_sld_jtag_hub_1920/synth/alt_sld_fab_0_altera_sld_jtag_hub_1920_7zqpjfi.vhd"
+       attributes="" />
+  </generatedFiles>
+  <childGeneratedFiles>
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/sandboxes/20206_0/sld/ipgen/alt_sld_fab_0/altera_sld_jtag_hub_1920/synth/alt_sld_fab_0_altera_sld_jtag_hub_1920_7zqpjfi.vhd"
+       attributes="" />
+  </childGeneratedFiles>
+  <sourceFiles>
+   <file
+       path="/nfs/site/disks/swbld_archive_4/acds/23.4/79/linux64/ip/altera/sld/jtag/altera_sld_jtag_hub/altera_sld_jtag_hub_hw.tcl" />
+  </sourceFiles>
+  <childSourceFiles/>
+  <instantiator instantiator="alt_sld_fab_0_alt_sld_fab_1920_m6x5pza" as="sldfabric" />
+  <messages>
+   <message level="Info" culprit="alt_sld_fab_0">"Generating: alt_sld_fab_0_altera_sld_jtag_hub_1920_7zqpjfi"</message>
+  </messages>
+ </entity>
+ <entity
+   kind="altera_connection_identification_hub"
+   version="19.2.0"
+   name="alt_sld_fab_0_altera_connection_identification_hub_1920_5jpsi2y">
+  <parameter name="COUNT" value="1" />
+  <parameter name="SETTINGS" value="{width 4 latency 0} " />
+  <parameter name="DESIGN_HASH" value="31d9153d30a6b8d4af43" />
+  <generatedFiles>
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/sandboxes/20206_0/sld/ipgen/alt_sld_fab_0/altera_connection_identification_hub_1920/synth/alt_sld_fab_0_altera_connection_identification_hub_1920_5jpsi2y.sv"
+       attributes="TOP_LEVEL_FILE" />
+  </generatedFiles>
+  <childGeneratedFiles>
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/sandboxes/20206_0/sld/ipgen/alt_sld_fab_0/altera_connection_identification_hub_1920/synth/alt_sld_fab_0_altera_connection_identification_hub_1920_5jpsi2y.sv"
+       attributes="TOP_LEVEL_FILE" />
+  </childGeneratedFiles>
+  <sourceFiles>
+   <file
+       path="/nfs/site/disks/swbld_archive_4/acds/23.4/79/linux64/ip/altera/sld/core/altera_connection_identification_hub/altera_connection_identification_hub_hw.tcl" />
+  </sourceFiles>
+  <childSourceFiles/>
+  <instantiator instantiator="alt_sld_fab_0_alt_sld_fab_1920_m6x5pza" as="ident" />
+  <messages>
+   <message level="Info" culprit="alt_sld_fab_0">"Generating: alt_sld_fab_0_altera_connection_identification_hub_1920_5jpsi2y"</message>
+  </messages>
+ </entity>
+ <entity
+   kind="intel_configuration_debug_reset_release_hub"
+   version="20.3"
+   name="alt_sld_fab_0_intel_configuration_debug_reset_release_hub_203_ozhi34q">
+  <parameter name="SOURCE_PROVIDED" value="0" />
+  <parameter name="device_family" value="Agilex 5" />
+  <parameter name="COUNT" value="1" />
+  <parameter name="SETTINGS" value="{is_source 0} " />
+  <parameter name="DEVICE_FAMILY_ID" value="0" />
+  <generatedFiles>
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/sandboxes/20206_0/sld/ipgen/alt_sld_fab_0/intel_configuration_debug_reset_release_hub_203/synth/alt_sld_fab_0_intel_configuration_debug_reset_release_hub_203_ozhi34q.v"
+       attributes="" />
+  </generatedFiles>
+  <childGeneratedFiles>
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/sandboxes/20206_0/sld/ipgen/alt_sld_fab_0/intel_configuration_debug_reset_release_hub_203/synth/alt_sld_fab_0_intel_configuration_debug_reset_release_hub_203_ozhi34q.v"
+       attributes="" />
+  </childGeneratedFiles>
+  <sourceFiles>
+   <file
+       path="/nfs/site/disks/swbld_archive_4/acds/23.4/79/linux64/ip/altera/sld/conf_reset/conf_reset_hub/intel_configuration_debug_reset_release_hub_hw.tcl" />
+  </sourceFiles>
+  <childSourceFiles>
+   <file
+       path="/nfs/site/disks/swbld_archive_4/acds/23.4/79/linux64/ip/altera/sld/conf_reset/dbg_conf_reset/intel_configuration_reset_release_for_debug_hw.tcl" />
+   <file
+       path="/nfs/site/disks/swbld_archive_4/acds/23.4/79/linux64/ip/altera/sld/conf_reset/user_input/intel_configuration_reset_release_to_debug_logic_hw.tcl" />
+  </childSourceFiles>
+  <instantiator
+     instantiator="alt_sld_fab_0_alt_sld_fab_1920_m6x5pza"
+     as="configresetfabric" />
+  <messages>
+   <message level="Info" culprit="alt_sld_fab_0">"Generating: alt_sld_fab_0_intel_configuration_debug_reset_release_hub_203_ozhi34q"</message>
+   <message level="Info" culprit="conf_reset_src">"Generating: conf_reset_src"</message>
+   <message level="Info" culprit="grounded_conf_reset_src">"Generating: grounded_conf_reset_src"</message>
+   <message level="Info" culprit="alt_sld_fab_0">"Generating: conf_reset_src"</message>
+   <message level="Info" culprit="alt_sld_fab_0">"Generating: intel_configuration_reset_release_for_debug"</message>
+   <message level="Info" culprit="alt_sld_fab_0">"Generating: grounded_conf_reset_src"</message>
+   <message level="Info" culprit="alt_sld_fab_0">"Generating: intel_configuration_reset_release_to_debug_logic"</message>
+  </messages>
+ </entity>
+ <entity
+   kind="intel_agilex_reset_release_from_sdm"
+   version="20.3"
+   name="alt_sld_fab_0_intel_agilex_reset_release_from_sdm_203_bv4oeci">
+  <parameter name="COUNT" value="1" />
+  <parameter name="SETTINGS" value="{} " />
+  <generatedFiles>
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/sandboxes/20206_0/sld/ipgen/alt_sld_fab_0/intel_agilex_reset_release_from_sdm_203/synth/alt_sld_fab_0_intel_agilex_reset_release_from_sdm_203_bv4oeci.v"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/sandboxes/20206_0/sld/ipgen/alt_sld_fab_0/intel_agilex_reset_release_from_sdm_203/synth/intel_agilex_reset_release_from_sdm_atom.v"
+       attributes="" />
+  </generatedFiles>
+  <childGeneratedFiles>
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/sandboxes/20206_0/sld/ipgen/alt_sld_fab_0/intel_agilex_reset_release_from_sdm_203/synth/alt_sld_fab_0_intel_agilex_reset_release_from_sdm_203_bv4oeci.v"
+       attributes="" />
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/sandboxes/20206_0/sld/ipgen/alt_sld_fab_0/intel_agilex_reset_release_from_sdm_203/synth/intel_agilex_reset_release_from_sdm_atom.v"
+       attributes="" />
+  </childGeneratedFiles>
+  <sourceFiles>
+   <file
+       path="/nfs/site/disks/swbld_archive_4/acds/23.4/79/linux64/ip/altera/sld/conf_reset/agilex/intel_agilex_reset_release_from_sdm_hw.tcl" />
+  </sourceFiles>
+  <childSourceFiles/>
+  <instantiator
+     instantiator="alt_sld_fab_0_alt_sld_fab_1920_m6x5pza"
+     as="agilexconfigreset" />
+  <messages>
+   <message level="Info" culprit="alt_sld_fab_0">"Generating: alt_sld_fab_0_intel_agilex_reset_release_from_sdm_203_bv4oeci"</message>
+  </messages>
+ </entity>
+ <entity
+   kind="intel_configuration_debug_reset_release_hub_intel_configuration_reset_release_for_debug"
+   version="20.3"
+   name="conf_reset_src">
+  <generatedFiles>
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/sandboxes/20206_0/sld/ipgen/alt_sld_fab_0/intel_configuration_debug_reset_release_hub_203/synth/conf_reset_src.v"
+       attributes="CONTAINS_INLINE_CONFIGURATION" />
+  </generatedFiles>
+  <childGeneratedFiles>
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/sandboxes/20206_0/sld/ipgen/alt_sld_fab_0/intel_configuration_debug_reset_release_hub_203/synth/conf_reset_src.v"
+       attributes="CONTAINS_INLINE_CONFIGURATION" />
+  </childGeneratedFiles>
+  <sourceFiles/>
+  <childSourceFiles>
+   <file
+       path="/nfs/site/disks/swbld_archive_4/acds/23.4/79/linux64/ip/altera/sld/conf_reset/dbg_conf_reset/intel_configuration_reset_release_for_debug_hw.tcl" />
+  </childSourceFiles>
+  <instantiator
+     instantiator="alt_sld_fab_0_intel_configuration_debug_reset_release_hub_203_ozhi34q"
+     as="conf_reset_src" />
+  <messages>
+   <message level="Info" culprit="alt_sld_fab_0">"Generating: conf_reset_src"</message>
+   <message level="Info" culprit="alt_sld_fab_0">"Generating: intel_configuration_reset_release_for_debug"</message>
+  </messages>
+ </entity>
+ <entity
+   kind="intel_configuration_debug_reset_release_hub_intel_configuration_reset_release_to_debug_logic"
+   version="20.3"
+   name="grounded_conf_reset_src">
+  <generatedFiles>
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/sandboxes/20206_0/sld/ipgen/alt_sld_fab_0/intel_configuration_debug_reset_release_hub_203/synth/grounded_conf_reset_src.v"
+       attributes="CONTAINS_INLINE_CONFIGURATION" />
+  </generatedFiles>
+  <childGeneratedFiles>
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/sandboxes/20206_0/sld/ipgen/alt_sld_fab_0/intel_configuration_debug_reset_release_hub_203/synth/grounded_conf_reset_src.v"
+       attributes="CONTAINS_INLINE_CONFIGURATION" />
+  </childGeneratedFiles>
+  <sourceFiles/>
+  <childSourceFiles>
+   <file
+       path="/nfs/site/disks/swbld_archive_4/acds/23.4/79/linux64/ip/altera/sld/conf_reset/user_input/intel_configuration_reset_release_to_debug_logic_hw.tcl" />
+  </childSourceFiles>
+  <instantiator
+     instantiator="alt_sld_fab_0_intel_configuration_debug_reset_release_hub_203_ozhi34q"
+     as="grounded_conf_reset_src" />
+  <messages>
+   <message level="Info" culprit="alt_sld_fab_0">"Generating: grounded_conf_reset_src"</message>
+   <message level="Info" culprit="alt_sld_fab_0">"Generating: intel_configuration_reset_release_to_debug_logic"</message>
+  </messages>
+ </entity>
+ <entity
+   kind="intel_configuration_reset_release_for_debug"
+   version="20.3"
+   name="intel_configuration_reset_release_for_debug">
+  <generatedFiles>
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/sandboxes/20206_0/sld/ipgen/alt_sld_fab_0/intel_configuration_reset_release_for_debug_203/synth/intel_configuration_reset_release_for_debug.v"
+       attributes="" />
+  </generatedFiles>
+  <childGeneratedFiles>
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/sandboxes/20206_0/sld/ipgen/alt_sld_fab_0/intel_configuration_reset_release_for_debug_203/synth/intel_configuration_reset_release_for_debug.v"
+       attributes="" />
+  </childGeneratedFiles>
+  <sourceFiles>
+   <file
+       path="/nfs/site/disks/swbld_archive_4/acds/23.4/79/linux64/ip/altera/sld/conf_reset/dbg_conf_reset/intel_configuration_reset_release_for_debug_hw.tcl" />
+  </sourceFiles>
+  <childSourceFiles/>
+  <instantiator instantiator="conf_reset_src" as="conf_reset_src" />
+  <messages>
+   <message level="Info" culprit="alt_sld_fab_0">"Generating: intel_configuration_reset_release_for_debug"</message>
+  </messages>
+ </entity>
+ <entity
+   kind="intel_configuration_reset_release_to_debug_logic"
+   version="20.3"
+   name="intel_configuration_reset_release_to_debug_logic">
+  <generatedFiles>
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/sandboxes/20206_0/sld/ipgen/alt_sld_fab_0/intel_configuration_reset_release_to_debug_logic_203/synth/intel_configuration_reset_release_to_debug_logic.v"
+       attributes="" />
+  </generatedFiles>
+  <childGeneratedFiles>
+   <file
+       path="/nfs/png/disks/swuser_work_lekong/my-git/others/sm_make/applications.fpga.soc.ghrd-socfpga/sm_soc_devkit_ghrd/sandboxes/20206_0/sld/ipgen/alt_sld_fab_0/intel_configuration_reset_release_to_debug_logic_203/synth/intel_configuration_reset_release_to_debug_logic.v"
+       attributes="" />
+  </childGeneratedFiles>
+  <sourceFiles>
+   <file
+       path="/nfs/site/disks/swbld_archive_4/acds/23.4/79/linux64/ip/altera/sld/conf_reset/user_input/intel_configuration_reset_release_to_debug_logic_hw.tcl" />
+  </sourceFiles>
+  <childSourceFiles/>
+  <instantiator instantiator="grounded_conf_reset_src" as="grounded_conf_reset_src" />
+  <messages>
+   <message level="Info" culprit="alt_sld_fab_0">"Generating: intel_configuration_reset_release_to_debug_logic"</message>
+  </messages>
+ </entity>
+</deploy>

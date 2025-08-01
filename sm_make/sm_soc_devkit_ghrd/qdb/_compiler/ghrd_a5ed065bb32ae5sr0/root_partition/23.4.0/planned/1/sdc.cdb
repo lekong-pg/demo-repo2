@@ -1,0 +1,2220 @@
+22 serialization::archive 19 0 0 0 0 10 0 1 / 3 nfs 3 png 5 disks 18 swuser_work_lekong 6 my-git 6 others 7 sm_make 34 applications.fpga.soc.ghrd-socfpga 18 sm_soc_devkit_ghrd 0 0 14 0 0 0 15 0 1 / 3 nfs 3 png 5 disks 18 swuser_work_lekong 6 my-git 6 others 7 sm_make 34 applications.fpga.soc.ghrd-socfpga 18 sm_soc_devkit_ghrd 10 hps_subsys 10 hps_subsys 28 altera_reset_controller_1922 5 synth 27 altera_reset_controller.sdc 2326 # (C) 2001-2023 Intel Corporation. All rights reserved.
+# Your use of Intel Corporation's design tools, logic functions and other 
+# software and tools, and its AMPP partner logic functions, and any output 
+# files from any of the foregoing (including device programming or simulation 
+# files), and any associated documentation or information are expressly subject 
+# to the terms and conditions of the Intel Program License Subscription 
+# Agreement, Intel FPGA IP License Agreement, or other applicable 
+# license agreement, including, without limitation, that your use is for the 
+# sole purpose of programming logic devices manufactured by Intel and sold by 
+# Intel or its authorized distributors.  Please refer to the applicable 
+# agreement for further details.
+
+
+# +---------------------------------------------------
+# | Cut the async clear paths
+# +---------------------------------------------------
+set aclr_counter 0
+set clrn_counter 0
+
+if {[get_current_instance] == ""} {set hpath ""} else {set hpath "[get_current_instance]|*"} 
+post_message -type info "Following instance found in the design -  $hpath"
+
+set aclr_collection [get_pins -compatibility_mode -nocase -nowarn ${hpath}alt_rst_sync_uq1|altera_reset_synchronizer_int_chain*|aclr]
+set clrn_collection [get_pins -compatibility_mode -nocase -nowarn ${hpath}alt_rst_sync_uq1|altera_reset_synchronizer_int_chain*|clrn]
+set num_sync_stage [get_registers -nocase -nowarn ${hpath}alt_rst_sync_uq1|altera_reset_synchronizer_int_chain[*]]
+set num_sync_count [get_collection_size $num_sync_stage]   
+set aclr_counter [get_collection_size $aclr_collection]
+set clrn_counter [get_collection_size $clrn_collection]
+
+if {$aclr_counter == 0 &&  $clrn_counter == 0 && $num_sync_count > 0} {
+    set_max_delay  -to [get_registers ${hpath}alt_rst_sync_uq1|altera_reset_synchronizer_int_chain[[expr $num_sync_count-1]]] 100
+    set_min_delay  -to [get_registers ${hpath}alt_rst_sync_uq1|altera_reset_synchronizer_int_chain[[expr $num_sync_count-1]]] -100
+}
+
+if {$aclr_counter > 0} {
+    set_false_path -to [get_pins -compatibility_mode -nocase ${hpath}alt_rst_sync_uq1|altera_reset_synchronizer_int_chain*|aclr]
+}
+
+if {$clrn_counter > 0} {
+    set_false_path -to [get_pins -compatibility_mode -nocase ${hpath}alt_rst_sync_uq1|altera_reset_synchronizer_int_chain*|clrn]
+}
+ 17 0 1 / 3 nfs 3 png 5 disks 18 swuser_work_lekong 6 my-git 6 others 7 sm_make 34 applications.fpga.soc.ghrd-socfpga 18 sm_soc_devkit_ghrd 10 hps_subsys 2 ip 10 hps_subsys 10 agilex_hps 26 intel_sundancemesa_hps_100 5 synth 49 agilex_hps_intel_sundancemesa_hps_100_7splw2q.sdc 1691 if {[get_collection_size [get_nodes -nowarn sundancemesa_hps_inst~l4_main_clk]  ] > 0} { 
+	 create_clock -name l4_main_clk_src -period 2.5 [get_nodes -nowarn sundancemesa_hps_inst~l4_main_clk] 
+	 create_generated_clock -divide_by 1 -name l4_main_clk [get_registers sundancemesa_hps_inst~l4_main_clk.reg] -master_clock [get_clocks l4_main_clk_src] -source [get_nodes sundancemesa_hps_inst~l4_main_clk] 
+} 
+if {[get_collection_size [get_nodes -nowarn sundancemesa_hps_inst~l4_mp_clk]  ] > 0} { 
+	 create_clock -name l4_mp_clk_src -period 5.0 [get_nodes -nowarn sundancemesa_hps_inst~l4_mp_clk] 
+	 create_generated_clock -divide_by 1 -name l4_mp_clk [get_registers sundancemesa_hps_inst~l4_mp_clk.reg] -master_clock [get_clocks l4_mp_clk_src] -source [get_nodes sundancemesa_hps_inst~l4_mp_clk] 
+} 
+if {[get_collection_size [get_pins -nowarn -compatibility_mode  sundancemesa_hps_inst|f2s*irq*]  ] > 0} { 
+ 	 set_false_path -through [get_pins -nowarn -compatibility_mode  sundancemesa_hps_inst|f2s*irq*] -to [get_registers *clk*.reg]  
+} 
+if {[get_collection_size [get_pins -nowarn -compatibility_mode  sundancemesa_hps_inst|s2f*irq*]  ] > 0} { 
+ 	 set_false_path -through [get_pins -nowarn -compatibility_mode  sundancemesa_hps_inst|s2f*irq*] -from [get_registers *clk*.reg]  
+} 
+if {[get_collection_size [get_nodes -nowarn sundancemesa_hps_inst~pll_main_c2]  ] > 0} { 
+	 create_clock -name pll_main_c2_clk_src -period 2.0 [get_nodes -nowarn sundancemesa_hps_inst~pll_main_c2] 
+	 create_generated_clock -divide_by 1 -name pll_main_c2 [get_registers sundancemesa_hps_inst~pll_main_c2.reg] -master_clock [get_clocks pll_main_c2_clk_src] -source [get_nodes sundancemesa_hps_inst~pll_main_c2] 
+} 
+ 17 0 1 / 3 nfs 3 png 5 disks 18 swuser_work_lekong 6 my-git 6 others 7 sm_make 34 applications.fpga.soc.ghrd-socfpga 18 sm_soc_devkit_ghrd 10 hps_subsys 2 ip 10 hps_subsys 8 gts_inst 19 intel_srcss_gts_200 5 synth 40 gts_inst_intel_srcss_gts_200_bg3co7q.sdc 3358 # (C) 2001-2023 Intel Corporation. All rights reserved.
+# Your use of Intel Corporation's design tools, logic functions and other 
+# software and tools, and its AMPP partner logic functions, and any output 
+# files from any of the foregoing (including device programming or simulation 
+# files), and any associated documentation or information are expressly subject 
+# to the terms and conditions of the Intel Program License Subscription 
+# Agreement, Intel FPGA IP License Agreement, or other applicable 
+# license agreement, including, without limitation, that your use is for the 
+# sole purpose of programming logic devices manufactured by Intel and sold by 
+# Intel or its authorized distributors.  Please refer to the applicable 
+# agreement for further details.
+
+
+
+##intel_srcss_gts IP SDC##
+
+
+set module_name gts_inst_intel_srcss_gts_200_bg3co7q
+
+
+
+## set global variables
+global ::ip_sdc_debug
+
+set ip_sdc_debug 1
+
+## get current IP instance 
+set ip_inst_name [get_current_instance]
+post_message -type info "IP SDC: $ip_inst_name"
+
+
+
+#**************************************************************
+# Create Clock
+#**************************************************************
+
+
+#**************************************************************
+# Create Generated Clock
+#**************************************************************
+
+
+
+
+#Create Clock for the Shoreline reset sequencer 
+#create_generated_clock -divide_by 2 -source [get_nodes {*|intosc|oscillator_dut~oscillator_clock}] -name "${ip_inst_name}_src_divided_osc_clk" [get_registers "${ip_inst_name}|inst|divided_osc_clk"]
+
+set src_rs   [get_registers -nowarn ${ip_inst_name}|inst|*_src_rs*[*]]
+ 
+    if {[get_collection_size ${src_rs}] > 0} {
+        create_generated_clock -divide_by 2 -source [get_nodes {*|intosc|oscillator_dut~oscillator_clock}] -name "${ip_inst_name}_src_divided_osc_clk" [get_registers "${ip_inst_name}|inst|divided_osc_clk"] 
+    }	
+
+			
+			
+#**************************************************************
+# Set Clock Latency
+#**************************************************************
+
+
+
+#**************************************************************
+# Set Clock Uncertainty
+#**************************************************************
+
+
+
+#**************************************************************
+# Set Input Delay
+#**************************************************************
+
+
+#**************************************************************
+# Set Output Delay
+#**************************************************************
+
+#**************************************************************
+# Set Clock Groups
+#**************************************************************
+
+
+
+#**************************************************************
+# Set False Path
+#**************************************************************
+#**************************************************************
+
+
+
+#**************************************************************
+# Set Maximum Delay
+#**************************************************************
+
+
+
+#**************************************************************
+# Set Minimum Delay
+#**************************************************************
+
+
+
+#**************************************************************
+# Set Input Transition
+#**************************************************************
+
+
+
+ 17 0 1 / 3 nfs 3 png 5 disks 18 swuser_work_lekong 6 my-git 6 others 7 sm_make 34 applications.fpga.soc.ghrd-socfpga 18 sm_soc_devkit_ghrd 10 hps_subsys 2 ip 8 qsys_top 8 emif_hps 24 emif_ph2_phy_arch_fp_600 5 synth 45 emif_hps_emif_ph2_phy_arch_fp_600_jc3j7xi.sdc 12742 # (C) 2001-2023 Intel Corporation. All rights reserved.
+# Your use of Intel Corporation's design tools, logic functions and other 
+# software and tools, and its AMPP partner logic functions, and any output 
+# files from any of the foregoing (including device programming or simulation 
+# files), and any associated documentation or information are expressly subject 
+# to the terms and conditions of the Intel Program License Subscription 
+# Agreement, Intel FPGA IP License Agreement, or other applicable 
+# license agreement, including, without limitation, that your use is for the 
+# sole purpose of programming logic devices manufactured by Intel and sold by 
+# Intel or its authorized distributors.  Please refer to the applicable 
+# agreement for further details.
+
+
+#####################################################################
+#
+# THIS IS AN AUTO-GENERATED FILE!
+# -------------------------------
+# If you modify this files, all your changes will be lost if you
+# regenerate the core!
+#
+# FILE DESCRIPTION
+# ----------------
+# This file specifies the timing constraints of the memory device and
+# of the memory interface
+ 
+# ------------------------------------------- #
+# -                                         - #
+# --- Some useful functions and variables --- #
+# -                                         - #
+# ------------------------------------------- #
+ 
+set script_dir [file dirname [info script]]
+source "$script_dir/emif_hps_emif_ph2_phy_arch_fp_600_jc3j7xi_timing_parameters.tcl"
+source "$script_dir/emif_hps_emif_ph2_phy_arch_fp_600_jc3j7xi_timing_pins.tcl"
+ 
+#--------------------------------------------#
+# -                                        - #
+# --- Determine when SDC is being loaded --- #
+# -                                        - #
+#--------------------------------------------#
+ 
+set syn_flow 0
+set sta_flow 0
+set fit_flow 0
+set pow_flow 0
+if { $::TimeQuestInfo(nameofexecutable) == "quartus_map" || $::TimeQuestInfo(nameofexecutable) == "quartus_syn" } {
+   set syn_flow 1
+} elseif { $::TimeQuestInfo(nameofexecutable) == "quartus_sta" } {
+   set sta_flow 1
+} elseif { $::TimeQuestInfo(nameofexecutable) == "quartus_fit" } {
+   set fit_flow 1
+} elseif { $::TimeQuestInfo(nameofexecutable) == "quartus_pow" } {
+   set pow_flow 1
+}
+set ::io_only_analysis 0
+ 
+# ------------------------ #
+# -                      - #
+# --- GENERAL SETTINGS --- #
+# -                      - #
+# ------------------------ #
+ 
+# This is a global setting and will apply to the whole design.
+# This setting is required for the memory interface to be
+# properly constrained.
+derive_clock_uncertainty
+ 
+# Debug switch. Change to 1 to get more run-time debug information
+set debug 0
+ 
+# All timing requirements will be represented in nanoseconds with up to 3 decimal places of precision
+set_time_format -unit ns -decimal_places 3
+ 
+# Determine if entity names are on
+set entity_names_on [ emif_are_entity_names_on ]
+ 
+# ---------------------- #
+# -                    - #
+# --- DERIVED TIMING --- #
+# -                    - #
+# ---------------------- #
+ 
+# PLL multiplier to mem clk
+#regexp {([0-9\.]+) ps} $var(PLL_REF_CLK_FREQ_PS_STR) match var(PHY_REF_CLK_FREQ_PS)
+set vco_freq [ emif_round_3dp [expr $var(PHY_MEMCLK_FREQ_MHZ)*$var(CLK_DIV_VCO_MEM)]]
+set phy_freq [ emif_round_3dp [expr $var(PHY_MEMCLK_FREQ_MHZ)/$var(CLK_DIV_MEM_PHY)]]
+set vco_multiplier [emif_round_3dp [expr $vco_freq/$var(PHY_REFCLK_FREQ_MHZ)]]
+
+
+# Half of memory clock cycle
+#set half_period [ emif_round_3dp [ expr $var(UI) / 2.0 ] ]
+ 
+# Half of reference clock
+#set ref_period      [ emif_round_3dp [ expr $var(PHY_REF_CLK_FREQ_PS)/1000.0] ]
+ 
+# Other clock periods
+#set tCK_AFI     [ emif_round_3dp [ expr 1000.0/$var(PHY_MEM_CLK_FREQ_MHZ)*$var(USER_CLK_RATIO) ] ]
+ 
+# Asymmetric uncertainties on address and command paths
+#set ac_min_delay [ emif_round_3dp [ expr - $var(tIH) + $var(CA_TO_CK_BD_PKG_SKEW) ]]
+ 
+# ---------------------- #
+# -                    - #
+# --- INTERFACE RATE --- #
+# -                    - #
+# ---------------------- #
+ 
+# -------------------------------------------------------------------- #
+# -                                                                  - #
+# --- This is the main call to the netlist traversal routines      --- #
+# --- that will automatically find all pins and registers required --- #
+# --- to apply timing constraints.                                 --- #
+# --- During the fitter, the routines will be called only once     --- #
+# --- and cached data will be used in all subsequent calls.        --- #
+# -                                                                  - #
+# -------------------------------------------------------------------- #
+ 
+if { ! [ info exists emif_hps_emif_ph2_phy_arch_fp_600_jc3j7xi_sdc_cache ] } {
+   emif_initialize_ddr_db emif_hps_emif_ph2_phy_arch_fp_600_jc3j7xi_emif_ddr_db var
+   set emif_hps_emif_ph2_phy_arch_fp_600_jc3j7xi_sdc_cache 1
+} else {
+   if { $debug } {
+      post_message -type info "SDC: reusing cached DDR DB"
+   }
+}
+ 
+# ------------------------------------------------------------- #
+# -                                                           - #
+# --- If multiple instances of this core are present in the --- #
+# --- design they will all be constrained through the       --- #
+# --- following loop                                        --- #
+# -                                                           - #
+# ------------------------------------------------------------- #
+ 
+set instances [ array names emif_hps_emif_ph2_phy_arch_fp_600_jc3j7xi_emif_ddr_db ]
+foreach { inst } $instances {
+   if { [ info exists pins ] } {
+      unset pins
+   }
+   array set pins $emif_hps_emif_ph2_phy_arch_fp_600_jc3j7xi_emif_ddr_db($inst)
+
+   # ----------------------- #
+   # -                     - #
+   # --- REFERENCE CLOCK --- #
+   # -                     - #
+   # ----------------------- #
+ 
+   # First determine if a reference clock has already been created (i.e. Reference clock sharing)
+   set ref_clock_exists [ emif_does_ref_clk_exist $pins(pll_ref_clock) ]
+   if { $ref_clock_exists == 0 }  {
+      # This is the reference clock used by the PLL to derive any other clock in the core
+      if {$var(LOCKSTEP_ROLE) eq "OFF"} {
+        create_clock -period "$var(PHY_REFCLK_FREQ_MHZ)MHz" $pins(pll_ref_clock) -add -name ${inst}_ref_clock
+      } else {
+        create_clock -period "$var(PHY_REFCLK_FREQ_MHZ)MHz" $pins(pll_ref_clock) -add -name $pins(pll_ref_clock)
+      }
+   }
+   
+   set pins(ref_clock_name) [emif_get_clock_name_from_pin_name $pins(pll_ref_clock)]
+   # NCNTR clock division
+   set pll_ncntr_clk [emif_get_or_add_generated_clock \
+      -target $pins(pll_ncntr) \
+      -name ${inst}_pll_ncntr \
+      -source $pins(pll_ref_clock) \
+      -multiply_by 1 \
+      -divide_by $var(PLL_N_DIV) \
+      -phase 0 ]
+
+    if {$var(PLL_N_DIV)==1} {
+       set srcclk $pins(pll_ref_clock)
+    } else {
+       set srcclk $pins(pll_ncntr)
+    }
+
+   # VCO clock
+   set i_vco_clock 0
+   foreach { vco_clock } $pins(pll_vco_clock) vco_base $pins(vco_base_node) {
+ 
+      emif_get_or_add_generated_clock -target $vco_base \
+         -name "${inst}_vco_base_${i_vco_clock}" \
+         -source $srcclk \
+         -multiply_by $var(PLL_M_DIV)  \
+         -divide_by 1 \
+         -phase 0 
+ 
+      incr i_vco_clock
+   }
+   set i_vco_clock 0
+   foreach { vco_clock } $pins(pll_vco_periph_clock) vco_base $pins(vco_base_node) {
+      set local_pll_vco_clk__p${i_vco_clock} [ emif_get_or_add_generated_clock \
+         -target $vco_clock \
+         -name "${inst}_vco_clk_periph_${i_vco_clock}" \
+         -source $srcclk \
+         -multiply_by $var(PLL_M_DIV)  \
+         -divide_by 1 \
+         -phase 0 ]
+      incr i_vco_clock
+   }
+
+   # Periphery clocks
+   set periphery_clocks [list]
+   set i_phy_clock 0
+   foreach { phy_clock } $pins(pll_phy_clock) phy_reg $pins(pll_phy_reg) {
+      set divide_by [expr {$var(CLK_DIV_VCO_MEM) * $var(CLK_DIV_MEM_PHY)}]
+      set phase 0 ;
+      emif_get_or_add_generated_clock -target $phy_reg \
+         -name "${inst}_c0_cntr_${i_phy_clock}" \
+         -source [lindex $pins(vco_base_node) $i_phy_clock] \
+         -multiply_by 1 \
+         -divide_by $divide_by \
+         -phase $phase
+
+      set local_phy_clk_${i_phy_clock} [ emif_get_or_add_generated_clock \
+         -target $phy_clock \
+         -name "${inst}_phy_clk_${i_phy_clock}" \
+         -source $phy_reg \
+         -multiply_by 1 \
+         -divide_by 1 \
+         -phase $phase ]
+      lappend periphery_clocks [set local_phy_clk_${i_phy_clock}]
+      incr i_phy_clock
+   }
+ 
+   set i_phy_clock_l 0
+   foreach { phy_clock_l } $pins(pll_phy_clock_sync) phy_reg_s $pins(pll_phy_reg_sync) {
+      set divide_by $var(PLL_C_DIV_1)
+      set phase 0
+      emif_get_or_add_generated_clock -target $phy_reg_s \
+         -name "${inst}_c1_cntr_${i_phy_clock_l}" \
+         -source [lindex $pins(vco_base_node) $i_phy_clock_l] \
+         -multiply_by 1 \
+         -divide_by $divide_by \
+         -phase $phase
+ 
+      set local_phy_clk_sync_${i_phy_clock_l} [ emif_get_or_add_generated_clock \
+         -target $phy_clock_l \
+         -name "${inst}_phy_clk_sync_${i_phy_clock_l}" \
+         -source $phy_reg_s \
+         -multiply_by 1 \
+         -divide_by 1 \
+         -phase $phase ]
+      lappend periphery_clocks [set local_phy_clk_sync_${i_phy_clock_l}]
+      incr i_phy_clock_l
+   }
+   
+   set usr_clock ""
+   if {!($var(PHY_NOC_EN) || $var(MEM_CLK_ASYNC) || $var(LOCKSTEP_ROLE) eq "SECONDARY")} {
+      set phase 0
+ 
+      set usr_clock [ emif_get_or_add_generated_clock \
+         -target $pins(cpa_clock) \
+         -name "${inst}_usr_clk" \
+         -source [lindex $pins(vco_base_node) 0] \
+         -multiply_by 1 \
+         -divide_by $var(CLK_DIV_VCO_CORE) \
+         -phase $phase ]
+   }
+
+   # WRITE_CLK
+   foreach {dqs_t} $pins(dqs_t) {
+
+      set_false_path -to [get_ports $dqs_t]
+      set_false_path -from [get_ports $dqs_t]
+
+      create_clock -period "${vco_freq}MHz" $dqs_t -name "${inst}_${dqs_t}_in" -add
+
+      disable_min_pulse_width ${inst}_${dqs_t}_in
+   }
+
+   # READ_CLK
+#set rclk_idx 0
+
+   if {[regexp "_DDR4" $var(MEM_TECHNOLOGY)]} {
+      set fa_div 2
+   } else {
+      set fa_div 4
+   }
+   foreach {fa_phyclk} $pins(phyclk_div) {
+      emif_get_or_add_generated_clock \
+         -target [lindex $fa_phyclk 0] \
+         -name "${inst}_fa_[lindex $fa_phyclk 1]_[lindex $fa_phyclk 2]_[lindex $fa_phyclk 3]" \
+         -source [lindex $pins(pll_phy_clock) 0] \
+         -multiply_by 1 \
+         -divide_by $fa_div \
+         -phase 0
+   }
+
+   set lane 0
+   foreach { phy_rxclk_gated } $pins(phy_rxclk_gated) byte_rx_gated $pins(byte_rx_gated) {
+      create_clock -name "${inst}_lane_${lane}_rxclk_gated" -period 10.000 $phy_rxclk_gated
+      set lane_${lane}_byte_rx_gated [ emif_get_or_add_generated_clock \
+         -target $byte_rx_gated \
+         -name "${inst}_lane_${lane}_byte_rx_gated" \
+         -source $phy_rxclk_gated \
+         -multiply_by 1 \
+         -divide_by 1 \
+         -phase 0 ]
+      set_false_path -from [get_clocks "${inst}_lane_${lane}_byte_rx_gated"]
+      incr lane
+   }
+   
+   # LOCKSTEP
+   if {$var(LOCKSTEP_ROLE) eq "PRIMARY"} {
+        regexp {(\S+)\|(arch_emif_ls_0)} $inst -> emif_inst
+        if ${sta_flow} {
+            set_min_delay -10 -from [get_keepers ${emif_inst}|axil_adaptor|*|*_mcp*]
+            set_max_delay  10 -from [get_keepers ${emif_inst}|axil_adaptor|*|*_mcp*]
+            set_data_delay -from [get_keepers ${emif_inst}|axil_adaptor|*|*_mcp*] -get_value_from_clock_period dst_clock_period -no_synchronizer -value_multiplier 2
+        } else { 
+            set_min_delay -5 -from [get_keepers ${emif_inst}|axil_adaptor|*|*_mcp*]
+            set_max_delay  5 -from [get_keepers ${emif_inst}|axil_adaptor|*|*_mcp*]
+            set_data_delay -from [get_keepers ${emif_inst}|axil_adaptor|*|*_mcp*] -get_value_from_clock_period dst_clock_period -no_synchronizer -value_multiplier 1
+        }
+        emif_add_false_path $sta_flow 5 -to [get_keepers ${emif_inst}|axil_adaptor|*|*_sync_inst|din_s1]
+        set_data_delay -to [get_keepers ${emif_inst}|axil_adaptor|*|*_sync_inst|din_s1] -get_value_from_clock_period dst_clock_period -value_multiplier 1
+        emif_add_false_path $sta_flow 10 -to [get_keepers ${emif_inst}|axil_adaptor|*|*rst*_sync_inst|*]
+        set_false_path -from  [get_keepers ${emif_inst}|*|AXIL_ADAPTOR.adaptor_inst|*hipi_c2p|inst] -to [get_keepers ${emif_inst}|*|wrapper_pll|pll~out_clk_periph0_reg]
+        set_false_path -from  [get_keepers ${emif_inst}|*|AXIL_ADAPTOR.adaptor_inst|*hipi_c2p*] -to [get_keepers ${emif_inst}|*|wrapper_pll|pll~out_clk_periph0_reg]
+    }
+}
+
+set_false_path -to [get_registers *pa_hr_reg] -setup
+ 17 0 1 / 3 nfs 3 png 5 disks 18 swuser_work_lekong 6 my-git 6 others 7 sm_make 34 applications.fpga.soc.ghrd-socfpga 18 sm_soc_devkit_ghrd 10 hps_subsys 2 ip 8 qsys_top 8 emif_hps 24 emif_ph2_phy_arch_fp_600 5 synth 63 emif_hps_emif_ph2_phy_arch_fp_600_jc3j7xi_timing_parameters.tcl 859 set ::GLOBAL_phy_arch_name                  emif_hps_emif_ph2_phy_arch_fp_600_jc3j7xi
+
+set var(MEM_TECHNOLOGY)                     MEM_TECHNOLOGY_DDR4
+set var(PHY_REFCLK_FREQ_MHZ)                116.625
+set var(PHY_MEMCLK_FREQ_MHZ)                933.0
+set var(MEM_DQ_WIDTH)                       32
+set var(PHY_NOC_EN)                         true
+set var(MEM_CLK_ASYNC)                      1
+set var(CLK_DIV_VCO_MEM)                    1
+set var(CLK_DIV_MEM_REF)                    8
+set var(CLK_DIV_MEM_PHY)                    2
+set var(PLL_C_DIV_0)                        2
+set var(PLL_C_DIV_1)                        256
+set var(PLL_N_DIV)                          1
+set var(PLL_M_DIV)                          8
+set var(CLK_DIV_VCO_CORE)                   4
+set var(DQ_PER_DQS)                         8
+set var(LOCKSTEP_ROLE)                      OFF
+ 17 0 1 / 3 nfs 3 png 5 disks 18 swuser_work_lekong 6 my-git 6 others 7 sm_make 34 applications.fpga.soc.ghrd-socfpga 18 sm_soc_devkit_ghrd 10 hps_subsys 2 ip 8 qsys_top 8 emif_hps 24 emif_ph2_phy_arch_fp_600 5 synth 57 emif_hps_emif_ph2_phy_arch_fp_600_jc3j7xi_timing_pins.tcl 28290 # (C) 2001-2023 Intel Corporation. All rights reserved.
+# Your use of Intel Corporation's design tools, logic functions and other 
+# software and tools, and its AMPP partner logic functions, and any output 
+# files from any of the foregoing (including device programming or simulation 
+# files), and any associated documentation or information are expressly subject 
+# to the terms and conditions of the Intel Program License Subscription 
+# Agreement, Intel FPGA IP License Agreement, or other applicable 
+# license agreement, including, without limitation, that your use is for the 
+# sole purpose of programming logic devices manufactured by Intel and sold by 
+# Intel or its authorized distributors.  Please refer to the applicable 
+# agreement for further details.
+
+
+set script_dir [file dirname [info script]]
+source "$script_dir/emif_hps_emif_ph2_phy_arch_fp_600_jc3j7xi_timing_utils.tcl"
+ 
+load_package sdc_ext
+ 
+proc emif_get_ddr_pins { instname allpins var_array_name} {
+   # We need to make a local copy of the allpins associative array
+   upvar allpins pins
+   upvar 1 $var_array_name var
+   set debug 0
+
+   global ::GLOBAL_phy_arch_name
+
+ 
+   set var(pll_inclock_search_depth) 30
+   set var(pll_outclock_search_depth) 20
+   set var(pll_vcoclock_search_depth) 5
+ 
+   # ########################################
+   #  1.0 find all of the PLL output clocks
+
+   set pll_c0_periph_clock_pin_name     "out_clk_periph0";#"lvds_clk\[0\]"
+   set pll_c1_periph_clock_pin_name     "out_clk_periph1";#"loaden\[0\]"
+   set vco_clock_pin_name               "vcoph\[0\]"
+   set vco_periph_clock_pin_name        "vco_clk_periph"
+   set pll_path                         "${instname}|${::GLOBAL_phy_arch_name}_phy_arch_fp_inst|wrapper_pll|pll"
+
+   # Find the ncntr register in the pll
+   set pins(pll_ncntr) [list]
+   set pins(pll_ncntr_reg_id) [get_registers ${pll_path}*ncntr_reg]
+
+   foreach_in_collection r $pins(pll_ncntr_reg_id) {
+      set reg_name [get_register_info -name $r]
+      lappend pins(pll_ncntr) [regsub -all {\\} $reg_name {\\\\}]
+   }
+   set pins(pll_ncntr) [emif_sort_duplicate_names $pins(pll_ncntr)]
+ 
+   #  C0 output in the periphery
+   set pins(pll_c0_periph_clock) [list]
+   set pins(pll_c0_periph_reg) [list]
+   set pins(pll_c0_periph_clock_pin_id) [get_pins -nowarn [list $pll_path*|$pll_c0_periph_clock_pin_name]]
+ 
+   foreach_in_collection c $pins(pll_c0_periph_clock_pin_id) {
+      set pin_info [get_pin_info -net $c]
+      set net_name [get_net_info -name $pin_info]
+ 
+      if {$debug} {
+         puts "PLL pin -> PLL Net: [get_node_info -name $c] -> $net_name"
+      }
+      lappend pins(pll_c0_periph_clock) [regsub -all {\\} $net_name {\\\\}]
+      array set creg_name [list]
+      emif_traverse_fanin_up_to_depth $net_name emif_is_node_type_reg clock creg_name 2 
+      lappend pins(pll_c0_periph_reg) [regsub -all {\\} [get_register_info -name [lindex [array names creg_name] 0]] {\\\\}]
+      array unset creg_name
+   }
+   set pins(pll_c0_periph_clock) [emif_sort_duplicate_names $pins(pll_c0_periph_clock)]
+ 
+   #  C1 output in the periphery
+   set pins(pll_c1_periph_clock) [list]
+   set pins(pll_c1_periph_reg) [list]
+   set pins(pll_c1_periph_clock_pin_id) [get_pins -nowarn [list $pll_path*|$pll_c1_periph_clock_pin_name]]
+ 
+   foreach_in_collection c $pins(pll_c1_periph_clock_pin_id) {
+      set pin_info [get_pin_info -net $c]
+      set net_name [get_net_info -name $pin_info]
+ 
+      if {$debug} {
+         puts "PLL pin -> PLL Net: [get_node_info -name $c] -> $net_name"
+      }
+ 
+      lappend pins(pll_c1_periph_clock) [regsub -all {\\} $net_name {\\\\}]
+      array set creg_name [list]
+      emif_traverse_fanin_up_to_depth $net_name emif_is_node_type_reg clock creg_name 2 
+      lappend pins(pll_c1_periph_reg) [regsub -all {\\} [get_register_info -name [lindex [array names creg_name] 0]] {\\\\}]
+      array unset creg_name
+   }
+   set pins(pll_c1_periph_clock) [emif_sort_duplicate_names $pins(pll_c1_periph_clock)]
+ 
+   #  VCO clock (used for the system clock)
+   set pins(vco_base_node) [list]
+   set pins(vco_base_node_id) [get_nodes -nowarn [list ${pll_path}~vcoph\[0\]]]
+   
+   foreach_in_collection n $pins(vco_base_node_id) {
+      set net_name [get_node_info -name $n]
+ 
+      if {$debug} {
+         puts "PLL pin -> PLL Net: [get_node_info -name $n] -> $net_name"
+      }
+ 
+      lappend pins(vco_base_node) [regsub -all {\\} $net_name {\\\\}]
+   }
+   set pins(vco_clock) [list]
+   set pins(vco_clock_pin_id) [get_pins -nowarn [list $pll_path*~$vco_clock_pin_name]]
+ 
+   foreach_in_collection c $pins(vco_clock_pin_id) {
+      set pin_info [get_pin_info -net $c]
+      set net_name [get_net_info -name $pin_info]
+ 
+      if {$debug} {
+         puts "PLL pin -> PLL Net: [get_node_info -name $c] -> $net_name"
+      }
+ 
+      lappend pins(vco_clock) [regsub -all {\\} $net_name {\\\\}]
+   }
+
+   #  VCO periph clock (used for the system clock)
+   set pins(vco_periph_clock) [list]
+   set pins(vco_periph_clock_pin_id) [get_pins -nowarn [list $pll_path*|$vco_periph_clock_pin_name]]
+ 
+   foreach_in_collection c $pins(vco_periph_clock_pin_id) {
+      set pin_info [get_pin_info -net $c]
+      set net_name [get_net_info -name $pin_info]
+ 
+      if {$debug} {
+         puts "PLL pin -> PLL Net: [get_node_info -name $c] -> $net_name"
+      }
+ 
+      lappend pins(vco_periph_clock) [regsub -all {\\} $net_name {\\\\}]
+   }
+
+   set pins(vco_periph_clock) [emif_sort_duplicate_names $pins(vco_periph_clock)]
+   set pins(pll_vco_clock) $pins(vco_clock)
+   set pins(pll_phy_clock) $pins(pll_c0_periph_clock)
+   set pins(pll_phy_clock_sync) $pins(pll_c1_periph_clock)
+   set pins(pll_vco_periph_clock) $pins(vco_periph_clock)
+   set pins(pll_phy_reg) $pins(pll_c0_periph_reg)
+   set pins(pll_phy_reg_sync) $pins(pll_c1_periph_reg)
+ 
+   if {$debug == 1} {
+     puts "VCO:           $pins(pll_vco_clock)"
+     puts "PHY:           $pins(pll_phy_clock)"
+     puts "PHY_SYNC:      $pins(pll_phy_clock_sync)"
+     puts ""
+   }
+ 
+   #########################################
+   # 2.0  Find the actual master core clock
+   #      As it could come from another interface
+   #      In master/slave configurations
+   #
+   # Skip this if we're in HPS mode as core clocks don't exist
+   
+   set pins(master_vco_clock) ""
+   set pins(master_vco_clock_sec) ""
+   set pins(master_core_usr_clock) ""
+   set pins(master_core_usr_half_clock) ""
+   set pins(master_core_usr_clock_sec) ""
+   set pins(master_core_usr_half_clock_sec) ""
+   set pins(master_core_afi_clock) ""
+   set pins(master_core_dft_cpa_1_clock) ""
+   set pins(master_cal_master_clk) ""
+   set pins(master_cal_slave_clk) ""
+   regexp {(\S+)\|arch[^\|]+(\d+)} $instname -> emif_instname arch_idx
+   
+   if {($var(PHY_NOC_EN) || $var(MEM_CLK_ASYNC) || $var(LOCKSTEP_ROLE) eq "SECONDARY") } {
+      set pins(master_instname) $instname
+   } else {
+      #  CPA Clock
+      set pins(cpa_clock) [list]
+      set pins(cpa_clock_pin_id) [get_pins -nowarn [list ${instname}|${::GLOBAL_phy_arch_name}_phy_arch_fp_inst|wrapper_cpa|cpa|o_core_clk_out]]
+ 
+      foreach_in_collection c $pins(cpa_clock_pin_id) {
+         set pin_info [get_pin_info -net $c]
+         set net_name [get_net_info -name $pin_info]
+ 
+         if {$debug} {
+            puts "CPA pin -> CPA Net: [get_node_info -name $c] -> $net_name"
+         }
+ 
+         lappend pins(cpa_clock) [regsub -all {\\} $net_name {\\\\}]
+      }
+   }
+
+   set pins(i_phyclk_div_reg) [get_registers ${instname}*div_reg]
+   set pins(phyclk_div) [list]
+   foreach_in_collection r $pins(i_phyclk_div_reg) {
+      set reg_name [get_register_info -name $r]
+      if {[regexp hmc $reg_name]} {
+         set hmclane "hmc" 
+         if {[regexp wide $reg_name]} {
+            set idx "wide"
+         } else {
+            set idx "slim"
+         }
+      } elseif {[regexp ssm $reg_name]}  {
+         set hmclane "ssm"
+         set idx $arch_idx
+      } else {
+         set hmclane "lane"
+         regexp -expanded {gen_byte_conns\[(\d)\]} $reg_name {} idx
+      }
+      if {[regexp p2c $reg_name]} {
+         set dir "p2c"
+      } else {
+         set dir "c2p"
+      }
+      if {![regexp mipi_div_reg $reg_name]} {
+         lappend pins(phyclk_div) [list $reg_name $hmclane $idx $dir]
+      }
+   }
+
+ 
+   # ########################################
+   #  2.5 Find the reference clock input of the PLL
+ 
+   set pins(pll_refclk_in) [get_pins -compatibility_mode ${pll_path}|ref_clk0]
+   set pll_ref_clock_id [emif_get_input_clk_id $pins(pll_refclk_in) var]
+   if {$pll_ref_clock_id == -1} {
+      post_message -type critical_warning "emif_pin_map.tcl: Failed to find PLL reference clock"
+   } else {
+      set pll_ref_clock [get_node_info -name $pll_ref_clock_id]
+   }
+   set pins(pll_ref_clock) $pll_ref_clock
+ 
+   if {$debug == 1} {
+     puts "REF:     $pins(pll_ref_clock)"
+     puts ""
+   }
+ 
+##########################################
+## 3.0  find the FPGA pins
+## The hierarchy paths to all the pins are stored in the *_ip_parameters.tcl
+## file which is a generated file. Pins are divided into the following
+## protocol-agnostic categories. For each pin category, we need to
+## fully-resolve the hierarchy path patterns and store the results into
+## the "pins" arrays.
+#
+    set pins(dqs_t) [emif_traverse_node_fanout_path $pins(vco_periph_clock) dqs_t 10]
+    set pins(dqs_t_in) [get_nodes  ${instname}|*bufs_mem*DQS*ibuf|i]
+    set pins(rclk) [list]
+    set dqs_t_empty [expr {[llength $pins(dqs_t)] == 0 }]
+    if { $dqs_t_empty } { set pins(dqs_t) [list] }
+    foreach_in_collection n $pins(dqs_t_in) {
+       lappend pins(rclk) [get_node_info -name $n]
+       if { $dqs_t_empty } {
+         array set dqs_t_arr [list]
+         emif_traverse_fanin_up_to_depth $n emif_is_node_type_pin clock dqs_t_arr 2
+         if {[array size dqs_t_arr] == 1} {
+            lappend pins(dqs_t) [get_node_info -name [lindex [array names dqs_t_arr] 0]]
+         } 
+         array unset dqs_t_arr
+      }
+    }
+
+
+##########################################
+## 4.0 Miscellanea
+   set pins(phy_rxclk_gated) [list]
+   set pins(phy_rxclk_gated_id) [get_pins -compatibility_mode "${instname}*i_phy_rxclk_gated*"]
+ 
+   foreach_in_collection n $pins(phy_rxclk_gated_id) {
+      set node_name [get_node_info -name $n]
+      lappend pins(phy_rxclk_gated) [regsub -all {\\} $node_name {\\\\}]
+   }
+ 
+   set pins(byte_rx_gated) [list]
+   set pins(byte_rx_gated_id) [get_registers "${instname}*byte_rx_gated_reg*"]
+ 
+   foreach_in_collection n $pins(byte_rx_gated_id) {
+      set node_name [get_node_info -name $n]
+      lappend pins(byte_rx_gated) [regsub -all {\\} $node_name {\\\\}]
+   }
+
+
+}
+ 
+proc emif_initialize_ddr_db { ddr_db_par var_array_name} {
+   upvar $ddr_db_par local_ddr_db
+   upvar 1 $var_array_name var
+ 
+   global ::GLOBAL_phy_arch_name
+   global ::io_only_analysis
+ 
+   post_sdc_message info "Initializing DDR database for CORE $::GLOBAL_phy_arch_name"
+   set instance_list [emif_get_core_instance_list $::GLOBAL_phy_arch_name]
+ 
+   foreach instname $instance_list {
+ 
+      if {$::io_only_analysis == 0}  {
+         post_sdc_message info "Finding port-to-pin mapping for CORE: $::GLOBAL_phy_arch_name INSTANCE: $instname"
+         emif_get_ddr_pins $instname allpins var
+      }
+ 
+      set local_ddr_db($instname) [ array get allpins ]
+   }
+}
+ 
+ 
+proc emif_get_all_instances_dqs_pins { ddr_db_par } {
+   upvar $ddr_db_par local_ddr_db
+ 
+   set dqs_pins [ list ]
+   set instnames [ array names local_ddr_db ]
+   foreach instance $instnames {
+      array set pins $local_ddr_db($instance)
+ 
+      foreach { dqs_pin } $pins(dqs_pins) {
+         lappend dqs_pins ${dqs_pin}_IN
+         lappend dqs_pins ${dqs_pin}_OUT
+      }
+      foreach { dqsn_pin } $pins(dqsn_pins) {
+         lappend dqs_pins ${dqsn_pin}_OUT
+      }
+      foreach { ck_pin } $pins(ck_pins) {
+         lappend dqs_pins $ck_pin
+      }
+   }
+ 
+   return $dqs_pins
+}
+ 
+proc emif_calculate_counter_value { cnt_hi cnt_lo cnt_bypass } {
+   if {$cnt_bypass} {
+      set result 1
+   } else {
+      set result [expr {$cnt_hi + $cnt_lo}]
+   }
+   return $result
+}
+ 
+proc emif_get_input_clk_id { pll_inclk_id var_array_name} {
+   upvar 1 $var_array_name var
+ 
+   array set results_array [list]
+ 
+   emif_traverse_fanin_up_to_depth $pll_inclk_id emif_is_node_type_pin clock results_array $var(pll_inclock_search_depth)
+   if {[array size results_array] == 1} {
+      set pin_id [lindex [array names results_array] 0]
+      set result $pin_id
+   } else {
+      post_message -type critical_warning "Could not find PLL clock for [get_node_info -name $pll_inclk_id]"
+      set result -1
+   }
+ 
+   return $result
+}
+ 
+proc emif_get_output_clock_id { pin_list pin_type msg_list_name var_array_name} {
+   upvar 1 $msg_list_name msg_list
+   upvar 1 $var_array_name var
+   set output_clock_id -1
+ 
+   set output_id_list [list]
+   set pin_collection [get_keepers -no_duplicates $pin_list]
+   if {[get_collection_size $pin_collection] == [llength $pin_list]} {
+      foreach_in_collection id $pin_collection {
+         lappend output_id_list $id
+      }
+   } elseif {[get_collection_size $pin_collection] == 0} {
+      lappend msg_list "warning" "Could not find any $pin_type pins"
+   } else {
+      lappend msg_list "warning" "Could not find all $pin_type pins"
+   }
+   emif_get_pll_clock $output_id_list $pin_type output_clock_id $var(pll_outclock_search_depth)
+   return $output_clock_id
+}
+ 
+proc emif_get_pll_clock { dest_id_list node_type clock_id_name search_depth} {
+   if {$clock_id_name != ""} {
+      upvar 1 $clock_id_name clock_id
+   }
+   set clock_id -1
+ 
+   array set clk_array [list]
+   foreach node_id $dest_id_list {
+      emif_traverse_fanin_up_to_depth $node_id emif_is_node_type_pll_clk clock clk_array $search_depth
+   }
+   if {[array size clk_array] == 1} {
+      set clock_id [lindex [array names clk_array] 0]
+      set clk [get_node_info -name $clock_id]
+   } elseif {[array size clk_array] > 1} {
+      puts "Found more than 1 clock driving the $node_type"
+      set clk ""
+   } else {
+      set clk ""
+   }
+ 
+   return $clk
+}
+ 
+proc emif_get_vco_clk_id { wf_clock_id var_array_name} {
+   upvar 1 $var_array_name var
+ 
+   array set results_array [list]
+ 
+   emif_traverse_fanin_up_to_depth $wf_clock_id emif_is_node_type_vco clock results_array $var(pll_vcoclock_search_depth)
+   if {[array size results_array] == 1} {
+      set pin_id [lindex [array names results_array] 0]
+      set result $pin_id
+   } else {
+      post_message -type critical_warning "Could not find VCO clock for [get_node_info -name $wf_clock_id]"
+      set result -1
+   }
+ 
+   return $result
+}
+ 
+proc emif_is_node_type_pll_clk { node_id } {
+   set cell_id [get_node_info -cell $node_id]
+ 
+   if {$cell_id == ""} {
+      set result 0
+   } else {
+      set atom_type [get_cell_info -atom_type $cell_id]
+      if {$atom_type == "IOPLL"} {
+         set node_name [get_node_info -name $node_id]
+ 
+         if  {[regexp {pll_inst~.*OUTCLK[0-9]$} $node_name]} {
+            set result 1
+         } else {
+            set result 0
+         }
+      } elseif {$atom_type == "TILE_CTRL"} {
+         set node_name [get_node_info -name $node_id]
+ 
+         if {[regexp {tile_ctrl_inst.*\|pa_core_clk_out\[[0-9]\]$} $node_name]} {
+            set result 1
+         } else {
+            set result 0
+         }
+      } else {
+         set result 0
+      }
+   }
+   return $result
+}
+ 
+proc emif_is_node_type_vco { node_id } {
+   set cell_id [get_node_info -cell $node_id]
+ 
+   if {$cell_id == ""} {
+      set result 0
+   } else {
+      set atom_type [get_cell_info -atom_type $cell_id]
+      if {$atom_type == "IOPLL"} {
+         set node_name [get_node_info -name $node_id]
+ 
+         if {[regexp {pll_inst.*\|.*vcoph\[0\]$} $node_name]} {
+            set result 1
+         } elseif {[regexp {pll_inst.*VCOPH0$} $node_name]} {
+            set result 1
+         } else {
+            set result 0
+         }
+      } else {
+         set result 0
+      }
+   }
+   return $result
+}
+ 
+proc emif_does_ref_clk_exist { ref_clk_name } {
+ 
+   set ref_clock_found 0
+   foreach_in_collection iclk [get_clocks -nowarn] {
+      if { ![is_clock_defined $iclk] } {
+         continue
+      }
+      set clk_targets [get_clock_info -target $iclk]
+      foreach_in_collection itgt $clk_targets {
+         set node_name [get_node_info -name $itgt]
+         if {[string compare $node_name $ref_clk_name] == 0} {
+            set ref_clock_found 1
+            break
+         }
+      }
+      if {$ref_clock_found == 1} {
+         break;
+      }
+   }
+ 
+   return $ref_clock_found
+}
+ 
+proc emif_get_p2c_c2p_clock_uncertainty { instname var_array_name } {
+ 
+   set success 1
+   set error_message ""
+   set clock_uncertainty 0
+   set debug 0
+ 
+   package require ::quartus::atoms
+   upvar 1 $var_array_name var
+ 
+   catch {read_atom_netlist} read_atom_netlist_out
+   set read_atom_netlist_error [regexp "ERROR" $read_atom_netlist_out]
+ 
+   if {$read_atom_netlist_error == 0} {
+      if {[emif_are_entity_names_on]} {
+         regsub -all {\|} $instname "|*:" instname
+      }
+      regsub -all {\\} $instname {\\\\} instname
+      regsub -all {\[} $instname "\\\[" instname
+      regsub -all {\]} $instname "\\\]" instname
+ 
+      # Find the IOPLLs
+      if {$success == 1} {
+         if {[emif_are_entity_names_on]} {
+            set pll_atoms [get_atom_nodes -matching *${instname}|*:arch_inst|*:pll_inst|* -type IOPLL]
+         } else {
+            set pll_atoms [get_atom_nodes -matching *${instname}|arch_inst|pll_inst|* -type IOPLL]
+         }
+         set num_pll_inst [get_collection_size $pll_atoms]
+ 
+         if {$num_pll_inst == 0} {
+            set success 0
+            post_message -type critical_warning "The auto-constraining script was not able to detect any PLLs in the < $instname > memory interface."
+         }
+      }
+ 
+      # Get atom parameters
+      if {$success == 1} {
+ 
+         set mcnt_list [list]
+         set bw_list   [list]
+         set cp_setting_list [list]
+         set vco_period_list [list]
+ 
+         foreach_in_collection pll_atom $pll_atoms {
+ 
+            # M-counter value
+            if {[get_atom_node_info -node $pll_atom -key  BOOL_IOPLL_M_COUNTER_BYPASS_EN] == 1} {
+               set mcnt 1
+            } else {
+               set mcnt [expr [get_atom_node_info -node $pll_atom -key INT_IOPLL_M_COUNTER_HIGH] + [get_atom_node_info -node $pll_atom -key INT_IOPLL_M_COUNTER_LOW]]
+            }
+            lappend mcnt_list $mcnt
+ 
+            # BW
+            set bw [get_atom_node_info -node $pll_atom -key  ENUM_IOPLL_BW_MODE]
+            if {[string compare -nocase $bw "AUTO"] == 0} {
+               set bw "LBW"
+            } elseif  {[string compare -nocase $bw "LOW_BW"] == 0} {
+                set bw "LBW"
+            } elseif  {[string compare -nocase $bw "MID_BW"] == 0} {
+                set bw "MBW"
+            } elseif  {[string compare -nocase $bw "HI_BW"] == 0} {
+                set bw "HBW"
+            }
+            lappend bw_list $bw
+ 
+            # CP current setting (stubbed out for now as this is set internally)
+            set cp_setting PLL_CP_SETTING0
+            lappend cp_setting_list $cp_setting
+ 
+            # VCO frequency setting
+            set vco_period [get_atom_node_info -node $pll_atom -key TIME_IOPLL_VCO]
+            lappend vco_period_list $vco_period
+         }
+ 
+         # Make sure all IOPLL parameters are the same
+         for {set i [expr [llength $mcnt_list] - 1]} {$i > 0} {set i [expr $i - 1]} {
+            if {[lindex $mcnt_list $i] != [lindex $mcnt_list [expr $i - 1]]} {
+               set success 0
+               post_message -type critical_warning "The auto-constraining script found multiple PLLs in the < $instname > memory interface with different parameters."
+            }
+         }
+         for {set i [expr [llength $bw_list] - 1]} {$i > 0} {set i [expr $i - 1]} {
+            set bw_a [lindex $bw_list $i]
+            set bw_b [lindex $bw_list [expr $i - 1]]
+            if {[string compare -nocase $bw_a $bw_b] != 0} {
+               set success 0
+               post_message -type critical_warning "The auto-constraining script found multiple PLLs in the < $instname > memory interface with different parameters."
+            }
+         }
+         for {set i [expr [llength $cp_setting_list] - 1]} {$i > 0} {set i [expr $i - 1]} {
+            set cp_a [lindex $cp_setting_list $i]
+            set cp_b [lindex $cp_setting_list [expr $i - 1]]
+            if {[string compare -nocase $cp_a $cp_b] != 0} {
+               set success 0
+               post_message -type critical_warning "The auto-constraining script found multiple PLLs in the < $instname > memory interface with different parameters."
+            }
+         }
+ 
+         for {set i [expr [llength $vco_period_list] - 1]} {$i > 0} {set i [expr $i - 1]} {
+            set vco_a [lindex $vco_period_list $i]
+            set vco_b [lindex $vco_period_list [expr $i - 1]]
+            if {[string compare -nocase $vco_a $vco_b] != 0} {
+               set success 0
+               post_message -type critical_warning "The auto-constraining script found multiple PLLs in the < $instname > memory interface with different parameters."
+            }
+         }
+      }
+ 
+      # Calculate clock uncertainty
+      if {$success == 1} {
+ 
+         set mcnt [lindex $mcnt_list 0]
+         set bw   [string toupper [lindex $bw_list 0]]
+         set cp_setting [lindex $cp_setting_list 0]
+         set cp_current [emif_get_cp_current_from_setting $cp_setting]
+         set vco_period [lindex $vco_period_list 0]
+         if {[regexp {([0-9]+) ps} $vco_period matched vco_period] == 1} {
+         } else {
+            post_message -type critical_warning "The auto-constraining script was not able to read the netlist."
+            set success 0
+         }
+         set vco_frequency_in_mhz [expr 1000000 / $vco_period]
+ 
+         if {$debug} {
+            puts "MCNT : $mcnt"
+            puts "BW   : $bw"
+            puts "CP   : $cp_setting ($cp_current)"
+            puts "VCO  : $vco_period"
+         }
+ 
+         set HFR  [get_clock_frequency_uncertainty_data PLL $vco_frequency_in_mhz $bw OFFSET${mcnt} HFR]
+         set LFD  [get_clock_frequency_uncertainty_data PLL $vco_frequency_in_mhz $bw OFFSET${mcnt} LFD]
+         set SPE  [emif_get_spe_from_cp_current $cp_current]
+ 
+         if {$success == 1} {
+            set clock_uncertainty_sqrt  [expr sqrt(($LFD/2)*($LFD/2) + ($LFD/2)*($LFD/2))]
+            set clock_uncertainty [emif_round_3dp [expr ($clock_uncertainty_sqrt + $SPE)*1e9]]
+ 
+            if {$debug} {
+               puts "HFR  : $HFR"
+               puts "LFD  : $LFD"
+               puts "SPE  : $SPE"
+               puts "TOTAL: $clock_uncertainty"
+            }
+         }
+      }
+ 
+   } else {
+      set success 0
+      post_message -type critical_warning "The auto-constraining script was not able to read the netlist."
+   }
+ 
+   # Output warning in the case that clock uncertainty can't be determined
+   if {$success == 0} {
+      post_message -type critical_warning "Verify the following:"
+      post_message -type critical_warning " The core < $instname > is instantiated within another component (wrapper)"
+      post_message -type critical_warning " The core is not the top-level of the project"
+      post_message -type critical_warning " The memory interface pins are exported to the top-level of the project"
+      post_message -type critical_warning " The core  < $instname > RTL has not been modified manually"
+   }
+ 
+   return $clock_uncertainty
+}
+ 
+ 
+proc emif_get_cp_current_from_setting { cp_setting } {
+ 
+   set cp_current 0
+ 
+   if {[string compare -nocase $cp_setting "PLL_CP_SETTING0"] == 0} {
+      set cp_current 0
+   } elseif {[string compare -nocase $cp_setting "PLL_CP_SETTING1"] == 0} {
+      set cp_current 5	
+   } elseif {[string compare -nocase $cp_setting "PLL_CP_SETTING2"] == 0} {
+      set cp_current 10
+   } elseif {[string compare -nocase $cp_setting "PLL_CP_SETTING3"] == 0} {
+      set cp_current 15
+   } elseif {[string compare -nocase $cp_setting "PLL_CP_SETTING4"] == 0} {
+      set cp_current 20	
+   } elseif {[string compare -nocase $cp_setting "PLL_CP_SETTING5"] == 0} {
+      set cp_current 25		
+   } elseif {[string compare -nocase $cp_setting "PLL_CP_SETTING6"] == 0} {
+      set cp_current 30
+   } elseif {[string compare -nocase $cp_setting "PLL_CP_SETTING7"] == 0} {
+      set cp_current 35	
+   } elseif {[string compare -nocase $cp_setting "PLL_CP_SETTING8"] == 0} {
+      set cp_current 40	
+   } elseif {[string compare -nocase $cp_setting "PLL_CP_SETTING9"] == 0} {
+      set cp_current 45
+   } elseif {[string compare -nocase $cp_setting "PLL_CP_SETTING10"] == 0} {
+      set cp_current 50	
+   } elseif {[string compare -nocase $cp_setting "PLL_CP_SETTING11"] == 0} {
+      set cp_current 55			
+   } elseif {[string compare -nocase $cp_setting "PLL_CP_SETTING12"] == 0} {
+      set cp_current 60
+   } elseif {[string compare -nocase $cp_setting "PLL_CP_SETTING13"] == 0} {
+      set cp_current 65			
+   } elseif {[string compare -nocase $cp_setting "PLL_CP_SETTING14"] == 0} {
+      set cp_current 70	
+   } elseif {[string compare -nocase $cp_setting "PLL_CP_SETTING15"] == 0} {
+      set cp_current 75			
+	} else {
+      set cp_current 0
+   }
+ 
+   return $cp_current
+}
+ 
+proc emif_get_spe_from_cp_current { cp_current } {
+ 
+   set spe 158.0e-12
+ 
+   if {$cp_current <= 15} {
+      set spe 158e-012 
+   } elseif {$cp_current <= 20} {
+      set spe 130.62e-12 
+   } elseif {$cp_current <= 25} {
+      set spe 117.3e-12 
+   } elseif {$cp_current <= 30} {
+      set spe 109.5e-12 
+   } elseif {$cp_current <= 35} {
+      set spe 104.5e-12 
+   } elseif {$cp_current <= 40} {
+      set spe 100.9e-12 
+   } elseif {$cp_current <= 60} {
+      set spe 93.3e-12 
+   } else {
+      set spe 93.3e-12 
+   }
+   
+   return $spe
+}
+ 
+proc emif_get_periphery_clock_uncertainty { results_array_name var_array_name } {
+   upvar 1 $results_array_name results
+   upvar 1 $var_array_name var
+ 
+   if {$var(DIAG_TIMING_REGTEST_MODE)} {
+      set c2p_setup  0.050
+      set c2p_hold   0.0
+      set p2c_setup  0.050
+      set p2c_hold   0.0
+   } else {
+      set c2p_setup  0.0
+      set c2p_hold   0.0
+      set p2c_setup  0.0
+      set p2c_hold   0.0
+   }
+ 
+   set results [list $c2p_setup $c2p_hold $p2c_setup $p2c_hold]
+}
+ 
+proc emif_get_core_clock_uncertainty { results_array_name var_array_name } {
+   upvar 1 $results_array_name results
+   upvar 1 $var_array_name var
+ 
+   set c2c_same_setup  0
+   set c2c_same_hold   0
+   set c2c_diff_setup  0
+   set c2c_diff_hold   0
+ 
+   set results [list $c2c_same_setup $c2c_same_hold $c2c_diff_setup $c2c_diff_hold]
+}
+ 
+proc emif_get_core_overconstraints { results_array_name var_array_name } {
+   upvar 1 $results_array_name results
+   upvar 1 $var_array_name var
+ 
+   set results [list $var(C2C_SAME_CLK_SETUP_OC_NS) $var(C2C_SAME_CLK_HOLD_OC_NS) $var(C2C_DIFF_CLK_SETUP_OC_NS) $var(C2C_DIFF_CLK_HOLD_OC_NS)]
+}
+ 
+proc emif_get_periphery_overconstraints { results_st_array_name results_mt_array_name var_array_name } {
+   upvar 1 $results_st_array_name results_st
+   upvar 1 $results_mt_array_name results_mt
+   upvar 1 $var_array_name var
+ 
+   set c2p_p2c_frequency [expr $var(PHY_MEM_CLK_FREQ_MHZ)/$var(C2P_P2C_CLK_RATIO)]
+ 
+   set results_st [list $var(C2P_SETUP_OC_NS) $var(C2P_HOLD_OC_NS) $var(P2C_SETUP_OC_NS) $var(P2C_HOLD_OC_NS)]
+   set results_mt [list [expr $var(C2P_SETUP_OC_NS) + 0.000] [expr $var(C2P_HOLD_OC_NS) + 0.000] [expr $var(P2C_SETUP_OC_NS) + 0.000] [expr $var(P2C_HOLD_OC_NS) + 0.000]]
+ 
+}
+ 
+ 
+proc emif_sort_duplicate_names { names_array } {
+ 
+   set main_name ""
+   set duplicate_names [list]
+ 
+   # Find the main name as opposed to all the duplicate names
+   foreach { name } $names_array {
+      if  {[regexp {Duplicate} $name]} {
+         lappend duplicate_names $name
+      } else {
+         if {$main_name == ""} {
+            set main_name $name
+         } else {
+            post_message -type error "More than one main tile name ($main_name and $name).  Please verify the connectivity of these pins."
+         }
+      }
+   }
+ 
+   # Now sort the duplicate names
+   set duplicate_names [lsort -decreasing $duplicate_names]
+ 
+   # Prepend the main name and then return
+   set result [join [linsert $duplicate_names 0 $main_name]]
+ 
+   return $result
+}
+ 
+
+ 17 0 1 / 3 nfs 3 png 5 disks 18 swuser_work_lekong 6 my-git 6 others 7 sm_make 34 applications.fpga.soc.ghrd-socfpga 18 sm_soc_devkit_ghrd 10 hps_subsys 2 ip 8 qsys_top 8 emif_hps 24 emif_ph2_phy_arch_fp_600 5 synth 58 emif_hps_emif_ph2_phy_arch_fp_600_jc3j7xi_timing_utils.tcl 18506 # (C) 2001-2023 Intel Corporation. All rights reserved.
+# Your use of Intel Corporation's design tools, logic functions and other 
+# software and tools, and its AMPP partner logic functions, and any output 
+# files from any of the foregoing (including device programming or simulation 
+# files), and any associated documentation or information are expressly subject 
+# to the terms and conditions of the Intel Program License Subscription 
+# Agreement, Intel FPGA IP License Agreement, or other applicable 
+# license agreement, including, without limitation, that your use is for the 
+# sole purpose of programming logic devices manufactured by Intel and sold by 
+# Intel or its authorized distributors.  Please refer to the applicable 
+# agreement for further details.
+
+
+
+set script_dir [file dirname [info script]]
+
+load_package sdc_ext
+load_package design
+
+proc emif_index_in_collection { col j } {
+   set i 0
+   foreach_in_collection path $col {
+      if {$i == $j} {
+         return $path
+      }
+      set i [expr $i + 1]
+   }
+   return ""
+}
+
+
+proc emif_get_clock_to_pin_name_mapping {} {
+   set result [list]
+   set clocks_collection [get_clocks]
+   foreach_in_collection clock $clocks_collection {
+      if { ![is_clock_defined $clock] } {
+         continue
+      }
+      set clock_name [get_clock_info -name $clock]
+      set clock_target [get_clock_info -targets $clock]
+      set first_index [emif_index_in_collection $clock_target 0]
+      set catch_exception_net [catch {get_net_info -name $first_index} pin_name_net]
+      if {$catch_exception_net == 0} {
+         lappend result [list $clock_name $pin_name_net]
+      } else {
+         set catch_exception_port [catch {get_port_info -name $first_index} pin_name_port]
+         if {$catch_exception_port == 0} {
+            lappend result [list $clock_name $pin_name_port]
+         } else {
+            set catch_exception_reg [catch {get_register_info -name $first_index} pin_name_reg]
+            if {$catch_exception_reg == 0} {
+               lappend result [list $clock_name $pin_name_reg]
+            } else {
+               set catch_exception_pin [catch {get_pin_info -name $first_index} pin_name_pin]
+               if {$catch_exception_pin == 0} {
+                  lappend result [list $clock_name $pin_name_pin]
+               }
+            }
+         }
+      }
+   }
+   return $result
+}
+
+
+proc emif_get_clock_name_from_pin_name { pin_name } {
+   set table [emif_get_clock_to_pin_name_mapping]
+   foreach entry $table {
+      if {[string compare [lindex [lindex [split $entry] 1] 0] $pin_name] == 0} {
+         return [lindex $entry 0]
+      }
+   }
+   return ""
+}
+
+
+
+proc emif_find_all_keepers { mystring } {
+   set allkeepers [get_keepers $mystring ]
+
+   foreach_in_collection keeper $allkeepers {
+      set keepername [ get_node_info -name $keeper ]
+
+      puts "$keepername"
+   }
+}
+
+proc emif_round_3dp { x } {
+   return [expr { round($x * 1000) / 1000.0  } ]
+}
+
+proc emif_get_current_timequest_report_folder {} {
+
+   set catch_exception [catch {get_current_timequest_report_folder} error_message]
+   if {[regexp ERROR $error_message] == 1} {
+      return "ReportDDR"
+   } else {
+      return [get_current_timequest_report_folder]
+   }
+}
+proc emif_are_entity_names_on { } {
+   return [set_project_mode -is_show_entity]
+}
+
+proc emif_get_core_instance_list {corename} {
+   global ::io_only_analysis
+
+   if {$::io_only_analysis == 1}  {
+      set instance_list [list $corename]
+
+   } else {
+      set full_instance_list [emif_get_core_full_instance_list $corename]
+      set instance_list [list]
+
+      foreach inst $full_instance_list {
+         set sta_name $inst
+         if {[lsearch $instance_list [escape_brackets $sta_name]] == -1} {
+            lappend instance_list $sta_name
+         }
+      }
+
+   }
+   return $instance_list
+}
+
+proc emif_get_or_add_generated_clock {args} {
+   array set opts [list -name "" -target "" -source "" -multiply_by 1 -divide_by 1 -phase 0]
+   array set opts $args
+
+   set multiply_by [expr int($opts(-multiply_by))]
+   if {[expr $multiply_by - $opts(-multiply_by)] != 0.0} {
+      post_message -type error "Specify an integer ranging from 0 to 99999999 for the option -multiply_by"
+      return ""
+   }
+
+   set clock_name [emif_get_clock_name_from_pin_name $opts(-target)]
+
+   if {[string compare -nocase $clock_name ""] == 0} {
+      set nets [get_nets $opts(-target) -nowarn]
+      if {[get_collection_size $nets] > 0} {
+         set pin_name [get_pin_info -name [get_net_info -pin $nets]]
+         set clock_name [emif_get_clock_name_from_pin_name $pin_name]
+
+         if {[string compare -nocase $clock_name ""] != 0} {
+            if {[regexp -nocase "lvds_clk" $pin_name] || [regexp -nocase "loaden" $pin_name] } {
+               remove_clock $clock_name
+               set clock_name ""
+            }
+          }
+       }
+   } else {
+      if {([string compare -nocase $opts(-name) ""] != 0) && ([string compare -nocase $opts(-name) $clock_name])} {
+
+         if {[regexp -nocase "pll_inst\|outclk" $opts(-target)]} {
+            remove_clock $clock_name
+            set clock_name ""
+         }
+      }
+   }
+
+   if {[string compare -nocase $clock_name ""] == 0} {
+      set clock_name $opts(-name)
+
+      create_generated_clock \
+         -name $clock_name \
+         -source $opts(-source) \
+         -multiply_by $multiply_by \
+         -divide_by $opts(-divide_by) \
+         -phase $opts(-phase) \
+         $opts(-target)
+   }
+
+   return $clock_name
+}
+
+proc emif_get_core_full_instance_list {corename} {
+
+   set instance_list [list]
+
+   if {[is_fitter_in_qhd_mode]} {
+      set instance_list_pre [design::get_instances -entity $corename]
+
+   } else {
+      set instance_list_pre [get_entity_instances $corename]
+   }
+
+   foreach instance $instance_list_pre {
+      regsub {\|arch$} $instance "" instance_no_arch
+      lappend instance_list $instance_no_arch
+   }
+
+   if {[ llength $instance_list ] == 0} {
+      post_message -type error "The auto-constraining script was not able to detect any instance for core < $corename >"
+      post_message -type error "Make sure the core < $corename > is instantiated within another component (wrapper)"
+      post_message -type error "and it's not the top-level for your project"
+   }
+
+   return $instance_list
+}
+
+
+proc emif_traverse_fanin_up_to_depth { node_id match_command edge_type results_array_name depth} {
+   upvar 1 $results_array_name results
+
+   if {$depth < 0} {
+      error "Internal error: Bad timing netlist search depth"
+   }
+   set fanin_edges [get_node_info -${edge_type}_edges $node_id]
+   set number_of_fanin_edges [llength $fanin_edges]
+   for {set i 0} {$i != $number_of_fanin_edges} {incr i} {
+      set fanin_edge [lindex $fanin_edges $i]
+      set fanin_id [get_edge_info -src $fanin_edge]
+      if {$match_command == "" || [eval $match_command $fanin_id] != 0} {
+         set results($fanin_id) 1
+      } elseif {$depth == 0} {
+      } else {
+         emif_traverse_fanin_up_to_depth $fanin_id $match_command $edge_type results [expr {$depth - 1}]
+      }
+   }
+}
+
+proc emif_is_node_type_pin { node_id } {
+   set node_type [get_node_info -type $node_id]
+   if {$node_type == "port"} {
+      set result 1
+   } else {
+      set result 0
+   }
+   return $result
+}
+
+proc emif_is_node_type_reg {node_id } {
+   set node_type [get_node_info -type $node_id]
+   if {$node_type == "reg"} {
+      set result 1
+   } else {
+      set result 0
+   }
+   return $result
+}
+proc emif_get_pll_clock_name { clock_id } {
+   set clock_name [get_node_info -name $clock_id]
+
+   return $clock_name
+}
+
+proc post_sdc_message {msg_type msg} {
+   global ::io_only_analysis
+
+   if {($::io_only_analysis == 1) || $::TimeQuestInfo(nameofexecutable) != "quartus_fit"} {
+      post_message -type $msg_type $msg
+   }
+}
+
+proc emif_get_names_in_collection { col } {
+   set res [list]
+   foreach_in_collection node $col {
+      lappend res [ get_node_info -name $node ]
+   }
+   return $res
+}
+
+proc emif_format_3dp { x } {
+   return [format %.3f $x]
+}
+
+proc emif_get_colours { x y } {
+
+   set fcolour [list "black"]
+   if {$x < 0} {
+      lappend fcolour "red"
+   } else {
+      lappend fcolour "blue"
+   }
+   if {$y < 0} {
+      lappend fcolour "red"
+   } else {
+      lappend fcolour "blue"
+   }
+
+   return $fcolour
+}
+
+proc min { a b } {
+   if { $a == "" } {
+      return $b
+   } elseif { $a < $b } {
+      return $a
+   } else {
+      return $b
+   }
+}
+
+proc max { a b } {
+   if { $a == "" } {
+      return $b
+   } elseif { $a > $b } {
+      return $a
+   } else {
+      return $b
+   }
+}
+
+proc emif_max_in_collection { col attribute } {
+   set i 0
+   set max 0
+   foreach_in_collection path $col {
+      if {$i == 0} {
+         set max [get_path_info $path -${attribute}]
+      } else {
+         set temp [get_path_info $path -${attribute}]
+         if {$temp > $max} {
+            set max $temp
+         }
+      }
+      set i [expr $i + 1]
+   }
+   return $max
+}
+
+proc emif_min_in_collection { col attribute } {
+   set i 0
+   set min 0
+   foreach_in_collection path $col {
+      if {$i == 0} {
+         set min [get_path_info $path -${attribute}]
+      } else {
+         set temp [get_path_info $path -${attribute}]
+         if {$temp < $min} {
+            set min $temp
+         }
+      }
+      set i [expr $i + 1]
+   }
+   return $min
+}
+
+proc emif_min_in_collection_to_clock { col attribute clock } {
+   set i 0
+   set min ERROR
+   foreach_in_collection path $col {
+      if {[get_clock_info -name [get_path_info $path -to_clock]] == $clock} {
+         if {$i == 0} {
+            set min [get_path_info $path -${attribute}]
+         } else {
+            set temp [get_path_info $path -${attribute}]
+            if {$temp < $min} {
+               set min $temp
+            }
+         }
+         set i [expr $i + 1]
+      }
+   }
+   return $min
+}
+
+proc emif_min_in_collection_from_clock { col attribute clock } {
+   set i 0
+   set min ERROR
+   foreach_in_collection path $col {
+      if {[get_clock_info -name [get_path_info $path -from_clock]] == $clock} {
+         if {$i == 0} {
+            set min [get_path_info $path -${attribute}]
+         } else {
+            set temp [get_path_info $path -${attribute}]
+            if {$temp < $min} {
+               set min $temp
+            }
+         }
+         set i [expr $i + 1]
+      }
+   }
+   return $min
+}
+
+proc emif_min_in_collection_to_name { col attribute name } {
+   set i 0
+   set min 0
+   foreach_in_collection path $col {
+      if {[get_node_info -name [get_path_info $path -to]] == $name} {
+         if {$i == 0} {
+            set min [get_path_info $path -${attribute}]
+         } else {
+            set temp [get_path_info $path -${attribute}]
+            if {$temp < $min} {
+               set min $temp
+            }
+         }
+         set i [expr $i + 1]
+      }
+   }
+   return $min
+}
+
+proc emif_min_in_collection_from_name { col attribute name } {
+   set i 0
+   set min 0
+   foreach_in_collection path $col {
+      if {[get_node_info -name [get_path_info $path -from]] == $name} {
+         if {$i == 0} {
+            set min [get_path_info $path -${attribute}]
+         } else {
+            set temp [get_path_info $path -${attribute}]
+            if {$temp < $min} {
+               set min $temp
+            }
+         }
+         set i [expr $i + 1]
+      }
+   }
+   return $min
+}
+
+proc emif_max_in_collection_to_name { col attribute name } {
+   set i 0
+   set max 0
+   foreach_in_collection path $col {
+      if {[get_node_info -name [get_path_info $path -to]] == $name} {
+         if {$i == 0} {
+            set max [get_path_info $path -${attribute}]
+         } else {
+            set temp [get_path_info $path -${attribute}]
+            if {$temp > $max} {
+               set max $temp
+            }
+         }
+         set i [expr $i + 1]
+      }
+   }
+   return $max
+}
+
+proc emif_max_in_collection_from_name { col attribute name } {
+   set i 0
+   set max 0
+   foreach_in_collection path $col {
+      if {[get_node_info -name [get_path_info $path -from]] == $name} {
+         if {$i == 0} {
+            set max [get_path_info $path -${attribute}]
+         } else {
+            set temp [get_path_info $path -${attribute}]
+            if {$temp > $max} {
+               set max $temp
+            }
+         }
+         set i [expr $i + 1]
+      }
+   }
+   return $max
+}
+
+
+proc emif_min_in_collection_to_name2 { col attribute name } {
+   set i 0
+   set min 0
+   foreach_in_collection path $col {
+      if {[regexp $name [get_node_info -name [get_path_info $path -to]]]} {
+         if {$i == 0} {
+            set min [get_path_info $path -${attribute}]
+         } else {
+            set temp [get_path_info $path -${attribute}]
+            if {$temp < $min} {
+               set min $temp
+            }
+         }
+         set i [expr $i + 1]
+      }
+   }
+   return $min
+}
+
+proc emif_min_in_collection_from_name2 { col attribute name } {
+   set i 0
+   set min 0
+   foreach_in_collection path $col {
+      if {[regexp $name [get_node_info -name [get_path_info $path -from]]]} {
+         if {$i == 0} {
+            set min [get_path_info $path -${attribute}]
+         } else {
+            set temp [get_path_info $path -${attribute}]
+            if {$temp < $min} {
+               set min $temp
+            }
+         }
+         set i [expr $i + 1]
+      }
+   }
+   return $min
+}
+
+proc emif_max_in_collection_to_name2 { col attribute name } {
+   set i 0
+   set max 0
+   foreach_in_collection path $col {
+      if {[regexp $name [get_node_info -name [get_path_info $path -to]]]} {
+         if {$i == 0} {
+            set max [get_path_info $path -${attribute}]
+         } else {
+            set temp [get_path_info $path -${attribute}]
+            if {$temp > $max} {
+               set max $temp
+            }
+         }
+         set i [expr $i + 1]
+      }
+   }
+   return $max
+}
+
+proc emif_max_in_collection_from_name2 { col attribute name } {
+   set i 0
+   set max 0
+   foreach_in_collection path $col {
+      if {[regexp $name [get_node_info -name [get_path_info $path -from]]]} {
+         if {$i == 0} {
+            set max [get_path_info $path -${attribute}]
+         } else {
+            set temp [get_path_info $path -${attribute}]
+            if {$temp > $max} {
+               set max $temp
+            }
+         }
+         set i [expr $i + 1]
+      }
+   }
+   return $max
+}
+
+proc emif_sort_proc {a b} {
+   set idxs [list 1 2 0]
+   foreach i $idxs {
+      set ai [lindex $a $i]
+      set bi [lindex $b $i]
+      if {$ai > $bi} {
+         return 1
+      } elseif { $ai < $bi } {
+         return -1
+      }
+   }
+   return 0
+}
+
+proc emif_gcd {p q} {
+   set p [expr {abs($p)}]
+   set q [expr {abs($q)}]
+   while {$q != 0} {
+      set r [expr {$p % $q}]
+      set p $q
+      set q $r
+   }
+   return $p
+}
+
+proc emif_traverse_node_fanout_path {src_node dst_filter max_depth} {
+   set result [list]
+   if {$max_depth == 0} { return $result }
+   set edgenodes [get_node_info -fanout_edges $src_node]
+   foreach e $edgenodes {
+      set nodename [get_node_info -name [get_edge_info -dst $e]]
+      if {[regexp $dst_filter $nodename]} {
+         lappend result $nodename
+      } else {
+         set rresult [emif_traverse_node_fanout_path $nodename $dst_filter [expr $max_depth -1]]
+         set result [list {*}$result {*}$rresult]
+      }
+   }
+
+   return [lsort -unique $result]
+}
+
+proc emif_traverse_atom_path {atom_id atom_oport_id path} {
+   # Return list of {atom oterm_id} pairs by tracing the atom netlist starting from the given atom_id through the given path
+   # Path consists of list of {atom_type fanin|fanout|end <port_type> <-optional>}
+   set result [list]
+   if {[llength $path] > 0} {
+      set path_point [lindex $path 0]
+      set atom_type [lindex $path_point 0]
+      set next_direction [lindex $path_point 1]
+      set port_type [lindex $path_point 2]
+      set atom_optional [lindex $path_point 3]
+      if {[get_atom_node_info -key type -node $atom_id] == $atom_type} {
+         if {$next_direction == "end"} {
+            if {[get_atom_port_info -key type -node $atom_id -port_id $atom_oport_id -type oport] == $port_type} {
+               lappend result [list $atom_id $atom_oport_id]
+            }
+         } elseif {$next_direction == "atom"} {
+            lappend result [list $atom_id]
+         } elseif {$next_direction == "fanin"} {
+            set atom_iport [get_atom_iport_by_type -node $atom_id -type $port_type]
+            if {$atom_iport != -1} {
+               set iport_fanin [get_atom_port_info -key fanin -node $atom_id -port_id $atom_iport -type iport]
+               set source_atom [lindex $iport_fanin 0]
+               set source_oterm [lindex $iport_fanin 1]
+               set result [emif_traverse_atom_path $source_atom $source_oterm [lrange $path 1 end]]
+            } elseif {$atom_optional == "-optional"} {
+               set result [emif_traverse_atom_path $atom_id $atom_oport_id [lrange $path 1 end]]
+            }
+         } elseif {$next_direction == "fanout"} {
+            set atom_oport [get_atom_oport_by_type -node $atom_id -type $port_type]
+            if {$atom_oport != -1} {
+               set oport_fanout [get_atom_port_info -key fanout -node $atom_id -port_id $atom_oport -type oport]
+               foreach dest $oport_fanout {
+                  set dest_atom [lindex $dest 0]
+                  set dest_iterm [lindex $dest 1]
+                  set fanout_result_list [emif_traverse_atom_path $dest_atom -1 [lrange $path 1 end]]
+                  foreach fanout_result $fanout_result_list {
+                     if {[lsearch $result $fanout_result] == -1} {
+                        lappend result $fanout_result
+                     }
+                  }
+               }
+            }
+         } else {
+            error "Unexpected path"
+         }
+      } elseif {$atom_optional == "-optional"} {
+         set result [emif_traverse_atom_path $atom_id $atom_oport_id [lrange $path 1 end]]
+      }
+   }
+   return $result
+}
+
+proc emif_get_operating_conditions_number {} {
+   set cur_operating_condition [get_operating_conditions]
+   set counter 0
+   foreach_in_collection op [get_available_operating_conditions] {
+      if {[string compare $cur_operating_condition $op] == 0} {
+         return $counter
+      }
+      incr counter
+   }
+   return $counter
+}
+
+proc emif_add_false_path {sta_on path_delay args} {
+     set min_path_delay [expr (-1*${path_delay})]
+     if ${sta_on} {
+     	set_false_path {*}$args
+     } else {
+     	set_max_delay ${path_delay} {*}$args
+     	set_min_delay ${min_path_delay} {*}$args
+     }
+}
+
+ 16 0 1 / 3 nfs 3 png 5 disks 18 swuser_work_lekong 6 my-git 6 others 7 sm_make 34 applications.fpga.soc.ghrd-socfpga 18 sm_soc_devkit_ghrd 2 ip 8 qsys_top 18 user_rst_clkgate_0 26 intel_user_rst_clkgate_100 5 synth 33 intel_user_rst_clkgate_agilex.sdc 1468 # (C) 2001-2023 Intel Corporation. All rights reserved.
+# Your use of Intel Corporation's design tools, logic functions and other 
+# software and tools, and its AMPP partner logic functions, and any output 
+# files from any of the foregoing (including device programming or simulation 
+# files), and any associated documentation or information are expressly subject 
+# to the terms and conditions of the Intel Program License Subscription 
+# Agreement, Intel FPGA IP License Agreement, or other applicable 
+# license agreement, including, without limitation, that your use is for the 
+# sole purpose of programming logic devices manufactured by Intel and sold by 
+# Intel or its authorized distributors.  Please refer to the applicable 
+# agreement for further details.
+
+
+#Create base clock with 100 MHz targetted for internal clocks if paths listed below found in the design
+
+#Agilex
+#auto_fab_0|alt_sld_fab_0|alt_sld_fab_0|agilexconfigreset|user_reset|sdm_gpo_out_user_reset~internal_ctrl_clock.reg
+
+
+set intrl_ctrl_reg_count 0
+
+set intrl_ctrl_reg_collection [get_registers -nowarn "auto_fab*\|*\|*sdm_gpo_out_user_reset~internal_ctrl_clock.reg"]
+
+set intrl_ctrl_reg_count [ get_collection_size $intrl_ctrl_reg_collection ]
+
+if {$intrl_ctrl_reg_count > 0} {
+
+	create_clock -name {internal_clk} -period 10.000 -waveform {0.000 5.000} { auto_fab*|*|*sdm_gpo_out_user_reset~internal_ctrl_clock }
+
+	set_clock_groups -asynchronous -group [get_clocks {internal_clk}]
+}
+
+
+
+ 17 0 1 / 3 nfs 3 png 5 disks 18 swuser_work_lekong 6 my-git 6 others 7 sm_make 34 applications.fpga.soc.ghrd-socfpga 18 sm_soc_devkit_ghrd 11 jtag_subsys 2 ip 11 jtag_subsys 6 fpga_m 28 altera_jtag_dc_streaming_191 5 synth 35 altera_avalon_st_jtag_interface.sdc 911 # (C) 2001-2023 Intel Corporation. All rights reserved.
+# Your use of Intel Corporation's design tools, logic functions and other 
+# software and tools, and its AMPP partner logic functions, and any output 
+# files from any of the foregoing (including device programming or simulation 
+# files), and any associated documentation or information are expressly subject 
+# to the terms and conditions of the Intel Program License Subscription 
+# Agreement, Intel FPGA IP License Agreement, or other applicable 
+# license agreement, including, without limitation, that your use is for the 
+# sole purpose of programming logic devices manufactured by Intel and sold by 
+# Intel or its authorized distributors.  Please refer to the applicable 
+# agreement for further details.
+
+
+set_false_path -from [get_registers *altera_jtag_src_crosser:*|sink_data_buffer*] -to [get_registers *altera_jtag_src_crosser:*|src_data*]
+ 17 0 1 / 3 nfs 3 png 5 disks 18 swuser_work_lekong 6 my-git 6 others 7 sm_make 34 applications.fpga.soc.ghrd-socfpga 18 sm_soc_devkit_ghrd 11 jtag_subsys 2 ip 11 jtag_subsys 6 fpga_m 28 altera_reset_controller_1922 5 synth 27 altera_reset_controller.sdc 2326 # (C) 2001-2023 Intel Corporation. All rights reserved.
+# Your use of Intel Corporation's design tools, logic functions and other 
+# software and tools, and its AMPP partner logic functions, and any output 
+# files from any of the foregoing (including device programming or simulation 
+# files), and any associated documentation or information are expressly subject 
+# to the terms and conditions of the Intel Program License Subscription 
+# Agreement, Intel FPGA IP License Agreement, or other applicable 
+# license agreement, including, without limitation, that your use is for the 
+# sole purpose of programming logic devices manufactured by Intel and sold by 
+# Intel or its authorized distributors.  Please refer to the applicable 
+# agreement for further details.
+
+
+# +---------------------------------------------------
+# | Cut the async clear paths
+# +---------------------------------------------------
+set aclr_counter 0
+set clrn_counter 0
+
+if {[get_current_instance] == ""} {set hpath ""} else {set hpath "[get_current_instance]|*"} 
+post_message -type info "Following instance found in the design -  $hpath"
+
+set aclr_collection [get_pins -compatibility_mode -nocase -nowarn ${hpath}alt_rst_sync_uq1|altera_reset_synchronizer_int_chain*|aclr]
+set clrn_collection [get_pins -compatibility_mode -nocase -nowarn ${hpath}alt_rst_sync_uq1|altera_reset_synchronizer_int_chain*|clrn]
+set num_sync_stage [get_registers -nocase -nowarn ${hpath}alt_rst_sync_uq1|altera_reset_synchronizer_int_chain[*]]
+set num_sync_count [get_collection_size $num_sync_stage]   
+set aclr_counter [get_collection_size $aclr_collection]
+set clrn_counter [get_collection_size $clrn_collection]
+
+if {$aclr_counter == 0 &&  $clrn_counter == 0 && $num_sync_count > 0} {
+    set_max_delay  -to [get_registers ${hpath}alt_rst_sync_uq1|altera_reset_synchronizer_int_chain[[expr $num_sync_count-1]]] 100
+    set_min_delay  -to [get_registers ${hpath}alt_rst_sync_uq1|altera_reset_synchronizer_int_chain[[expr $num_sync_count-1]]] -100
+}
+
+if {$aclr_counter > 0} {
+    set_false_path -to [get_pins -compatibility_mode -nocase ${hpath}alt_rst_sync_uq1|altera_reset_synchronizer_int_chain*|aclr]
+}
+
+if {$clrn_counter > 0} {
+    set_false_path -to [get_pins -compatibility_mode -nocase ${hpath}alt_rst_sync_uq1|altera_reset_synchronizer_int_chain*|clrn]
+}
+ 17 0 1 / 3 nfs 3 png 5 disks 18 swuser_work_lekong 6 my-git 6 others 7 sm_make 34 applications.fpga.soc.ghrd-socfpga 18 sm_soc_devkit_ghrd 11 jtag_subsys 2 ip 11 jtag_subsys 5 hps_m 28 altera_jtag_dc_streaming_191 5 synth 35 altera_avalon_st_jtag_interface.sdc 911 # (C) 2001-2023 Intel Corporation. All rights reserved.
+# Your use of Intel Corporation's design tools, logic functions and other 
+# software and tools, and its AMPP partner logic functions, and any output 
+# files from any of the foregoing (including device programming or simulation 
+# files), and any associated documentation or information are expressly subject 
+# to the terms and conditions of the Intel Program License Subscription 
+# Agreement, Intel FPGA IP License Agreement, or other applicable 
+# license agreement, including, without limitation, that your use is for the 
+# sole purpose of programming logic devices manufactured by Intel and sold by 
+# Intel or its authorized distributors.  Please refer to the applicable 
+# agreement for further details.
+
+
+set_false_path -from [get_registers *altera_jtag_src_crosser:*|sink_data_buffer*] -to [get_registers *altera_jtag_src_crosser:*|src_data*]
+ 17 0 1 / 3 nfs 3 png 5 disks 18 swuser_work_lekong 6 my-git 6 others 7 sm_make 34 applications.fpga.soc.ghrd-socfpga 18 sm_soc_devkit_ghrd 11 jtag_subsys 2 ip 11 jtag_subsys 5 hps_m 28 altera_reset_controller_1922 5 synth 27 altera_reset_controller.sdc 2326 # (C) 2001-2023 Intel Corporation. All rights reserved.
+# Your use of Intel Corporation's design tools, logic functions and other 
+# software and tools, and its AMPP partner logic functions, and any output 
+# files from any of the foregoing (including device programming or simulation 
+# files), and any associated documentation or information are expressly subject 
+# to the terms and conditions of the Intel Program License Subscription 
+# Agreement, Intel FPGA IP License Agreement, or other applicable 
+# license agreement, including, without limitation, that your use is for the 
+# sole purpose of programming logic devices manufactured by Intel and sold by 
+# Intel or its authorized distributors.  Please refer to the applicable 
+# agreement for further details.
+
+
+# +---------------------------------------------------
+# | Cut the async clear paths
+# +---------------------------------------------------
+set aclr_counter 0
+set clrn_counter 0
+
+if {[get_current_instance] == ""} {set hpath ""} else {set hpath "[get_current_instance]|*"} 
+post_message -type info "Following instance found in the design -  $hpath"
+
+set aclr_collection [get_pins -compatibility_mode -nocase -nowarn ${hpath}alt_rst_sync_uq1|altera_reset_synchronizer_int_chain*|aclr]
+set clrn_collection [get_pins -compatibility_mode -nocase -nowarn ${hpath}alt_rst_sync_uq1|altera_reset_synchronizer_int_chain*|clrn]
+set num_sync_stage [get_registers -nocase -nowarn ${hpath}alt_rst_sync_uq1|altera_reset_synchronizer_int_chain[*]]
+set num_sync_count [get_collection_size $num_sync_stage]   
+set aclr_counter [get_collection_size $aclr_collection]
+set clrn_counter [get_collection_size $clrn_collection]
+
+if {$aclr_counter == 0 &&  $clrn_counter == 0 && $num_sync_count > 0} {
+    set_max_delay  -to [get_registers ${hpath}alt_rst_sync_uq1|altera_reset_synchronizer_int_chain[[expr $num_sync_count-1]]] 100
+    set_min_delay  -to [get_registers ${hpath}alt_rst_sync_uq1|altera_reset_synchronizer_int_chain[[expr $num_sync_count-1]]] -100
+}
+
+if {$aclr_counter > 0} {
+    set_false_path -to [get_pins -compatibility_mode -nocase ${hpath}alt_rst_sync_uq1|altera_reset_synchronizer_int_chain*|aclr]
+}
+
+if {$clrn_counter > 0} {
+    set_false_path -to [get_pins -compatibility_mode -nocase ${hpath}alt_rst_sync_uq1|altera_reset_synchronizer_int_chain*|clrn]
+}
+ 18 0 1 / 3 nfs 3 png 5 disks 18 swuser_work_lekong 6 my-git 6 others 7 sm_make 34 applications.fpga.soc.ghrd-socfpga 18 sm_soc_devkit_ghrd 17 peripheral_subsys 2 ip 17 peripheral_subsys 8 ssgdma_0 16 intel_ssgdma_110 5 synth 3 top 10 ssgdma.sdc 2862 # (C) 2001-2023 Intel Corporation. All rights reserved.
+# Your use of Intel Corporation's design tools, logic functions and other 
+# software and tools, and its AMPP partner logic functions, and any output 
+# files from any of the foregoing (including device programming or simulation 
+# files), and any associated documentation or information are expressly subject 
+# to the terms and conditions of the Intel Program License Subscription 
+# Agreement, Intel FPGA IP License Agreement, or other applicable 
+# license agreement, including, without limitation, that your use is for the 
+# sole purpose of programming logic devices manufactured by Intel and sold by 
+# Intel or its authorized distributors.  Please refer to the applicable 
+# agreement for further details.
+
+
+
+# User should set top level SDC constraint by referencing to the SSGDMA IP's SDC constraint
+
+# No SDC constraint is generated in Example Design, please refer to SDC constraint file of Example Design.
+
+proc ssgdma_ip_sdc {} {
+
+set_time_format -unit ns -decimal_places 3
+
+#create_clock -name {altera_reserved_tck} [get_ports { altera_reserved_tck }] -period 16MHz
+
+create_clock -name axi_lite_clk -period 100MHz [get_ports {axi_lite_clk}]
+
+create_clock -name host_clk -period 100MHz [get_ports {host_clk}]
+
+create_clock -name h2d0_mm_clk -period 300MHz [get_ports {h2d0_mm_clk}]
+
+
+
+# Automatically calculate clock uncertainty to jitter and other effects.
+derive_clock_uncertainty
+
+#set ALT_RSV_CLK     [get_clocks altera_reserved_tck]
+
+
+set AXI_LITE_CLK	[get_clocks axi_lite_clk]
+
+set SS_AXI_ST_CLK	[get_clocks host_clk]
+
+set H2D0_MM_CLK	[get_clocks h2d0_mm_clk]
+
+
+
+set_input_delay -clock $AXI_LITE_CLK -add_delay 1 [get_ports {axi_lite_areset_n}]
+
+set_input_delay -clock $SS_AXI_ST_CLK -add_delay 1 [get_ports {host_aresetn}]
+
+set_input_delay -clock $H2D0_MM_CLK -add_delay 1 [get_ports {h2d0_mm_resetn}]
+
+
+
+# declare_clock       ALTERA_INSERTED_INTOSC_FOR_TRS|divided_osc_clk
+# set OSC_CLK	        [get_clocks ALTERA_INSERTED_INTOSC_FOR_TRS|divided_osc_clk]
+
+# Clock groups
+#if { [string equal quartus_fit $::TimeQuestInfo(nameofexecutable)] } { set_max_delay -to [get_ports { altera_reserved_tdo } ] 0 }
+#set_clock_groups -asynchronous -group {altera_reserved_tck}
+
+# From Timequest cookbook
+#set_clock_groups -exclusive -group [get_clocks altera_reserved_tck]
+#
+#set_input_delay -add_delay -clock altera_reserved_tck -clock_fall 3 [get_ports altera_reserved_tdi]
+#set_input_delay -add_delay -clock altera_reserved_tck -clock_fall 3 [get_ports altera_reserved_tms]
+#set_output_delay -add_delay -clock altera_reserved_tck 3 [get_ports altera_reserved_tdo]
+
+set_clock_groups -asynchronous -group $AXI_LITE_CLK -group $SS_AXI_ST_CLK
+
+set_clock_groups -asynchronous -group $H2D0_MM_CLK -group $AXI_LITE_CLK
+set_clock_groups -asynchronous -group $H2D0_MM_CLK -group $SS_AXI_ST_CLK
+
+
+}
+
+
+
+
+
+
+
+
+ 14 0 1 / 3 nfs 3 png 5 disks 18 swuser_work_lekong 6 my-git 6 others 7 sm_make 34 applications.fpga.soc.ghrd-socfpga 18 sm_soc_devkit_ghrd 8 qsys_top 28 altera_reset_controller_1922 5 synth 27 altera_reset_controller.sdc 2326 # (C) 2001-2023 Intel Corporation. All rights reserved.
+# Your use of Intel Corporation's design tools, logic functions and other 
+# software and tools, and its AMPP partner logic functions, and any output 
+# files from any of the foregoing (including device programming or simulation 
+# files), and any associated documentation or information are expressly subject 
+# to the terms and conditions of the Intel Program License Subscription 
+# Agreement, Intel FPGA IP License Agreement, or other applicable 
+# license agreement, including, without limitation, that your use is for the 
+# sole purpose of programming logic devices manufactured by Intel and sold by 
+# Intel or its authorized distributors.  Please refer to the applicable 
+# agreement for further details.
+
+
+# +---------------------------------------------------
+# | Cut the async clear paths
+# +---------------------------------------------------
+set aclr_counter 0
+set clrn_counter 0
+
+if {[get_current_instance] == ""} {set hpath ""} else {set hpath "[get_current_instance]|*"} 
+post_message -type info "Following instance found in the design -  $hpath"
+
+set aclr_collection [get_pins -compatibility_mode -nocase -nowarn ${hpath}alt_rst_sync_uq1|altera_reset_synchronizer_int_chain*|aclr]
+set clrn_collection [get_pins -compatibility_mode -nocase -nowarn ${hpath}alt_rst_sync_uq1|altera_reset_synchronizer_int_chain*|clrn]
+set num_sync_stage [get_registers -nocase -nowarn ${hpath}alt_rst_sync_uq1|altera_reset_synchronizer_int_chain[*]]
+set num_sync_count [get_collection_size $num_sync_stage]   
+set aclr_counter [get_collection_size $aclr_collection]
+set clrn_counter [get_collection_size $clrn_collection]
+
+if {$aclr_counter == 0 &&  $clrn_counter == 0 && $num_sync_count > 0} {
+    set_max_delay  -to [get_registers ${hpath}alt_rst_sync_uq1|altera_reset_synchronizer_int_chain[[expr $num_sync_count-1]]] 100
+    set_min_delay  -to [get_registers ${hpath}alt_rst_sync_uq1|altera_reset_synchronizer_int_chain[[expr $num_sync_count-1]]] -100
+}
+
+if {$aclr_counter > 0} {
+    set_false_path -to [get_pins -compatibility_mode -nocase ${hpath}alt_rst_sync_uq1|altera_reset_synchronizer_int_chain*|aclr]
+}
+
+if {$clrn_counter > 0} {
+    set_false_path -to [get_pins -compatibility_mode -nocase ${hpath}alt_rst_sync_uq1|altera_reset_synchronizer_int_chain*|clrn]
+}
+ 0

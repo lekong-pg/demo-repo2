@@ -1,0 +1,165 @@
+set_global_assignment -entity "ssgdma_0" -library "ssgdma_0" -name IP_TOOL_NAME "QsysPrimePro"
+set_global_assignment -entity "ssgdma_0" -library "ssgdma_0" -name IP_TOOL_VERSION "23.4"
+set_global_assignment -entity "ssgdma_0" -library "ssgdma_0" -name IP_TOOL_ENV "QsysPrimePro"
+set_global_assignment -entity "ssgdma_0" -library "ssgdma_0" -name IP_TOOL_VENDOR_NAME "Intel Corporation"
+set_global_assignment -entity "ssgdma_0" -library "ssgdma_0" -name IP_TOP_LEVEL_COMPONENT_NAME "intel_ssgdma"
+set_global_assignment -library "ssgdma_0" -name SOPCINFO_FILE [file join $::quartus(qip_path) "ssgdma_0.sopcinfo"]
+set_global_assignment -entity "ssgdma_0" -library "ssgdma_0" -name SLD_INFO "QSYS_NAME ssgdma_0 HAS_SOPCINFO 1 GENERATION_ID 0"
+set_global_assignment -library "ssgdma_0" -name MISC_FILE [file join $::quartus(qip_path) "ssgdma_0.cmp"]
+set_global_assignment -entity "ssgdma_0" -library "ssgdma_0" -name IP_TARGETED_DEVICE_FAMILY "Agilex 5"
+set_global_assignment -entity "ssgdma_0" -library "ssgdma_0" -name IP_GENERATED_DEVICE_FAMILY "{Agilex 5}"
+set_global_assignment -entity "ssgdma_0" -library "ssgdma_0" -name IP_QSYS_MODE "STANDALONE"
+set_global_assignment -name SYNTHESIS_ONLY_QIP ON
+set_global_assignment -library "ssgdma_0" -name MISC_FILE [file join $::quartus(qip_path) "../ssgdma_0.ip"]
+
+set_global_assignment -entity "intel_ssgdma_top" -library "intel_ssgdma_110" -name IP_COMPONENT_NAME "aW50ZWxfc3NnZG1hX3RvcA=="
+set_global_assignment -entity "intel_ssgdma_top" -library "intel_ssgdma_110" -name IP_COMPONENT_DISPLAY_NAME "U2NhbGFibGUgU2NhdHRlci1HYXRoZXIgRE1BIEludGVsIEZQR0EgSVA="
+set_global_assignment -entity "intel_ssgdma_top" -library "intel_ssgdma_110" -name IP_COMPONENT_REPORT_HIERARCHY "Off"
+set_global_assignment -entity "intel_ssgdma_top" -library "intel_ssgdma_110" -name IP_COMPONENT_INTERNAL "Off"
+set_global_assignment -entity "intel_ssgdma_top" -library "intel_ssgdma_110" -name IP_COMPONENT_AUTHOR "SW50ZWwgQ29ycG9yYXRpb24="
+set_global_assignment -entity "intel_ssgdma_top" -library "intel_ssgdma_110" -name IP_COMPONENT_VERSION "MS4xLjA="
+set_global_assignment -entity "intel_ssgdma_top" -library "intel_ssgdma_110" -name IP_COMPONENT_DESCRIPTION "TXVsdGktcG9ydHMgRE1BIHRoYXQgZW5hYmxlIGhpZ2ggYmFuZHdpZHRoIGRpcmVjdCBtZW1vcnkgYWNjZXNzIGF0IHRocmVlIGRpZmZlcmVudCBtb2RlIChETUEgT25seSwgUENJRSwgYW5kIFNvQykgYW5kIG1peHR1cmUgb2YgQVhJLTQvQVhJLVNUL0FWU1Qgc3RyZWFtaW5nIHBlcmlwaGVyYWxz"
+set_global_assignment -entity "intel_ssgdma_top" -library "intel_ssgdma_110" -name IP_COMPONENT_GROUP "QmFzaWMgRnVuY3Rpb25zL0RNQQ=="
+set_global_assignment -entity "intel_ssgdma_top" -library "intel_ssgdma_110" -name IP_COMPONENT_DOCUMENTATION_LINK "aHR0cHM6Ly93d3cuaW50ZWwuY29tL2NvbnRlbnQvd3d3L3VzL2VuL2RvY3MvcHJvZ3JhbW1hYmxlLzY4MzEzMC8="
+set_global_assignment -entity "intel_ssgdma_top" -library "intel_ssgdma_110" -name IP_COMPONENT_DOCUMENTATION_LINK "aHR0cHM6Ly93d3cuaW50ZWwuY29tL2NvbnRlbnQvd3d3L3VzL2VuL3N1cHBvcnQvcHJvZ3JhbW1hYmxlL3N1cHBvcnQtcmVzb3VyY2VzL2ZwZ2EtZG9jdW1lbnRhdGlvbi1pbmRleC5odG1s"
+set_global_assignment -entity "ssgdma_0" -library "ssgdma_0" -name IP_COMPONENT_NAME "c3NnZG1hXzA="
+set_global_assignment -entity "ssgdma_0" -library "ssgdma_0" -name IP_COMPONENT_DISPLAY_NAME "c3lzdGVt"
+set_global_assignment -entity "ssgdma_0" -library "ssgdma_0" -name IP_COMPONENT_REPORT_HIERARCHY "On"
+set_global_assignment -entity "ssgdma_0" -library "ssgdma_0" -name IP_COMPONENT_INTERNAL "Off"
+set_global_assignment -entity "ssgdma_0" -library "ssgdma_0" -name IP_COMPONENT_AUTHOR "SW50ZWwgQ29ycG9yYXRpb24="
+set_global_assignment -entity "ssgdma_0" -library "ssgdma_0" -name IP_COMPONENT_VERSION "MS4w"
+
+
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/common/ssgdma_csr_reg_pkg.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/common/ssgdma_descriptors_pkg.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/common/ssgdma_pkg.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/common/altera_std_synchronizer_nocut.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/common/intel_ssgdma_axi_st_fifo.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/common/intel_ssgdma_axi_st_regs.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/common/intel_ssgdma_clkcrosser.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/common/intel_ssgdma_fifo.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/common/intel_ssgdma_hyperflex_reset_controller.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/common/intel_ssgdma_hyperflex_reset_controller_simple.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/common/intel_ssgdma_pl_delay.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/common/intel_ssgdma_data_fifo.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/common/intel_ssgdma_hyperflex_pipeline.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/common/intel_ssgdma_native_fifo.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/common/intel_ssgdma_native_ram.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/common/intel_ssgdma_packet_fifo.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/common/intel_ssgdma_pulse_stretch_sync.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/common/intel_ssgdma_request_arbiter_multito1.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/common/intel_ssgdma_std_synchronizer_nocut.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/common/mux_4to1_pipelined.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/common/pipe_and.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/common/pipe_equal.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/common/priority_mux_core.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/common/priority_mux.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/csr/csrunit.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/csr/intel_ssgdma_axi_lite_to_mm_adapter.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/csr/intel_ssgdma_resp_table_mem.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/csr/ssgdma_control_unit_arbiter.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/csr/ssgdma_control_unit.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/csr/ssgdma_csr_mem.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/csr/ssgdma_csr_router.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/csr/ssgdma_gcsr.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/csr/ssgdma_qcsr.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/csr/ssgdma_qcsr_resp_mem_router.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/csr/ssgdma_qcsr_router.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/dma_arbiter_router/intel_ssgdma_dma_arbiter_credit.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/dma_arbiter_router/intel_ssgdma_queue_fifo.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/dma_arbiter_router/intel_ssgdma_router_top.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/dma_arbiter_router/intel_ssgdma_router_tvalid_tready_generate.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/dma_arbiter_router/ssgdma_agent_arbiter.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/dma_arbiter_router/ssgdma_arbiter_fifo_top.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/dma_arbiter_router/ssgdma_arbiter_top.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/host_agent/intel_ssgdma_agent_pkg.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/host_agent/intel_ssgdma_host_agent_constructor.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/host_agent/intel_ssgdma_host_agent_controller.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/host_agent/intel_ssgdma_host_agent_csr.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/host_agent/intel_ssgdma_host_agent_csr_fsm.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/host_agent/intel_ssgdma_host_agent_d2h.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/host_agent/intel_ssgdma_host_agent_descriptors.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/host_agent/intel_ssgdma_host_agent_dre.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/host_agent/intel_ssgdma_host_agent_mm.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/host_agent/intel_ssgdma_host_agent_responder.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/host_agent/intel_ssgdma_host_agent_top.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/host_agent/intel_ssgdma_host_agent_waf.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/host_agent/intel_ssgdma_host_agent_h2d.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/host_agent/intel_ssgdma_host_agent_response_fifos.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/host_agent/intel_ssgdma_host_agent_keep_align.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/host_agent/intel_ssgdma_pre_processor.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/top/common_region_wrapper.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/top/device_agent_wrapper.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/top/intel_ssgdma_top.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/top/intel_ssgdma_soc_and_dma_only_mode_wrapper.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/soc_and_dma_only/axi_soc_host_agent/intel_ssgdma_soc_host_device.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/soc_and_dma_only/axi_soc_host_agent/intel_ssgdma_soc_host_mm_fifos.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/soc_and_dma_only/axi_soc_host_agent/intel_ssgdma_soc_mode_axi_host_top.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/soc_and_dma_only/intel_ssgdma_interrupt_controller.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/descriptor_router_to_agent_tdata_handler/intel_ssgdma_prefetcher_descriptor_1024_to_256_handler.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/descriptor_router_to_agent_tdata_handler/intel_ssgdma_prefetcher_descriptor_1024_to_32_handler.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/descriptor_router_to_agent_tdata_handler/intel_ssgdma_prefetcher_descriptor_128_to_256_handler.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/descriptor_router_to_agent_tdata_handler/intel_ssgdma_prefetcher_descriptor_128_to_32_handler.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/descriptor_router_to_agent_tdata_handler/intel_ssgdma_prefetcher_descriptor_16_to_256_handler.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/descriptor_router_to_agent_tdata_handler/intel_ssgdma_prefetcher_descriptor_16_to_32_handler.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/descriptor_router_to_agent_tdata_handler/intel_ssgdma_prefetcher_descriptor_256_to_256_handler.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/descriptor_router_to_agent_tdata_handler/intel_ssgdma_prefetcher_descriptor_256_to_32_handler.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/descriptor_router_to_agent_tdata_handler/intel_ssgdma_prefetcher_descriptor_32_to_256_handler.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/descriptor_router_to_agent_tdata_handler/intel_ssgdma_prefetcher_descriptor_32_to_32_handler.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/descriptor_router_to_agent_tdata_handler/intel_ssgdma_prefetcher_descriptor_512_to_256_handler.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/descriptor_router_to_agent_tdata_handler/intel_ssgdma_prefetcher_descriptor_512_to_32_handler.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/descriptor_router_to_agent_tdata_handler/intel_ssgdma_prefetcher_descriptor_64_to_256_handler.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/descriptor_router_to_agent_tdata_handler/intel_ssgdma_prefetcher_descriptor_64_to_32_handler.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/descriptor_router_to_agent_tdata_handler/intel_ssgdma_prefetcher_descriptor_8_to_256_handler.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/descriptor_router_to_agent_tdata_handler/intel_ssgdma_prefetcher_descriptor_8_to_32_handler.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/responder_agent_to_arbiter_tdata_handler/intel_ssgdma_prefetcher_responder_32_to_8_handler.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/responder_agent_to_arbiter_tdata_handler/intel_ssgdma_prefetcher_responder_32_to_16_handler.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/responder_agent_to_arbiter_tdata_handler/intel_ssgdma_prefetcher_responder_32_to_32_handler.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/responder_agent_to_arbiter_tdata_handler/intel_ssgdma_prefetcher_responder_32_to_64_handler.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/responder_agent_to_arbiter_tdata_handler/intel_ssgdma_prefetcher_responder_32_to_128_handler.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/responder_agent_to_arbiter_tdata_handler/intel_ssgdma_prefetcher_responder_32_to_256_handler.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/responder_agent_to_arbiter_tdata_handler/intel_ssgdma_prefetcher_responder_32_to_512_handler.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/responder_agent_to_arbiter_tdata_handler/intel_ssgdma_prefetcher_responder_32_to_1024_handler.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/responder_agent_to_arbiter_tdata_handler/intel_ssgdma_prefetcher_responder_256_to_8_handler.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/responder_agent_to_arbiter_tdata_handler/intel_ssgdma_prefetcher_responder_256_to_16_handler.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/responder_agent_to_arbiter_tdata_handler/intel_ssgdma_prefetcher_responder_256_to_32_handler.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/responder_agent_to_arbiter_tdata_handler/intel_ssgdma_prefetcher_responder_256_to_64_handler.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/responder_agent_to_arbiter_tdata_handler/intel_ssgdma_prefetcher_responder_256_to_128_handler.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/responder_agent_to_arbiter_tdata_handler/intel_ssgdma_prefetcher_responder_256_to_256_handler.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/responder_agent_to_arbiter_tdata_handler/intel_ssgdma_prefetcher_responder_256_to_512_handler.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/responder_agent_to_arbiter_tdata_handler/intel_ssgdma_prefetcher_responder_256_to_1024_handler.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_responder_non_writeback_tdata_decoder.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_credit_manager.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_csr_manager.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_descriptor_address_offset_manager.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_descriptor_block_counter.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_descriptor_credit_counter.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_descriptor_engine.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_descriptor_fetch_manager.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_descriptor_linked_address_ready_handler.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_descriptor_prefetch_pointer_counter.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_descriptor_send_manager.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_device_port_csr_handler.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_device_port_csr_interrupt.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_device_port_csr_interrupt_control.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_device_port_soft_pause_reset_active_detector.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_device_port_soft_pause_reset_manager.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_msix_interrupt_controller.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_responder_agent_bus_handler.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_responder_agent_fill_timer.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_responder_credit_counter.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_responder_descriptor_address_offset_manager.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_responder_writeback_manager.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_responder_writeback_response_completion_manager.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_responder_engine.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_after_reset_deassertion_control.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_paused_control.sv"]
+set_global_assignment -library "intel_ssgdma_110" -name SYSTEMVERILOG_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/prefetcher/intel_ssgdma_prefetcher_top.sv"]
+set_instance_assignment -entity "intel_ssgdma_top" -library "intel_ssgdma_110" -name SDC_ENTITY_FILE [file join $::quartus(qip_path) "intel_ssgdma_110/synth/top/ssgdma.sdc"] -no_sdc_promotion  -no_auto_inst_discovery 
+set_global_assignment -library "ssgdma_0" -name VERILOG_FILE [file join $::quartus(qip_path) "synth/ssgdma_0.v"]
+
+
+set_global_assignment -entity "intel_ssgdma_top" -library "intel_ssgdma_110" -name IP_TOOL_NAME "intel_ssgdma"
+set_global_assignment -entity "intel_ssgdma_top" -library "intel_ssgdma_110" -name IP_TOOL_VERSION "1.1.0"
+set_global_assignment -entity "intel_ssgdma_top" -library "intel_ssgdma_110" -name IP_TOOL_ENV "QsysPrimePro"
+

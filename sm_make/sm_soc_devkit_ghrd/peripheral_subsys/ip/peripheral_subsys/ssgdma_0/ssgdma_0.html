@@ -1,0 +1,1060 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <title>datasheet for ssgdma_0</title>
+  <style type="text/css">
+body { font-family:arial ;}
+a { text-decoration:underline ; color:#003000 ;}
+a:hover { text-decoration:underline ; color:0030f0 ;}
+td { padding : 5px ;}
+table.topTitle { width:100% ;}
+table.topTitle td.l { text-align:left ; font-weight: bold ; font-size:30px ;}
+table.topTitle td.r { text-align:right ; font-weight: bold ; font-size:16px ;}
+table.blueBar { width : 100% ; border-spacing : 0px ;}
+table.blueBar td { background:#0036ff ; font-size:12px ; color : white ; text-align : left ; font-weight : bold ;}
+table.blueBar td.l { text-align : left ;}
+table.blueBar td.r { text-align : right ;}
+table.items { width:100% ; border-collapse:collapse ;}
+table.items td.label { font-weight:bold ; font-size:16px ; vertical-align:top ;}
+table.items td.mono { font-family:courier ; font-size:12px ; white-space:pre ;}
+div.label { font-weight:bold ; font-size:16px ; vertical-align:top ; text-align:center ;}
+table.grid { border-collapse:collapse ;}
+table.grid td { border:1px solid #bbb ; font-size:12px ;}
+body { font-family:arial ;}
+table.x { font-family:courier ; border-collapse:collapse ; padding:2px ;}
+table.x td { border:1px solid #bbb ;}
+td.tableTitle { font-weight:bold ; text-align:center ;}
+table.grid { border-collapse:collapse ;}
+table.grid td { border:1px solid #bbb ;}
+table.grid td.tableTitle { font-weight:bold ; text-align:center ;}
+table.mmap { border-collapse:collapse ; text-size:11px ; border:1px solid #d8d8d8 ;}
+table.mmap td { border-color:#d8d8d8 ; border-width:1px ; border-style:solid ;}
+table.mmap td.empty { border-style:none ; background-color:#f0f0f0 ;}
+table.mmap td.slavemodule { text-align:left ; font-size:11px ; border-style:solid solid none solid ;}
+table.mmap td.slavem { text-align:right ; font-size:9px ; font-style:italic ; border-style:none solid none solid ;}
+table.mmap td.slaveb { text-align:right ; font-size:9px ; font-style:italic ; border-style:none solid solid solid ;}
+table.mmap td.mastermodule { text-align:center ; font-size:11px ; border-style:solid solid none solid ;}
+table.mmap td.masterlr { text-align:center ; font-size:9px ; font-style:italic ; border-style:none solid solid solid ;}
+table.mmap td.masterl { text-align:center ; font-size:9px ; font-style:italic ; border-style:none none solid solid ;}
+table.mmap td.masterm { text-align:center ; font-size:9px ; font-style:italic ; border-style:none none solid none ;}
+table.mmap td.masterr { text-align:center ; font-size:9px ; font-style:italic ; border-style:none solid solid none ;}
+table.mmap td.addr { font-family:courier ; font-size:9px ; text-align:right ;}
+table.connectionboxes { border-collapse:separate ; border-spacing:0px ; font-family:arial ;}
+table.connectionboxes td.from { border-bottom:1px solid black ; font-size:9px ; font-style:italic ; vertical-align:bottom ; text-align:left ;}
+table.connectionboxes td.to { font-size:9px ; font-style:italic ; vertical-align:top ; text-align:right ;}
+table.connectionboxes td.lefthandwire { border-bottom:1px solid black ; font-size:9px ; font-style:italic ; vertical-align:bottom ; text-align:right ;}
+table.connectionboxes td.righthandwire { border-bottom:1px solid black ; font-size:9px ; font-style:italic ; vertical-align:bottom ; text-align:left ;}
+table.connectionboxes td.righthandlabel { font-size:11px ; vertical-align:bottom ; text-align:left ;}
+table.connectionboxes td.neighbor { padding:3px ; border:1px solid black ; font-size: 11px ; background:#e8e8e8 ; vertical-align:center ; text-align:center ;}
+table.connectionboxes td.main { padding:8px ; border:1px solid black ; font-size: 14px ; font-weight:bold ; background:#ffffff ; vertical-align:center ; text-align:center ;}
+.parametersbox { border:1px solid #d0d0d0 ; display:inline-block ; max-height:160px ; overflow:auto ; width:360px ; font-size:10px ;}
+.flowbox { display:inline-block ;}
+.parametersbox table { font-size:10px ;}
+td.parametername { font-style:italic ;}
+td.parametervalue { font-weight:bold ;}
+div.greydiv { vertical-align:top ; text-align:center ; background:#eeeeee ; border-top:1px solid #707070 ; border-bottom:1px solid #707070 ; padding:20px ; margin:20px ; width:auto ;}</style>
+ </head>
+ <body>
+  <table class="topTitle">
+   <tr>
+    <td class="l">ssgdma_0</td>
+    <td class="r">
+     <br/>
+     <br/>
+    </td>
+   </tr>
+  </table>
+  <table class="blueBar">
+   <tr>
+    <td class="l">2023.12.22.16:30:21</td>
+    <td class="r">Datasheet</td>
+   </tr>
+  </table>
+  <div style="width:100% ;  height:10px"> </div>
+  <div class="label">Overview</div>
+  <div class="greydiv">
+   <div style="display:inline-block ; text-align:left">
+    <table class="connectionboxes">
+     <tr style="height:6px">
+      <td></td>
+     </tr>
+    </table>
+   </div><span style="display:inline-block ; width:28px"> </span>
+   <div style="display:inline-block ; text-align:left"><span>
+     <br/></span>
+   </div>
+  </div>
+  <div style="width:100% ;  height:10px"> </div>
+  <div class="label">Memory Map</div>
+  <table class="mmap">
+   <tr>
+    <td class="empty" rowspan="2"></td>
+   </tr>
+  </table>
+  <a name="module_intel_ssgdma_inst"> </a>
+  <div>
+   <hr/>
+   <h2>intel_ssgdma_inst</h2>intel_ssgdma v1.1.0
+   <br/>
+   <br/>
+   <br/>
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Parameters</h2>
+      <table>
+       <tr>
+        <td class="parametername">DMA_MODE</td>
+        <td class="parametervalue">DMA SoC mode</td>
+       </tr>
+       <tr>
+        <td class="parametername">MAX_PAYLOAD_SIZE</td>
+        <td class="parametervalue">512</td>
+       </tr>
+       <tr>
+        <td class="parametername">PCIE_FUNC_MODE</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">ADDR_64BITS_EN</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">NUM_PF</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">NUM_VF_PER_PF0</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">BAM_PORT_EN</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">BAM_INT_TYPE</td>
+        <td class="parametervalue">AXI4</td>
+       </tr>
+       <tr>
+        <td class="parametername">BAM_DWD</td>
+        <td class="parametervalue">128</td>
+       </tr>
+       <tr>
+        <td class="parametername">BAM_BAR1_AWD</td>
+        <td class="parametervalue">32</td>
+       </tr>
+       <tr>
+        <td class="parametername">BAM_PROT_PRIV_ACC</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">BAM_PROT_SEC_ACC</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">BAM_PROT_DATA_ACC</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">CPL_TIMEOUT_PORT_EN</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">CTRL_SHW_PORT_EN</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">MSIX_EN</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">TX_ARB_MODE</td>
+        <td class="parametervalue">Round Robin</td>
+       </tr>
+       <tr>
+        <td class="parametername">EXT_TAG_EN</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">SS_ST_DWD_AGILEX5</td>
+        <td class="parametervalue">128</td>
+       </tr>
+       <tr>
+        <td class="parametername">AXI_ST_PORT_FREQ_SOC_MODE_AGILEX5</td>
+        <td class="parametervalue">100</td>
+       </tr>
+       <tr>
+        <td class="parametername">UNALIGNED_ACCESS_EN</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">SS_CSR_PROT_PRIV_ACC</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">SS_CSR_PROT_SEC_ACC</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">SS_CSR_PROT_DATA_ACC</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">NUM_H2D_MM_PORTS</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">NUM_H2D_ST_PORTS</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">NUM_D2H_ST_PORTS</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_MM0_DWD</td>
+        <td class="parametervalue">64</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_MM0_FIFO_DEPTH</td>
+        <td class="parametervalue">6144</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_ST_TUSER_PORT0_EN</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_ST_TUSER_PORT0_EN</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_ST_PORT0_INIT_FLUSH_EN</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_AXI_ST_PORT0_TUSER_TO_SOP_MAP_EN</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_AXI_ST_PORT0_TUSER_TO_SOP_MAP_EN</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_ST_PORT0_DATA_TYPE</td>
+        <td class="parametervalue">Video</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_ST_PORT0_DATA_TYPE</td>
+        <td class="parametervalue">Video</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_ST0_DWD</td>
+        <td class="parametervalue">64</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_ST0_FIFO_DEPTH</td>
+        <td class="parametervalue">6144</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_ST_PORT0_INT_TYPE</td>
+        <td class="parametervalue">AXI-ST</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_ST_PORT0_PKT_MODE</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_ST0_DWD</td>
+        <td class="parametervalue">64</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_ST0_FIFO_DEPTH</td>
+        <td class="parametervalue">6144</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_ST_PORT0_INT_TYPE</td>
+        <td class="parametervalue">AXI-ST</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_ST_PORT0_PKT_MODE</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_MM1_DWD</td>
+        <td class="parametervalue">64</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_MM1_FIFO_DEPTH</td>
+        <td class="parametervalue">6144</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_ST_TUSER_PORT1_EN</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_ST_TUSER_PORT1_EN</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_ST_PORT1_INIT_FLUSH_EN</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_AXI_ST_PORT1_TUSER_TO_SOP_MAP_EN</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_AXI_ST_PORT1_TUSER_TO_SOP_MAP_EN</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_ST_PORT1_DATA_TYPE</td>
+        <td class="parametervalue">Video</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_ST_PORT1_DATA_TYPE</td>
+        <td class="parametervalue">Video</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_ST1_DWD</td>
+        <td class="parametervalue">64</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_ST1_FIFO_DEPTH</td>
+        <td class="parametervalue">6144</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_ST_PORT1_INT_TYPE</td>
+        <td class="parametervalue">AXI-ST</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_ST_PORT1_PKT_MODE</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_ST1_DWD</td>
+        <td class="parametervalue">64</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_ST1_FIFO_DEPTH</td>
+        <td class="parametervalue">6144</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_ST_PORT1_INT_TYPE</td>
+        <td class="parametervalue">AXI-ST</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_ST_PORT1_PKT_MODE</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_MM2_DWD</td>
+        <td class="parametervalue">64</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_MM2_FIFO_DEPTH</td>
+        <td class="parametervalue">6144</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_ST_TUSER_PORT2_EN</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_ST_TUSER_PORT2_EN</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_ST_PORT2_INIT_FLUSH_EN</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_AXI_ST_PORT2_TUSER_TO_SOP_MAP_EN</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_AXI_ST_PORT2_TUSER_TO_SOP_MAP_EN</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_ST_PORT2_DATA_TYPE</td>
+        <td class="parametervalue">Video</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_ST_PORT2_DATA_TYPE</td>
+        <td class="parametervalue">Video</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_ST2_DWD</td>
+        <td class="parametervalue">64</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_ST2_FIFO_DEPTH</td>
+        <td class="parametervalue">6144</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_ST_PORT2_INT_TYPE</td>
+        <td class="parametervalue">AXI-ST</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_ST_PORT2_PKT_MODE</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_ST2_DWD</td>
+        <td class="parametervalue">64</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_ST2_FIFO_DEPTH</td>
+        <td class="parametervalue">6144</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_ST_PORT2_INT_TYPE</td>
+        <td class="parametervalue">AXI-ST</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_ST_PORT2_PKT_MODE</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_MM3_DWD</td>
+        <td class="parametervalue">64</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_MM3_FIFO_DEPTH</td>
+        <td class="parametervalue">6144</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_ST_TUSER_PORT3_EN</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_ST_TUSER_PORT3_EN</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_ST_PORT3_INIT_FLUSH_EN</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_AXI_ST_PORT3_TUSER_TO_SOP_MAP_EN</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_AXI_ST_PORT3_TUSER_TO_SOP_MAP_EN</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_ST_PORT3_DATA_TYPE</td>
+        <td class="parametervalue">Video</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_ST_PORT3_DATA_TYPE</td>
+        <td class="parametervalue">Video</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_ST3_DWD</td>
+        <td class="parametervalue">64</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_ST3_FIFO_DEPTH</td>
+        <td class="parametervalue">6144</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_ST_PORT3_INT_TYPE</td>
+        <td class="parametervalue">AXI-ST</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_ST_PORT3_PKT_MODE</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_ST3_DWD</td>
+        <td class="parametervalue">64</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_ST3_FIFO_DEPTH</td>
+        <td class="parametervalue">6144</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_ST_PORT3_INT_TYPE</td>
+        <td class="parametervalue">AXI-ST</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_ST_PORT3_PKT_MODE</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_MM4_DWD</td>
+        <td class="parametervalue">64</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_MM4_FIFO_DEPTH</td>
+        <td class="parametervalue">6144</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_ST_TUSER_PORT4_EN</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_ST_TUSER_PORT4_EN</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_ST_PORT4_INIT_FLUSH_EN</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_AXI_ST_PORT4_TUSER_TO_SOP_MAP_EN</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_AXI_ST_PORT4_TUSER_TO_SOP_MAP_EN</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_ST_PORT4_DATA_TYPE</td>
+        <td class="parametervalue">Video</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_ST_PORT4_DATA_TYPE</td>
+        <td class="parametervalue">Video</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_ST4_DWD</td>
+        <td class="parametervalue">64</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_ST4_FIFO_DEPTH</td>
+        <td class="parametervalue">6144</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_ST_PORT4_INT_TYPE</td>
+        <td class="parametervalue">AXI-ST</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_ST_PORT4_PKT_MODE</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_ST4_DWD</td>
+        <td class="parametervalue">64</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_ST4_FIFO_DEPTH</td>
+        <td class="parametervalue">6144</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_ST_PORT4_INT_TYPE</td>
+        <td class="parametervalue">AXI-ST</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_ST_PORT4_PKT_MODE</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_MM5_DWD</td>
+        <td class="parametervalue">64</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_MM5_FIFO_DEPTH</td>
+        <td class="parametervalue">6144</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_ST_TUSER_PORT5_EN</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_ST_TUSER_PORT5_EN</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_ST_PORT5_INIT_FLUSH_EN</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_AXI_ST_PORT5_TUSER_TO_SOP_MAP_EN</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_AXI_ST_PORT5_TUSER_TO_SOP_MAP_EN</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_ST_PORT5_DATA_TYPE</td>
+        <td class="parametervalue">Video</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_ST_PORT5_DATA_TYPE</td>
+        <td class="parametervalue">Video</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_ST5_DWD</td>
+        <td class="parametervalue">64</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_ST5_FIFO_DEPTH</td>
+        <td class="parametervalue">6144</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_ST_PORT5_INT_TYPE</td>
+        <td class="parametervalue">AXI-ST</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_ST_PORT5_PKT_MODE</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_ST5_DWD</td>
+        <td class="parametervalue">64</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_ST5_FIFO_DEPTH</td>
+        <td class="parametervalue">6144</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_ST_PORT5_INT_TYPE</td>
+        <td class="parametervalue">AXI-ST</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_ST_PORT5_PKT_MODE</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_MM6_DWD</td>
+        <td class="parametervalue">64</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_MM6_FIFO_DEPTH</td>
+        <td class="parametervalue">6144</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_ST_TUSER_PORT6_EN</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_ST_TUSER_PORT6_EN</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_ST_PORT6_INIT_FLUSH_EN</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_AXI_ST_PORT6_TUSER_TO_SOP_MAP_EN</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_AXI_ST_PORT6_TUSER_TO_SOP_MAP_EN</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_ST_PORT6_DATA_TYPE</td>
+        <td class="parametervalue">Video</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_ST_PORT6_DATA_TYPE</td>
+        <td class="parametervalue">Video</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_ST6_DWD</td>
+        <td class="parametervalue">64</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_ST6_FIFO_DEPTH</td>
+        <td class="parametervalue">6144</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_ST_PORT6_INT_TYPE</td>
+        <td class="parametervalue">AXI-ST</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_ST_PORT6_PKT_MODE</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_ST6_DWD</td>
+        <td class="parametervalue">64</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_ST6_FIFO_DEPTH</td>
+        <td class="parametervalue">6144</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_ST_PORT6_INT_TYPE</td>
+        <td class="parametervalue">AXI-ST</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_ST_PORT6_PKT_MODE</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_MM7_DWD</td>
+        <td class="parametervalue">64</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_MM7_FIFO_DEPTH</td>
+        <td class="parametervalue">6144</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_ST_TUSER_PORT7_EN</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_ST_TUSER_PORT7_EN</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_ST_PORT7_INIT_FLUSH_EN</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_AXI_ST_PORT7_TUSER_TO_SOP_MAP_EN</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_AXI_ST_PORT7_TUSER_TO_SOP_MAP_EN</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_ST_PORT7_DATA_TYPE</td>
+        <td class="parametervalue">Video</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_ST_PORT7_DATA_TYPE</td>
+        <td class="parametervalue">Video</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_ST7_DWD</td>
+        <td class="parametervalue">64</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_ST7_FIFO_DEPTH</td>
+        <td class="parametervalue">6144</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_ST_PORT7_INT_TYPE</td>
+        <td class="parametervalue">AXI-ST</td>
+       </tr>
+       <tr>
+        <td class="parametername">H2D_ST_PORT7_PKT_MODE</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_ST7_DWD</td>
+        <td class="parametervalue">64</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_ST7_FIFO_DEPTH</td>
+        <td class="parametervalue">6144</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_ST_PORT7_INT_TYPE</td>
+        <td class="parametervalue">AXI-ST</td>
+       </tr>
+       <tr>
+        <td class="parametername">D2H_ST_PORT7_PKT_MODE</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">HOST_INT_TYPE</td>
+        <td class="parametervalue">AXI4</td>
+       </tr>
+       <tr>
+        <td class="parametername">HOST_DWD</td>
+        <td class="parametervalue">256</td>
+       </tr>
+       <tr>
+        <td class="parametername">HOST_AXI_PROT_PRIV_ACC</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">HOST_AXI_PROT_SEC_ACC</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">HOST_AXI_PROT_DATA_ACC</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">HOST_AXI_AWCACHE</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">HOST_AXI_AWBAR</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">HOST_AXI_AWDOMAIN</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">HOST_AXI_AWSNOOP</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">HOST_AXI_ARCACHE</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">HOST_AXI_ARBAR</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">HOST_AXI_ARDOMAIN</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">HOST_AXI_ARSNOOP</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">DESCRWR_H2D_MM0_INT_TYPE</td>
+        <td class="parametervalue">AXI-ST</td>
+       </tr>
+       <tr>
+        <td class="parametername">DESCR_H2D_MM0_DWD</td>
+        <td class="parametervalue">32</td>
+       </tr>
+       <tr>
+        <td class="parametername">DESCRWR_H2D_ST0_INT_TYPE</td>
+        <td class="parametervalue">AXI-ST</td>
+       </tr>
+       <tr>
+        <td class="parametername">DESCR_H2D_ST0_DWD</td>
+        <td class="parametervalue">32</td>
+       </tr>
+       <tr>
+        <td class="parametername">DESCRWR_D2H_ST0_INT_TYPE</td>
+        <td class="parametervalue">AXI-ST</td>
+       </tr>
+       <tr>
+        <td class="parametername">DESCR_D2H_ST0_DWD</td>
+        <td class="parametervalue">32</td>
+       </tr>
+       <tr>
+        <td class="parametername">DESCRWR_H2D_MM1_INT_TYPE</td>
+        <td class="parametervalue">AXI-ST</td>
+       </tr>
+       <tr>
+        <td class="parametername">DESCR_H2D_MM1_DWD</td>
+        <td class="parametervalue">32</td>
+       </tr>
+       <tr>
+        <td class="parametername">DESCRWR_H2D_ST1_INT_TYPE</td>
+        <td class="parametervalue">AXI-ST</td>
+       </tr>
+       <tr>
+        <td class="parametername">DESCR_H2D_ST1_DWD</td>
+        <td class="parametervalue">32</td>
+       </tr>
+       <tr>
+        <td class="parametername">DESCRWR_D2H_ST1_INT_TYPE</td>
+        <td class="parametervalue">AXI-ST</td>
+       </tr>
+       <tr>
+        <td class="parametername">DESCR_D2H_ST1_DWD</td>
+        <td class="parametervalue">32</td>
+       </tr>
+       <tr>
+        <td class="parametername">DESCRWR_H2D_MM2_INT_TYPE</td>
+        <td class="parametervalue">AXI-ST</td>
+       </tr>
+       <tr>
+        <td class="parametername">DESCR_H2D_MM2_DWD</td>
+        <td class="parametervalue">32</td>
+       </tr>
+       <tr>
+        <td class="parametername">DESCRWR_H2D_ST2_INT_TYPE</td>
+        <td class="parametervalue">AXI-ST</td>
+       </tr>
+       <tr>
+        <td class="parametername">DESCR_H2D_ST2_DWD</td>
+        <td class="parametervalue">32</td>
+       </tr>
+       <tr>
+        <td class="parametername">DESCRWR_D2H_ST2_INT_TYPE</td>
+        <td class="parametervalue">AXI-ST</td>
+       </tr>
+       <tr>
+        <td class="parametername">DESCR_D2H_ST2_DWD</td>
+        <td class="parametervalue">32</td>
+       </tr>
+       <tr>
+        <td class="parametername">DESCRWR_H2D_MM3_INT_TYPE</td>
+        <td class="parametervalue">AXI-ST</td>
+       </tr>
+       <tr>
+        <td class="parametername">DESCR_H2D_MM3_DWD</td>
+        <td class="parametervalue">32</td>
+       </tr>
+       <tr>
+        <td class="parametername">DESCRWR_H2D_ST3_INT_TYPE</td>
+        <td class="parametervalue">AXI-ST</td>
+       </tr>
+       <tr>
+        <td class="parametername">DESCR_H2D_ST3_DWD</td>
+        <td class="parametervalue">32</td>
+       </tr>
+       <tr>
+        <td class="parametername">DESCRWR_D2H_ST3_INT_TYPE</td>
+        <td class="parametervalue">AXI-ST</td>
+       </tr>
+       <tr>
+        <td class="parametername">DESCR_D2H_ST3_DWD</td>
+        <td class="parametervalue">32</td>
+       </tr>
+       <tr>
+        <td class="parametername">DESCRWR_H2D_MM4_INT_TYPE</td>
+        <td class="parametervalue">AXI-ST</td>
+       </tr>
+       <tr>
+        <td class="parametername">DESCR_H2D_MM4_DWD</td>
+        <td class="parametervalue">32</td>
+       </tr>
+       <tr>
+        <td class="parametername">DESCRWR_H2D_ST4_INT_TYPE</td>
+        <td class="parametervalue">AXI-ST</td>
+       </tr>
+       <tr>
+        <td class="parametername">DESCR_H2D_ST4_DWD</td>
+        <td class="parametervalue">32</td>
+       </tr>
+       <tr>
+        <td class="parametername">DESCRWR_D2H_ST4_INT_TYPE</td>
+        <td class="parametervalue">AXI-ST</td>
+       </tr>
+       <tr>
+        <td class="parametername">DESCR_D2H_ST4_DWD</td>
+        <td class="parametervalue">32</td>
+       </tr>
+       <tr>
+        <td class="parametername">DESCRWR_H2D_MM5_INT_TYPE</td>
+        <td class="parametervalue">AXI-ST</td>
+       </tr>
+       <tr>
+        <td class="parametername">DESCR_H2D_MM5_DWD</td>
+        <td class="parametervalue">32</td>
+       </tr>
+       <tr>
+        <td class="parametername">DESCRWR_H2D_ST5_INT_TYPE</td>
+        <td class="parametervalue">AXI-ST</td>
+       </tr>
+       <tr>
+        <td class="parametername">DESCR_H2D_ST5_DWD</td>
+        <td class="parametervalue">32</td>
+       </tr>
+       <tr>
+        <td class="parametername">DESCRWR_D2H_ST5_INT_TYPE</td>
+        <td class="parametervalue">AXI-ST</td>
+       </tr>
+       <tr>
+        <td class="parametername">DESCR_D2H_ST5_DWD</td>
+        <td class="parametervalue">32</td>
+       </tr>
+       <tr>
+        <td class="parametername">DESCRWR_H2D_MM6_INT_TYPE</td>
+        <td class="parametervalue">AXI-ST</td>
+       </tr>
+       <tr>
+        <td class="parametername">DESCR_H2D_MM6_DWD</td>
+        <td class="parametervalue">32</td>
+       </tr>
+       <tr>
+        <td class="parametername">DESCRWR_H2D_ST6_INT_TYPE</td>
+        <td class="parametervalue">AXI-ST</td>
+       </tr>
+       <tr>
+        <td class="parametername">DESCR_H2D_ST6_DWD</td>
+        <td class="parametervalue">32</td>
+       </tr>
+       <tr>
+        <td class="parametername">DESCRWR_D2H_ST6_INT_TYPE</td>
+        <td class="parametervalue">AXI-ST</td>
+       </tr>
+       <tr>
+        <td class="parametername">DESCR_D2H_ST6_DWD</td>
+        <td class="parametervalue">32</td>
+       </tr>
+       <tr>
+        <td class="parametername">DESCRWR_H2D_MM7_INT_TYPE</td>
+        <td class="parametervalue">AXI-ST</td>
+       </tr>
+       <tr>
+        <td class="parametername">DESCR_H2D_MM7_DWD</td>
+        <td class="parametervalue">32</td>
+       </tr>
+       <tr>
+        <td class="parametername">DESCRWR_H2D_ST7_INT_TYPE</td>
+        <td class="parametervalue">AXI-ST</td>
+       </tr>
+       <tr>
+        <td class="parametername">DESCR_H2D_ST7_DWD</td>
+        <td class="parametervalue">32</td>
+       </tr>
+       <tr>
+        <td class="parametername">DESCRWR_D2H_ST7_INT_TYPE</td>
+        <td class="parametervalue">AXI-ST</td>
+       </tr>
+       <tr>
+        <td class="parametername">DESCR_D2H_ST7_DWD</td>
+        <td class="parametervalue">32</td>
+       </tr>
+       <tr>
+        <td class="parametername">ED_MODE</td>
+        <td class="parametervalue">H2D ST to D2H ST Single Port Loopback Design</td>
+       </tr>
+       <tr>
+        <td class="parametername">ED_TYPE</td>
+        <td class="parametervalue">synthesis</td>
+       </tr>
+       <tr>
+        <td class="parametername">deviceFamily</td>
+        <td class="parametervalue">UNKNOWN</td>
+       </tr>
+       <tr>
+        <td class="parametername">generateLegacySim</td>
+        <td class="parametervalue">false</td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+   </table>&#160;&#160;
+   <table class="flowbox">
+    <tr>
+     <td class="parametersbox">
+      <h2>Software Assignments</h2>
+      <table>
+       <tr>
+        <td class="parametername">NUM_D2H_ST_PORTS</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">NUM_H2D_MM_PORTS</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">NUM_H2D_ST_PORTS</td>
+        <td class="parametervalue">0</td>
+       </tr>
+       <tr>
+        <td class="parametername">RESTRICT_UNALIGNED_ACCESS</td>
+        <td class="parametervalue">1</td>
+       </tr>
+       <tr>
+        <td class="parametername">TOTAL_NUM_DEVICE_PORTS</td>
+        <td class="parametervalue">1</td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+   </table>
+  </div>
+  <table class="blueBar">
+   <tr>
+    <td class="l">generation took 0.00 seconds</td>
+    <td class="r">rendering took 0.02 seconds</td>
+   </tr>
+  </table>
+ </body>
+</html>

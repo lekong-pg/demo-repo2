@@ -1,0 +1,98 @@
+	component ssgdma_0 is
+		port (
+			axi_lite_clk          : in  std_logic                      := 'X';             -- clk
+			axi_lite_areset_n     : in  std_logic                      := 'X';             -- reset_n
+			host_clk              : in  std_logic                      := 'X';             -- clk
+			host_aresetn          : in  std_logic                      := 'X';             -- reset_n
+			app_reset_status_n    : out std_logic;                                         -- reset_n
+			host_awready          : in  std_logic                      := 'X';             -- awready
+			host_awvalid          : out std_logic;                                         -- awvalid
+			host_awaddr           : out std_logic_vector(63 downto 0);                     -- awaddr
+			host_awlen            : out std_logic_vector(7 downto 0);                      -- awlen
+			host_awburst          : out std_logic_vector(1 downto 0);                      -- awburst
+			host_awsize           : out std_logic_vector(2 downto 0);                      -- awsize
+			host_awprot           : out std_logic_vector(2 downto 0);                      -- awprot
+			host_awid             : out std_logic_vector(4 downto 0);                      -- awid
+			host_awcache          : out std_logic_vector(3 downto 0);                      -- awcache
+			host_wready           : in  std_logic                      := 'X';             -- wready
+			host_wvalid           : out std_logic;                                         -- wvalid
+			host_wdata            : out std_logic_vector(255 downto 0);                    -- wdata
+			host_wstrb            : out std_logic_vector(31 downto 0);                     -- wstrb
+			host_wlast            : out std_logic;                                         -- wlast
+			host_bready           : out std_logic;                                         -- bready
+			host_bvalid           : in  std_logic                      := 'X';             -- bvalid
+			host_bresp            : in  std_logic_vector(1 downto 0)   := (others => 'X'); -- bresp
+			host_bid              : in  std_logic_vector(4 downto 0)   := (others => 'X'); -- bid
+			host_arready          : in  std_logic                      := 'X';             -- arready
+			host_arvalid          : out std_logic;                                         -- arvalid
+			host_araddr           : out std_logic_vector(63 downto 0);                     -- araddr
+			host_arlen            : out std_logic_vector(7 downto 0);                      -- arlen
+			host_arburst          : out std_logic_vector(1 downto 0);                      -- arburst
+			host_arsize           : out std_logic_vector(2 downto 0);                      -- arsize
+			host_arprot           : out std_logic_vector(2 downto 0);                      -- arprot
+			host_arid             : out std_logic_vector(4 downto 0);                      -- arid
+			host_arcache          : out std_logic_vector(3 downto 0);                      -- arcache
+			host_rready           : out std_logic;                                         -- rready
+			host_rvalid           : in  std_logic                      := 'X';             -- rvalid
+			host_rdata            : in  std_logic_vector(255 downto 0) := (others => 'X'); -- rdata
+			host_rlast            : in  std_logic                      := 'X';             -- rlast
+			host_rresp            : in  std_logic_vector(1 downto 0)   := (others => 'X'); -- rresp
+			host_rid              : in  std_logic_vector(4 downto 0)   := (others => 'X'); -- rid
+			host_lite_csr_awready : out std_logic;                                         -- awready
+			host_lite_csr_awvalid : in  std_logic                      := 'X';             -- awvalid
+			host_lite_csr_awaddr  : in  std_logic_vector(21 downto 0)  := (others => 'X'); -- awaddr
+			host_lite_csr_awprot  : in  std_logic_vector(2 downto 0)   := (others => 'X'); -- awprot
+			host_lite_csr_wready  : out std_logic;                                         -- wready
+			host_lite_csr_wvalid  : in  std_logic                      := 'X';             -- wvalid
+			host_lite_csr_wdata   : in  std_logic_vector(31 downto 0)  := (others => 'X'); -- wdata
+			host_lite_csr_wstrb   : in  std_logic_vector(3 downto 0)   := (others => 'X'); -- wstrb
+			host_lite_csr_bready  : in  std_logic                      := 'X';             -- bready
+			host_lite_csr_bvalid  : out std_logic;                                         -- bvalid
+			host_lite_csr_bresp   : out std_logic_vector(1 downto 0);                      -- bresp
+			host_lite_csr_arready : out std_logic;                                         -- arready
+			host_lite_csr_arvalid : in  std_logic                      := 'X';             -- arvalid
+			host_lite_csr_araddr  : in  std_logic_vector(21 downto 0)  := (others => 'X'); -- araddr
+			host_lite_csr_arprot  : in  std_logic_vector(2 downto 0)   := (others => 'X'); -- arprot
+			host_lite_csr_rready  : in  std_logic                      := 'X';             -- rready
+			host_lite_csr_rvalid  : out std_logic;                                         -- rvalid
+			host_lite_csr_rdata   : out std_logic_vector(31 downto 0);                     -- rdata
+			host_lite_csr_rresp   : out std_logic_vector(1 downto 0);                      -- rresp
+			irq                   : out std_logic;                                         -- irq
+			h2d0_mm_clk           : in  std_logic                      := 'X';             -- clk
+			h2d0_mm_resetn        : in  std_logic                      := 'X';             -- reset_n
+			h2d0_awvalid          : out std_logic;                                         -- awvalid
+			h2d0_awready          : in  std_logic                      := 'X';             -- awready
+			h2d0_awaddr           : out std_logic_vector(63 downto 0);                     -- awaddr
+			h2d0_awlen            : out std_logic_vector(7 downto 0);                      -- awlen
+			h2d0_awburst          : out std_logic_vector(1 downto 0);                      -- awburst
+			h2d0_awsize           : out std_logic_vector(2 downto 0);                      -- awsize
+			h2d0_awprot           : out std_logic_vector(2 downto 0);                      -- awprot
+			h2d0_awid             : out std_logic_vector(7 downto 0);                      -- awid
+			h2d0_awcache          : out std_logic_vector(3 downto 0);                      -- awcache
+			h2d0_wvalid           : out std_logic;                                         -- wvalid
+			h2d0_wlast            : out std_logic;                                         -- wlast
+			h2d0_wready           : in  std_logic                      := 'X';             -- wready
+			h2d0_wdata            : out std_logic_vector(63 downto 0);                     -- wdata
+			h2d0_wstrb            : out std_logic_vector(7 downto 0);                      -- wstrb
+			h2d0_bvalid           : in  std_logic                      := 'X';             -- bvalid
+			h2d0_bready           : out std_logic;                                         -- bready
+			h2d0_bresp            : in  std_logic_vector(1 downto 0)   := (others => 'X'); -- bresp
+			h2d0_bid              : in  std_logic_vector(7 downto 0)   := (others => 'X'); -- bid
+			h2d0_arvalid          : out std_logic;                                         -- arvalid
+			h2d0_arready          : in  std_logic                      := 'X';             -- arready
+			h2d0_araddr           : out std_logic_vector(63 downto 0);                     -- araddr
+			h2d0_arlen            : out std_logic_vector(7 downto 0);                      -- arlen
+			h2d0_arburst          : out std_logic_vector(1 downto 0);                      -- arburst
+			h2d0_arsize           : out std_logic_vector(2 downto 0);                      -- arsize
+			h2d0_arprot           : out std_logic_vector(2 downto 0);                      -- arprot
+			h2d0_arid             : out std_logic_vector(7 downto 0);                      -- arid
+			h2d0_arcache          : out std_logic_vector(3 downto 0);                      -- arcache
+			h2d0_rvalid           : in  std_logic                      := 'X';             -- rvalid
+			h2d0_rlast            : in  std_logic                      := 'X';             -- rlast
+			h2d0_rready           : out std_logic;                                         -- rready
+			h2d0_rdata            : in  std_logic_vector(63 downto 0)  := (others => 'X'); -- rdata
+			h2d0_rresp            : in  std_logic_vector(1 downto 0)   := (others => 'X'); -- rresp
+			h2d0_rid              : in  std_logic_vector(7 downto 0)   := (others => 'X')  -- rid
+		);
+	end component ssgdma_0;
+

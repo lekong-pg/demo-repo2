@@ -1,0 +1,12 @@
+    BOARD_TYPE:
+        - DK-A5E065BB32AES1: Agilex5 Premium Devkit [default]
+        - cvr: mUDV Coville Ridge
+        - lbm: mUCV Little Battle Mountain
+    DEVICE:
+        - A5ED065BB32AE5SR0: FPGA OPN# [default]
+    INITIALIZATION_FIRST:
+        - hps: HPS initialization first [default]
+        - fpga: FPGA fabric initialization first
+    HPS_JTAG_MODE:
+        - combined: combined mode [default]
+

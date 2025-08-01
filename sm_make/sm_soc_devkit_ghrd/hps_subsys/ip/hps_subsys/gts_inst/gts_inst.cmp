@@ -1,0 +1,6 @@
+	component gts_inst is
+		port (
+			o_pma_cu_clk : out std_logic_vector(0 downto 0)   -- clk
+		);
+	end component gts_inst;
+

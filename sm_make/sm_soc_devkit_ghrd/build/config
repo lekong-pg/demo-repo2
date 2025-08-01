@@ -1,0 +1,21 @@
+SUB_DEBUG_EN                  =     1
+BOARD_TYPE                    =     lbm
+DEVICE                        =     A5ED065BB32AE5SR0
+INITIALIZATION_FIRST          =     fpga
+HPS_JTAG_MODE                 =     combined
+SUB_HPS_EN                    =     1
+DAUGHTER_CARD                 =     devkit_dc_oobe
+HPS_EMIF_EN                   =     1
+HPS_EMIF_WIDTH                =     1
+HPS_EMIF_MEM_CLK_FREQ_MHZ     =     933
+HPS_EMIF_REF_CLK_FREQ_MHZ     =     116.625
+HPS_EMIF_ECC_EN               =     0
+HPS_CLK_SOURCE                =     0
+RESET_WATCHDOG_EN             =     0
+RESET_HPS_WARM_EN             =     0
+RESET_H2F_COLD_EN             =     0
+RESET_SDM_WATCHDOG_CFG        =     0
+SUB_FPGA_RGMII_EN             =     0
+SUB_PERI_EN                   =     1
+DFL_ROM_EN                    =     0
+
