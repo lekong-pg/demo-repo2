@@ -1,0 +1,3 @@
+while IFS= read -r line; do
+	p4 sync $line/...
+done < "$1"
